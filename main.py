@@ -26,8 +26,8 @@ rootFolder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw/"
 for sample in ["CC-1009", "CC-2343"]:
     for timepoint in [0, 1, 3, 6, 12, 24, 48]:
         all_reps_measurements = []
-        all_reps_ECS_DIRK = []
         all_reps_fluor = None
+        all_reps_ECS_DIRK = None
         for rep in [1, 2, 3, 4]:
 
             rel_path, basename, folder = parse_math.get_path(rootFolder, sample, timepoint, rep)
@@ -70,7 +70,13 @@ for sample in ["CC-1009", "CC-2343"]:
             # save ECS DIRK plot
             plots.save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean)
 
-            all_reps_ECS_DIRK.append(values)
+            if all_reps_ECS_DIRK is None:
+                all_reps_ECS_DIRK = ECS_DIRK_data.copy()
+                all_reps_ECS_DIRK[rep] = all_reps_ECS_DIRK['y_correct']
+                all_reps_ECS_DIRK.index = all_reps_ECS_DIRK['x_correct']
+                all_reps_ECS_DIRK.drop(['Delta', 'y_initial', 'amplitude', 'y_correct', 'Time', 'x_correct'], axis=1, inplace=True)
+            else:
+                all_reps_ECS_DIRK[rep] = ECS_DIRK_data['y_correct'].values
 
         averagesDestination = os.path.dirname(os.path.abspath(DestinationFolder)) + "/averages"
         if not os.path.isdir(averagesDestination):
@@ -85,15 +91,18 @@ for sample in ["CC-1009", "CC-2343"]:
         all_reps_fluor['average'] = all_reps_fluor.mean(axis=1)
         all_reps_fluor['std dev'] = all_reps_fluor.std(axis=1)
 
-        all_ECS_DIRK = pd.concat(all_reps_ECS_DIRK)
-        all_ECS_DIRK.loc['average'] = all_ECS_DIRK.mean()
-        all_ECS_DIRK.loc['std dev'] = all_ECS_DIRK.std()
-        all_ECS_DIRK.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_averages.csv")
-
         all_reps_fluor.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "flr_trace.csv")
 
+        all_reps_ECS_DIRK['average'] = all_reps_ECS_DIRK.mean(axis=1)
+        all_reps_ECS_DIRK['std dev'] = all_reps_ECS_DIRK.std(axis=1)
+
+        all_reps_ECS_DIRK.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_trace.csv")
+
         # plot of avg and std dev for timepoint
-        plots.plot_avg_stddev(averagesDestination, all_reps_fluor, sample, timepoint)
+        plots.plot_flr_avg(averagesDestination, all_reps_fluor, sample, timepoint)
 
         # plot of all replicates for timepoint
-        plots.plot_allreps(averagesDestination, all_reps_fluor, sample, timepoint, reps_list)
+        plots.plot_flr_allreps(averagesDestination, all_reps_fluor, sample, timepoint, reps_list)
+
+        # plot of ECS DIRK avg and std dev for timepoint
+        plots.plot_ECS_DIRK_avg(averagesDestination, all_reps_ECS_DIRK, sample, timepoint)

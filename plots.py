@@ -40,18 +40,18 @@ def save_flr_plot(WholeTrace, DestinationFolder, basename):
     fig.savefig(DestinationFolder + basename + "_" + "flr_plot.png")
     plt.clf()
 
-# Plot of avg and std dev for timepoint
-def plot_avg_stddev(averagesDestination, all_reps_fluor, sample, timepoint):
+# plot of flr avg and std dev for timepoint
+def plot_flr_avg(averagesDestination, all_reps_fluor, sample, timepoint):
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(1, 1, 1)
     ax.errorbar(all_reps_fluor.index, all_reps_fluor['average'], all_reps_fluor['std dev'], ecolor='red')
     ax.set_ylim(0, 4)
     ax.set_ylabel("Fluorescence")
-    fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "avg_plot.png")
+    fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "flr_avg_plot.png")
     plt.clf()
 
-# Plot of all replicates for timepoint
-def plot_allreps(averagesDestination, all_reps_fluor, sample, timepoint, reps_list):
+# plot of all flr replicates for timepoint
+def plot_flr_allreps(averagesDestination, all_reps_fluor, sample, timepoint, reps_list):
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(1, 1, 1)
     for rep in reps_list:
@@ -59,5 +59,14 @@ def plot_allreps(averagesDestination, all_reps_fluor, sample, timepoint, reps_li
     ax.set_ylim(0, 4)
     ax.legend()
     ax.set_ylabel("Fluorescence")
-    fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "all_plot.png")
+    fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "flr_all_plot.png")
+    plt.clf()
+
+# plot ECS DIRK avg and std dev for timepoint
+def plot_ECS_DIRK_avg(averagesDestination, all_reps_ECS_DIRK, sample, timepoint):
+    fig = plt.figure(1, figsize=(10, 6))
+    ax = fig.add_subplot(1, 1, 1)
+    ax.errorbar(all_reps_ECS_DIRK.index, all_reps_ECS_DIRK['average'], all_reps_ECS_DIRK['std dev'], ecolor='red')
+    ax.set_ylim(-0.0008, 0.0008)
+    fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_avg_plot.png")
     plt.clf()
