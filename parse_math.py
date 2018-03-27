@@ -54,7 +54,7 @@ def ECS_rates_calculator(ECS_DIRK_data, DestinationFolder, basename):
     values_dict['y_initial'] = ECS_DIRK_data['y_correct'].iloc[240:249].mean(axis=0)
     values_dict['amplitude'] = values_dict['y_initial'] - values_dict['end_trace_mean']
     values = values.append(values_dict, ignore_index=True)
-    values.to_csv(DestinationFolder + basename + "_" + "ECS_values.csv")
+    values.to_csv(DestinationFolder + basename + "_" + "ECS_DIRK_values.csv")
 
     mean = df['Rate'].mean()
     std_dev = df['Rate'].std()

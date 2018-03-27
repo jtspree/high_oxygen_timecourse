@@ -18,7 +18,7 @@ import os
 import plots
 import parse_math
 
-# FUNCTIONS
+# CODE
 
 
 rootFolder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw/"
@@ -26,6 +26,7 @@ rootFolder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw/"
 for sample in ["CC-1009", "CC-2343"]:
     for timepoint in [0, 1, 3, 6, 12, 24, 48]:
         all_reps_measurements = []
+        all_reps_ECS_DIRK = []
         all_reps_fluor = None
         for rep in [1, 2, 3, 4]:
 
@@ -69,6 +70,8 @@ for sample in ["CC-1009", "CC-2343"]:
             # save ECS DIRK plot
             plots.save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean)
 
+            all_reps_ECS_DIRK.append(values)
+
         averagesDestination = os.path.dirname(os.path.abspath(DestinationFolder)) + "/averages"
         if not os.path.isdir(averagesDestination):
             os.makedirs(averagesDestination)
@@ -76,16 +79,21 @@ for sample in ["CC-1009", "CC-2343"]:
         all_measurements = pd.concat(all_reps_measurements)
         all_measurements.loc['average'] = all_measurements.mean()
         all_measurements.loc['std dev'] = all_measurements.std()
-        all_measurements.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "averages.csv")
+        all_measurements.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "flr_averages.csv")
 
         reps_list = list(all_reps_fluor.columns)
         all_reps_fluor['average'] = all_reps_fluor.mean(axis=1)
         all_reps_fluor['std dev'] = all_reps_fluor.std(axis=1)
 
-        all_reps_fluor.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "trace.csv")
+        all_ECS_DIRK = pd.concat(all_reps_ECS_DIRK)
+        all_ECS_DIRK.loc['average'] = all_ECS_DIRK.mean()
+        all_ECS_DIRK.loc['std dev'] = all_ECS_DIRK.std()
+        all_ECS_DIRK.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_averages.csv")
 
-        # Plot of avg and std dev for timepoint
+        all_reps_fluor.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "flr_trace.csv")
+
+        # plot of avg and std dev for timepoint
         plots.plot_avg_stddev(averagesDestination, all_reps_fluor, sample, timepoint)
 
-        # plots of all replicates for timepoint
+        # plot of all replicates for timepoint
         plots.plot_allreps(averagesDestination, all_reps_fluor, sample, timepoint, reps_list)

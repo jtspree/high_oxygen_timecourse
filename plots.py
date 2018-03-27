@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 
 # FUNCTIONS
 
+# save ECS DIRK plot
 def save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean):
     fig = plt.figure(1, figsize=(8, 6))
     ax = fig.add_subplot(1, 1, 1)
@@ -25,9 +26,9 @@ def save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean):
     plt.plot(x, y4, label='amplitude')
     plt.legend()
     plt.savefig(DestinationFolder + basename + "_" + "ECS_DIRK_plot.png")
-    # plt.show()
     plt.clf()
 
+# save plot of flr trace
 def save_flr_plot(WholeTrace, DestinationFolder, basename):
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(1, 1, 1)
@@ -36,7 +37,6 @@ def save_flr_plot(WholeTrace, DestinationFolder, basename):
     ax.set_ylim(0, 4)
     ax.set_ylabel("Fluorescence")
     ax.set_xlabel("")
-    # plt.show()
     fig.savefig(DestinationFolder + basename + "_" + "flr_plot.png")
     plt.clf()
 
@@ -47,7 +47,6 @@ def plot_avg_stddev(averagesDestination, all_reps_fluor, sample, timepoint):
     ax.errorbar(all_reps_fluor.index, all_reps_fluor['average'], all_reps_fluor['std dev'], ecolor='red')
     ax.set_ylim(0, 4)
     ax.set_ylabel("Fluorescence")
-    # plt.show()
     fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "avg_plot.png")
     plt.clf()
 
@@ -60,6 +59,5 @@ def plot_allreps(averagesDestination, all_reps_fluor, sample, timepoint, reps_li
     ax.set_ylim(0, 4)
     ax.legend()
     ax.set_ylabel("Fluorescence")
-    # plt.show()
     fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "all_plot.png")
     plt.clf()
