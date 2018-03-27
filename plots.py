@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 # FUNCTIONS
 
-def save_ECS_DIRK_plot(DestinationFolder, ECS_DIRK_data, mean):
+def save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean):
     fig = plt.figure(1, figsize=(8, 6))
     ax = fig.add_subplot(1, 1, 1)
     x = ECS_DIRK_data['x_correct']
@@ -24,7 +24,7 @@ def save_ECS_DIRK_plot(DestinationFolder, ECS_DIRK_data, mean):
     plt.plot(x, y3, label='slope')
     plt.plot(x, y4, label='amplitude')
     plt.legend()
-    plt.savefig(DestinationFolder + "/" + "ECS_figure.png")
+    plt.savefig(DestinationFolder + basename + "_" + "ECS_plot.png")
     # plt.show()
     plt.clf()
 
@@ -38,4 +38,28 @@ def savePlot(WholeTrace, DestinationFolder, basename):
     ax.set_xlabel("")
     # plt.show()
     fig.savefig(DestinationFolder + basename + "_plot.png")
+    plt.clf()
+
+# Plot of avg and std dev for timepoint
+def plot_avg_stddev(averagesDestination, all_reps_fluor, sample, timepoint):
+    fig = plt.figure(1, figsize=(10, 6))
+    ax = fig.add_subplot(1, 1, 1)
+    ax.errorbar(all_reps_fluor.index, all_reps_fluor['average'], all_reps_fluor['std dev'], ecolor='red')
+    ax.set_ylim(0, 4)
+    ax.set_ylabel("Fluorescence")
+    # plt.show()
+    fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "avg_plot.png")
+    plt.clf()
+
+# Plot of all replicates for timepoint
+def plot_allreps(averagesDestination, all_reps_fluor, sample, timepoint, reps_list):
+    fig = plt.figure(1, figsize=(10, 6))
+    ax = fig.add_subplot(1, 1, 1)
+    for rep in reps_list:
+        ax.plot(all_reps_fluor[rep], label='rep_' + str(rep))
+    ax.set_ylim(0, 4)
+    ax.legend()
+    ax.set_ylabel("Fluorescence")
+    # plt.show()
+    fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "all_plot.png")
     plt.clf()

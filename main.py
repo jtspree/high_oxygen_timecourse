@@ -15,14 +15,13 @@ Created 2018-03-16
 
 import pandas as pd
 import os
-import matplotlib.pyplot as plt
 import plots
 import parse_math
 
 # FUNCTIONS
 
 
-rootFolder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw_edited/"
+rootFolder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw/"
 
 for sample in ["CC-1009", "CC-2343"]:
     for timepoint in [0, 1, 3, 6, 12, 24, 48]:
@@ -62,13 +61,13 @@ for sample in ["CC-1009", "CC-2343"]:
             WholeTrace.to_csv(DestinationFolder + basename + "_" + 'trace.csv', sep=',')
 
             # parse ECS data into dataframe
-            ECS_DIRK_data = parse_math.parse_ECS_data(folder, DestinationFolder)
+            ECS_DIRK_data = parse_math.parse_ECS_data(folder, DestinationFolder, basename)
 
             # calculate ECS DIRK rates
-            df, values, mean, std_dev = parse_math.ECS_rates_calculator(ECS_DIRK_data, DestinationFolder)
+            df, values, mean, std_dev = parse_math.ECS_rates_calculator(ECS_DIRK_data, DestinationFolder, basename)
 
             # save ECS DIRK plot
-            plots.save_ECS_DIRK_plot(DestinationFolder, ECS_DIRK_data, mean)
+            plots.save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean)
 
         averagesDestination = os.path.dirname(os.path.abspath(DestinationFolder)) + "/averages"
         if not os.path.isdir(averagesDestination):
@@ -85,25 +84,8 @@ for sample in ["CC-1009", "CC-2343"]:
 
         all_reps_fluor.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "trace.csv")
 
-
         # Plot of avg and std dev for timepoint
-        fig = plt.figure(1, figsize=(10, 6))
-        ax = fig.add_subplot(1, 1, 1)
-        ax.errorbar(all_reps_fluor.index, all_reps_fluor['average'], all_reps_fluor['std dev'], ecolor='red')
-        ax.set_ylim(0, 4)
-        ax.set_ylabel("Fluorescence")
-        # plt.show()
-        fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "avg_plot.png")
-        plt.clf()
+        plots.plot_avg_stddev(averagesDestination, all_reps_fluor, sample, timepoint)
 
-        # Plot of all replicates for timepoint
-        fig = plt.figure(1, figsize=(10, 6))
-        ax = fig.add_subplot(1, 1, 1)
-        for rep in reps_list:
-            ax.plot(all_reps_fluor[rep], label='rep_' + str(rep))
-        ax.set_ylim(0, 4)
-        ax.legend()
-        ax.set_ylabel("Fluorescence")
-        # plt.show()
-        fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "all_plot.png")
-        plt.clf()
+        # plots of all replicates for timepoint
+        plots.plot_allreps(averagesDestination, all_reps_fluor, sample, timepoint, reps_list)
