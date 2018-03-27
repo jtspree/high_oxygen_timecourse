@@ -27,3 +27,15 @@ def save_ECS_DIRK_plot(DestinationFolder, ECS_DIRK_data, mean):
     plt.savefig(DestinationFolder + "/"+ "ECS_figure.png")
     # plt.show()
     plt.clf()
+
+def savePlot(WholeTrace, DestinationFolder, basename):
+    fig = plt.figure(1, figsize=(10, 6))
+    ax = fig.add_subplot(1, 1, 1)
+    y = WholeTrace['NormFluor']
+    ax.plot(y)
+    ax.set_ylim(0, 4)
+    ax.set_ylabel("Fluorescence")
+    ax.set_xlabel("")
+    # plt.show()
+    fig.savefig(DestinationFolder + basename + "_plot.png")
+    plt.clf()

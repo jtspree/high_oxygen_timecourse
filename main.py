@@ -1,0 +1,100 @@
+"""
+INFO
+
+Script for analyzing vO2 fluorescence data
+Generates graphs and statistical data
+
+Created by Joshua Temple
+Assistance from Ben Lucker and Oliver Tessmer
+
+Created 2018-03-16
+@jtspree
+"""
+
+# LIBRARY
+
+import pandas as pd
+import os
+import matplotlib.pyplot as plt
+import plots
+import parse_math
+
+# FUNCTIONS
+
+
+rootFolder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw_edited/"
+
+for sample in ["CC-1009", "CC-2343"]:
+    for timepoint in [0, 1, 3, 6, 12, 24, 48]:
+        all_reps_measurements = []
+        all_reps_fluor = None
+        for rep in [1, 2, 3, 4]:
+
+            rel_path, basename, folder = parse_math.get_path(rootFolder, sample, timepoint, rep)
+            if rel_path is None:
+                continue
+
+            DestinationFolder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/output/" + rel_path
+            if not os.path.isdir(DestinationFolder):
+                os.makedirs(DestinationFolder)
+
+            WholeTrace = parse_math.parse_phi2_fluor(folder)
+            if WholeTrace is None:
+                continue
+            if all_reps_fluor is None:
+                all_reps_fluor = WholeTrace.copy()
+                all_reps_fluor[rep] = all_reps_fluor['NormFluor']
+                all_reps_fluor.drop(['NormFluor', 'Fluorescence', 'Time'], axis=1, inplace=True)
+            else:
+                all_reps_fluor[rep] = WholeTrace['NormFluor']
+
+            # save an image file with the fluorescence plot for this sample/time/rep
+            plots.savePlot(WholeTrace, DestinationFolder, basename)
+
+            # compute fm, phi2, etc. for this sample/time/rep
+            measurements = parse_math.calculator(WholeTrace, rep)
+
+            # append the computed values to the dictionary that will contain all the reps for this sample/time
+            all_reps_measurements.append(measurements)
+
+            # save the computed values and the raw fluorescence to csv files (for just one sample/
+            measurements.to_csv(DestinationFolder + basename + "_" + "measurements.csv")
+            WholeTrace.to_csv(DestinationFolder + basename + "_" + 'trace.csv', sep=',')
+
+        averagesDestination = os.path.dirname(os.path.abspath(DestinationFolder)) + "/averages"
+        if not os.path.isdir(averagesDestination):
+            os.makedirs(averagesDestination)
+
+        all_measurements = pd.concat(all_reps_measurements)
+        all_measurements.loc['average'] = all_measurements.mean()
+        all_measurements.loc['std dev'] = all_measurements.std()
+        all_measurements.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "averages.csv")
+
+        reps_list = list(all_reps_fluor.columns)
+        all_reps_fluor['average'] = all_reps_fluor.mean(axis=1)
+        all_reps_fluor['std dev'] = all_reps_fluor.std(axis=1)
+
+        all_reps_fluor.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "trace.csv")
+
+
+        # Plot of avg and std dev for timepoint
+        fig = plt.figure(1, figsize=(10, 6))
+        ax = fig.add_subplot(1, 1, 1)
+        ax.errorbar(all_reps_fluor.index, all_reps_fluor['average'], all_reps_fluor['std dev'], ecolor='red')
+        ax.set_ylim(0, 4)
+        ax.set_ylabel("Fluorescence")
+        # plt.show()
+        fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "avg_plot.png")
+        plt.clf()
+
+        # Plot of all replicates for timepoint
+        fig = plt.figure(1, figsize=(10, 6))
+        ax = fig.add_subplot(1, 1, 1)
+        for rep in reps_list:
+            ax.plot(all_reps_fluor[rep], label='rep_' + str(rep))
+        ax.set_ylim(0, 4)
+        ax.legend()
+        ax.set_ylabel("Fluorescence")
+        # plt.show()
+        fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "all_plot.png")
+        plt.clf()
