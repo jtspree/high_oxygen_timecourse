@@ -24,7 +24,7 @@ def save_ECS_DIRK_plot(DestinationFolder, ECS_DIRK_data, mean):
     plt.plot(x, y3, label='slope')
     plt.plot(x, y4, label='amplitude')
     plt.legend()
-    plt.savefig(DestinationFolder + "/"+ "ECS_figure.png")
+    plt.savefig(DestinationFolder + "/" + "ECS_figure.png")
     # plt.show()
     plt.clf()
 

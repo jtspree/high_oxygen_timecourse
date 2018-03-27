@@ -9,8 +9,16 @@ import os
 
 # FUNCTION
 
-def parse_ECS_data(FilePath, ECS_DIRK_filename, DestinationFolder):
-    ECS_DIRK_data = pd.read_table(FilePath + ECS_DIRK_filename, header=None)
+ECS_DIRK_suffix = "dcmu_ecs_0003.dat"
+def parse_ECS_data(folder, DestinationFolder):
+    ECS_DIRK_filename = None
+    for filename in os.listdir(folder):
+        if filename.endswith(ECS_DIRK_suffix):
+            ECS_DIRK_filename = filename
+    if (ECS_DIRK_filename is None):
+        print("No ECS_DIRK file for " + folder)
+        return None
+    ECS_DIRK_data = pd.read_table(folder + ECS_DIRK_filename, header=None)
     ECS_DIRK_data.columns = ["Time", "Fluorescence", "Reference", "Delta"]
     ECS_DIRK_data = ECS_DIRK_data[[0, 3]]
     ECS_DIRK_data = pd.DataFrame(ECS_DIRK_data)
@@ -19,7 +27,7 @@ def parse_ECS_data(FilePath, ECS_DIRK_filename, DestinationFolder):
     ECS_DIRK_data['y_initial'] = ECS_DIRK_data['y_correct'].iloc[240:249].mean(axis=0)
     ECS_DIRK_data['amplitude'] = ECS_DIRK_data['y_correct'].iloc[470:495].mean(axis=0)
 
-    ECS_DIRK_data.to_csv(DestinationFolder + "/" + "ECS_raw.csv")
+    ECS_DIRK_data.to_csv(DestinationFolder + "/" + "ECS_DIRK_raw.csv")
     return ECS_DIRK_data
 
 

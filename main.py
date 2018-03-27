@@ -61,6 +61,15 @@ for sample in ["CC-1009", "CC-2343"]:
             measurements.to_csv(DestinationFolder + basename + "_" + "measurements.csv")
             WholeTrace.to_csv(DestinationFolder + basename + "_" + 'trace.csv', sep=',')
 
+            # parse ECS data into dataframe
+            ECS_DIRK_data = parse_math.parse_ECS_data(folder, DestinationFolder)
+
+            # calculate ECS DIRK rates
+            df, values, mean, std_dev = parse_math.ECS_rates_calculator(ECS_DIRK_data, DestinationFolder)
+
+            # save ECS DIRK plot
+            plots.save_ECS_DIRK_plot(DestinationFolder, ECS_DIRK_data, mean)
+
         averagesDestination = os.path.dirname(os.path.abspath(DestinationFolder)) + "/averages"
         if not os.path.isdir(averagesDestination):
             os.makedirs(averagesDestination)
