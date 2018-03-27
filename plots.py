@@ -24,11 +24,11 @@ def save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean):
     plt.plot(x, y3, label='slope')
     plt.plot(x, y4, label='amplitude')
     plt.legend()
-    plt.savefig(DestinationFolder + basename + "_" + "ECS_plot.png")
+    plt.savefig(DestinationFolder + basename + "_" + "ECS_DIRK_plot.png")
     # plt.show()
     plt.clf()
 
-def savePlot(WholeTrace, DestinationFolder, basename):
+def save_flr_plot(WholeTrace, DestinationFolder, basename):
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(1, 1, 1)
     y = WholeTrace['NormFluor']
@@ -37,7 +37,7 @@ def savePlot(WholeTrace, DestinationFolder, basename):
     ax.set_ylabel("Fluorescence")
     ax.set_xlabel("")
     # plt.show()
-    fig.savefig(DestinationFolder + basename + "_plot.png")
+    fig.savefig(DestinationFolder + basename + "_" + "flr_plot.png")
     plt.clf()
 
 # Plot of avg and std dev for timepoint

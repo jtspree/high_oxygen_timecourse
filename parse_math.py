@@ -42,7 +42,7 @@ def ECS_rates_calculator(ECS_DIRK_data, DestinationFolder, basename):
         df = df.append(rates_dict, ignore_index=True)
 
     df['Rate'] = (df['y_final'] - df['y_initial']) / (df['x_final'] - df['x_initial'])
-    df.to_csv(DestinationFolder + basename + "_" + "slope_rates.csv")
+    df.to_csv(DestinationFolder + basename + "_" + "ECS_DIRK_rates.csv")
 
     values = pd.DataFrame(columns=['rates_mean', 'rates_std_dev', 'end_trace_mean', 'end_trace_std_dev', 'y_initial', 'amplitude'])
 

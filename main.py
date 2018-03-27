@@ -48,7 +48,7 @@ for sample in ["CC-1009", "CC-2343"]:
                 all_reps_fluor[rep] = WholeTrace['NormFluor']
 
             # save an image file with the fluorescence plot for this sample/time/rep
-            plots.savePlot(WholeTrace, DestinationFolder, basename)
+            plots.save_flr_plot(WholeTrace, DestinationFolder, basename)
 
             # compute fm, phi2, etc. for this sample/time/rep
             measurements = parse_math.calculator(WholeTrace, rep)
@@ -57,8 +57,8 @@ for sample in ["CC-1009", "CC-2343"]:
             all_reps_measurements.append(measurements)
 
             # save the computed values and the raw fluorescence to csv files (for just one sample/
-            measurements.to_csv(DestinationFolder + basename + "_" + "measurements.csv")
-            WholeTrace.to_csv(DestinationFolder + basename + "_" + 'trace.csv', sep=',')
+            measurements.to_csv(DestinationFolder + basename + "_" + "flr_measurements.csv")
+            WholeTrace.to_csv(DestinationFolder + basename + "_" + 'flr_trace.csv', sep=',')
 
             # parse ECS data into dataframe
             ECS_DIRK_data = parse_math.parse_ECS_data(folder, DestinationFolder, basename)
