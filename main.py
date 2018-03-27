@@ -25,7 +25,8 @@ rootFolder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw/"
 
 for sample in ["CC-1009", "CC-2343"]:
     for timepoint in [0, 1, 3, 6, 12, 24, 48]:
-        all_reps_measurements = []
+        all_reps_flr_measurements = []
+        all_reps_ECS_DIRK_values = []
         all_reps_fluor = None
         all_reps_ECS_DIRK = None
         for rep in [1, 2, 3, 4]:
@@ -52,20 +53,21 @@ for sample in ["CC-1009", "CC-2343"]:
             plots.save_flr_plot(WholeTrace, DestinationFolder, basename)
 
             # compute fm, phi2, etc. for this sample/time/rep
-            measurements = parse_math.calculator(WholeTrace, rep)
+            flr_calc_values_df = parse_math.calculator(WholeTrace, rep)
 
             # append the computed values to the dictionary that will contain all the reps for this sample/time
-            all_reps_measurements.append(measurements)
+            all_reps_flr_measurements.append(flr_calc_values_df)
 
             # save the computed values and the raw fluorescence to csv files (for just one sample/
-            measurements.to_csv(DestinationFolder + basename + "_" + "flr_measurements.csv")
+            flr_calc_values_df.to_csv(DestinationFolder + basename + "_" + "flr_measurements.csv")
             WholeTrace.to_csv(DestinationFolder + basename + "_" + 'flr_trace.csv', sep=',')
 
             # parse ECS data into dataframe
             ECS_DIRK_data = parse_math.parse_ECS_data(folder, DestinationFolder, basename)
 
             # calculate ECS DIRK rates
-            df, values, mean, std_dev = parse_math.ECS_rates_calculator(ECS_DIRK_data, DestinationFolder, basename)
+            df, ECS_DIRK_calc_values_df, mean, std_dev = parse_math.ECS_rates_calculator(ECS_DIRK_data, DestinationFolder, basename, rep)
+            all_reps_ECS_DIRK_values.append(ECS_DIRK_calc_values_df)
 
             # save ECS DIRK plot
             plots.save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean)
@@ -82,20 +84,24 @@ for sample in ["CC-1009", "CC-2343"]:
         if not os.path.isdir(averagesDestination):
             os.makedirs(averagesDestination)
 
-        all_measurements = pd.concat(all_reps_measurements)
-        all_measurements.loc['average'] = all_measurements.mean()
-        all_measurements.loc['std dev'] = all_measurements.std()
-        all_measurements.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "flr_averages.csv")
+        all_flr_measurements_df = pd.concat(all_reps_flr_measurements)
+        all_flr_measurements_df.loc['average'] = all_flr_measurements_df.mean()
+        all_flr_measurements_df.loc['std dev'] = all_flr_measurements_df.std()
+        all_flr_measurements_df.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "flr_averages.csv")
+
+        all_ECS_DIRK_measurements_df = pd.concat(all_reps_ECS_DIRK_values)
+        all_ECS_DIRK_measurements_df.loc['average'] = all_ECS_DIRK_measurements_df.mean()
+        all_ECS_DIRK_measurements_df.loc['std dev'] = all_ECS_DIRK_measurements_df.std()
+        all_ECS_DIRK_measurements_df.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_averages.csv")
 
         reps_list = list(all_reps_fluor.columns)
+
         all_reps_fluor['average'] = all_reps_fluor.mean(axis=1)
         all_reps_fluor['std dev'] = all_reps_fluor.std(axis=1)
-
         all_reps_fluor.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "flr_trace.csv")
 
         all_reps_ECS_DIRK['average'] = all_reps_ECS_DIRK.mean(axis=1)
         all_reps_ECS_DIRK['std dev'] = all_reps_ECS_DIRK.std(axis=1)
-
         all_reps_ECS_DIRK.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_trace.csv")
 
         # plot of avg and std dev for timepoint
@@ -106,3 +112,6 @@ for sample in ["CC-1009", "CC-2343"]:
 
         # plot of ECS DIRK avg and std dev for timepoint
         plots.plot_ECS_DIRK_avg(averagesDestination, all_reps_ECS_DIRK, sample, timepoint)
+
+        # plot of all ECS DIRK replicates for timepoint
+        plots.plot_ECS_DIRK_allreps(averagesDestination, all_reps_ECS_DIRK, sample, timepoint, reps_list)

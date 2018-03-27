@@ -70,3 +70,14 @@ def plot_ECS_DIRK_avg(averagesDestination, all_reps_ECS_DIRK, sample, timepoint)
     ax.set_ylim(-0.0008, 0.0008)
     fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_avg_plot.png")
     plt.clf()
+
+# plot of all ECS DIRK replicates for timepoint
+def plot_ECS_DIRK_allreps(averagesDestination, all_reps_ECS_DIRK, sample, timepoint, reps_list):
+    fig = plt.figure(1, figsize=(10, 6))
+    ax = fig.add_subplot(1, 1, 1)
+    for rep in reps_list:
+        ax.plot(all_reps_ECS_DIRK[rep], label='rep_' + str(rep))
+    ax.set_ylim(-0.0008, 0.0008)
+    ax.legend()
+    fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_all_plot.png")
+    plt.clf()
