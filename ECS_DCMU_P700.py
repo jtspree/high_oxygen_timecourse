@@ -9,6 +9,7 @@ ECS DCMU P700 raw data analysis script
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import plots
 
 # CODE
 
@@ -44,19 +45,5 @@ ESC_DCMU_P700_slope['Rate'] = (ESC_DCMU_P700_slope['y_final'] - ESC_DCMU_P700_sl
 mean = ESC_DCMU_P700_slope['Rate'].mean()
 std_dev = ESC_DCMU_P700_slope['Rate'].std()
 
-
-fig = plt.figure(1, figsize=(8, 8))
-ax = fig.add_subplot(1, 1, 1)
-x = ECS_DCMU_P700_df['x_correct']
-y1 = ECS_DCMU_P700_df['y_correct']
-y2 = ECS_DCMU_P700_df['y_initial']
-y3 = ECS_DCMU_P700_df['y_final']
-y4 = mean * x + ECS_DCMU_P700_df['y_initial'][0]
-ax.set_xlim(-0.1, 0.8)
-ax.set_ylim((ECS_DCMU_P700_df['y_initial'].mean() - 0.00005), (ECS_DCMU_P700_df['y_final'].mean() * 1.2))
-plt.plot(x, y1, label='ECS')
-plt.plot(x, y2, label='y_initial')
-plt.plot(x, y3, label='y_final')
-plt.plot(x, y4, label='slope')
-plt.legend()
-plt.savefig(DestinationFolder + '/' + 'ECS_DCMU_P700_plot.png')
+# save ECS DCMU P700 plot
+plots.save_ECS_DCMU_P700_plot(DestinationFolder, ECS_DCMU_P700_df, mean)

@@ -10,6 +10,25 @@ import matplotlib.pyplot as plt
 
 # FUNCTIONS
 
+# save ECS DCMU P700 plot
+def save_ECS_DCMU_P700_plot(DestinationFolder, ECS_DCMU_P700_df, mean):
+    fig = plt.figure(1, figsize=(8, 8))
+    ax = fig.add_subplot(1, 1, 1)
+    x = ECS_DCMU_P700_df['x_correct']
+    y1 = ECS_DCMU_P700_df['y_correct']
+    y2 = ECS_DCMU_P700_df['y_initial']
+    y3 = ECS_DCMU_P700_df['y_final']
+    y4 = mean * x + ECS_DCMU_P700_df['y_initial'][0]
+    ax.set_xlim(-0.1, 0.8)
+    ax.set_ylim((ECS_DCMU_P700_df['y_initial'].mean() - 0.00005), (ECS_DCMU_P700_df['y_final'].mean() * 1.2))
+    plt.plot(x, y1, label='ECS')
+    plt.plot(x, y2, label='y_initial')
+    plt.plot(x, y3, label='y_final')
+    plt.plot(x, y4, label='slope')
+    plt.legend()
+    plt.savefig(DestinationFolder + '/' + 'ECS_DCMU_P700_plot.png')
+
+
 # save ECS DIRK plot
 def save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean):
     fig = plt.figure(1, figsize=(8, 6))
