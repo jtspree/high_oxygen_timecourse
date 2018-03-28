@@ -80,8 +80,14 @@ for sample in ["CC-1009", "CC-2343"]:
             else:
                 all_reps_ECS_DIRK[rep] = ECS_DIRK_data['y_correct'].values
 
-            # parse ECS DCMU P700 data
+            # parse ECS DCMU P700 data into dataframe
             ECS_DCMU_P700_df = parse_math.parse_ECS_DCMU_P700_data(folder, DestinationFolder, basename)
+
+            # calculate ECS DCMU P700 measurements
+            ESC_DCMU_P700_slope, ECS_DCMU_P700_mean, ECS_DCMU_P700_std_dev = parse_math.ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df)
+
+            # save ECS DCMU P700 plot
+            plots.save_ECS_DCMU_P700_plot(DestinationFolder, basename, ECS_DCMU_P700_df, ECS_DCMU_P700_mean)
 
         averagesDestination = os.path.dirname(os.path.abspath(DestinationFolder)) + "/averages"
         if not os.path.isdir(averagesDestination):
