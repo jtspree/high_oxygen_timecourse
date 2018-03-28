@@ -80,6 +80,9 @@ for sample in ["CC-1009", "CC-2343"]:
             else:
                 all_reps_ECS_DIRK[rep] = ECS_DIRK_data['y_correct'].values
 
+            # parse ECS DCMU P700 data
+            ECS_DCMU_P700_df = parse_math.parse_ECS_DCMU_P700_data(folder, DestinationFolder, basename)
+
         averagesDestination = os.path.dirname(os.path.abspath(DestinationFolder)) + "/averages"
         if not os.path.isdir(averagesDestination):
             os.makedirs(averagesDestination)

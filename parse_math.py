@@ -10,12 +10,20 @@ import os
 # FUNCTION
 
 # parse ECS DCMU P700 data
-def parse_ECS_DCMU_P700_data(folder, DestinationFolder, ECS_P700_filename):
-    ECS_DCMU_P700_data = pd.read_table(folder + ECS_P700_filename, header=None)
+ECS_DIRK_DCMU_P700_suffix = "dcmu_p700_0005.dat"
+def parse_ECS_DCMU_P700_data(folder, DestinationFolder, basename):
+    ECS_DCMU_P700_filename = None
+    for filename in os.listdir(folder):
+        if filename.endswith(ECS_DIRK_DCMU_P700_suffix):
+            ECS_DCMU_P700_filename = filename
+    if (ECS_DCMU_P700_filename is None):
+        print("No ECS_DCMU_P700 file for " + folder)
+        return None
+    ECS_DCMU_P700_data = pd.read_table(folder + ECS_DCMU_P700_filename, header=None)
+    ECS_DCMU_P700_data.drop([4], axis=1, inplace=True)
+    ECS_DCMU_P700_data.columns = ['Time', 'Fluorescence', 'Reference', 'Delta']
+    ECS_DCMU_P700_data = ECS_DCMU_P700_data[[0, 3]]
     ECS_DCMU_P700_df = pd.DataFrame(ECS_DCMU_P700_data)
-    ECS_DCMU_P700_df.drop([4], axis=1, inplace=True)
-    ECS_DCMU_P700_df.columns = ['Time', 'Fluorescence', 'Reference', 'Delta']
-    ECS_DCMU_P700_df = ECS_DCMU_P700_df[[0, 3]]
 
     ECS_DCMU_P700_df['x_correct'] = ECS_DCMU_P700_df['Time'] - ECS_DCMU_P700_df['Time'].iloc[2499]
     ECS_DCMU_P700_df['y_correct'] = ECS_DCMU_P700_df['Delta'] - ECS_DCMU_P700_df['Delta'].iloc[2490:2499].mean(axis=0)
@@ -23,7 +31,7 @@ def parse_ECS_DCMU_P700_data(folder, DestinationFolder, ECS_P700_filename):
     ECS_DCMU_P700_df['y_final'] = ECS_DCMU_P700_df['y_correct'].iloc[2556:2565].mean(axis=0)
     ECS_DCMU_P700_df['amplitude'] = ECS_DCMU_P700_df['y_final'] - ECS_DCMU_P700_df['y_initial']
 
-    ECS_DCMU_P700_df.to_csv(DestinationFolder + '/' + 'ECS_DCMU_P700_raw.csv')
+    ECS_DCMU_P700_df.to_csv(DestinationFolder + basename + "_" + 'ECS_DCMU_P700_raw.csv')
     return ECS_DCMU_P700_df
 
 
