@@ -29,6 +29,7 @@ for sample in ["CC-1009", "CC-2343"]:
         all_reps_ECS_DIRK_values = []
         all_reps_fluor = None
         all_reps_ECS_DIRK = None
+        all_reps_ECS_DCMU_P700 = None
         for rep in [1, 2, 3, 4]:
 
             rel_path, basename, folder = parse_math.get_path(rootFolder, sample, timepoint, rep)
@@ -89,6 +90,14 @@ for sample in ["CC-1009", "CC-2343"]:
             # save ECS DCMU P700 plot
             plots.save_ECS_DCMU_P700_plot(DestinationFolder, basename, ECS_DCMU_P700_df, ECS_DCMU_P700_mean)
 
+            if all_reps_ECS_DCMU_P700 is None:
+                all_reps_ECS_DCMU_P700 = ECS_DCMU_P700_df.copy()
+                all_reps_ECS_DCMU_P700[rep] = all_reps_ECS_DCMU_P700['y_correct']
+                all_reps_ECS_DCMU_P700.index = all_reps_ECS_DCMU_P700['x_correct']
+                all_reps_ECS_DCMU_P700.drop(['Delta', 'y_initial', 'amplitude', 'y_correct', 'Time', 'x_correct', 'y_final'], axis=1, inplace=True)
+            else:
+                all_reps_ECS_DCMU_P700[rep] = ECS_DCMU_P700_df['y_correct'].values
+
         averagesDestination = os.path.dirname(os.path.abspath(DestinationFolder)) + "/averages"
         if not os.path.isdir(averagesDestination):
             os.makedirs(averagesDestination)
@@ -113,6 +122,10 @@ for sample in ["CC-1009", "CC-2343"]:
         all_reps_ECS_DIRK['std dev'] = all_reps_ECS_DIRK.std(axis=1)
         all_reps_ECS_DIRK.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_trace.csv")
 
+        all_reps_ECS_DCMU_P700['average'] = all_reps_ECS_DCMU_P700.mean(axis=1)
+        all_reps_ECS_DCMU_P700['std dev'] = all_reps_ECS_DCMU_P700.std(axis=1)
+        all_reps_ECS_DCMU_P700.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DCMU_P700_trace.csv")
+
         # plot of flr avg and std dev for timepoint
         plots.plot_flr_avg(averagesDestination, all_reps_fluor, sample, timepoint)
 
@@ -124,3 +137,6 @@ for sample in ["CC-1009", "CC-2343"]:
 
         # plot of all ECS DIRK replicates for timepoint
         plots.plot_ECS_DIRK_allreps(averagesDestination, all_reps_ECS_DIRK, sample, timepoint, reps_list)
+
+        # plot ECS DCMU P700 avg and std dev for timepoint
+        plots.plot_ECS_DCMU_P700_avg(averagesDestination, all_reps_ECS_DCMU_P700, sample, timepoint)

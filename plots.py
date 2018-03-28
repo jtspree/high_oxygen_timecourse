@@ -36,7 +36,6 @@ def save_ECS_DCMU_P700_plot(DestinationFolder, basename, ECS_DCMU_P700_df, ECS_D
     plt.savefig(DestinationFolder + basename + "_" +  'ECS_DCMU_P700_plot.png')
     plt.clf()
 
-
 # save ECS DIRK plot
 def save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean):
     fig = plt.figure(1, figsize=(8, 6))
@@ -107,4 +106,14 @@ def plot_ECS_DIRK_allreps(averagesDestination, all_reps_ECS_DIRK, sample, timepo
     ax.set_ylim(-0.0008, 0.001)
     ax.legend()
     fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_all_plot.png")
+    plt.clf()
+
+# plot ECS DCMU P700 avg and std dev for timepoint
+def plot_ECS_DCMU_P700_avg(averagesDestination, all_reps_ECS_DCMU_P700, sample, timepoint):
+    fig = plt.figure(1, figsize=(10, 6))
+    ax = fig.add_subplot(1, 1, 1)
+    ax.errorbar(all_reps_ECS_DCMU_P700.index, all_reps_ECS_DCMU_P700['average'], all_reps_ECS_DCMU_P700['std dev'], ecolor='red')
+    ax.set_xlim(-0.1, 1)
+    ax.set_ylim(-0.0008, 0.001)
+    fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DCMU_P700_avg_plot.png")
     plt.clf()
