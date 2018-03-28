@@ -84,7 +84,7 @@ for sample in ["CC-1009", "CC-2343"]:
             ECS_DCMU_P700_df = parse_math.parse_ECS_DCMU_P700_data(folder, DestinationFolder, basename)
 
             # calculate ECS DCMU P700 measurements
-            ESC_DCMU_P700_slope, ECS_DCMU_P700_mean, ECS_DCMU_P700_std_dev = parse_math.ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df)
+            ECS_DCMU_P700_calc_values_df, ESC_DCMU_P700_slope, ECS_DCMU_P700_mean, ECS_DCMU_P700_std_dev = parse_math.ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, DestinationFolder, basename, rep)
 
             # save ECS DCMU P700 plot
             plots.save_ECS_DCMU_P700_plot(DestinationFolder, basename, ECS_DCMU_P700_df, ECS_DCMU_P700_mean)

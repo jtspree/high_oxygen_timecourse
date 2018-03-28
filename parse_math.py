@@ -28,7 +28,7 @@ def parse_ECS_DCMU_P700_data(folder, DestinationFolder, basename):
     ECS_DCMU_P700_df['x_correct'] = ECS_DCMU_P700_df['Time'] - ECS_DCMU_P700_df['Time'].iloc[2499]
     ECS_DCMU_P700_df['y_correct'] = ECS_DCMU_P700_df['Delta'] - ECS_DCMU_P700_df['Delta'].iloc[2490:2499].mean(axis=0)
     ECS_DCMU_P700_df['y_initial'] = ECS_DCMU_P700_df['y_correct'].iloc[2490:2499].mean(axis=0)
-    ECS_DCMU_P700_df['y_final'] = ECS_DCMU_P700_df['y_correct'].iloc[2556:2565].mean(axis=0)
+    ECS_DCMU_P700_df['y_final'] = ECS_DCMU_P700_df['y_correct'].iloc[2685:2695].mean(axis=0)
     ECS_DCMU_P700_df['amplitude'] = ECS_DCMU_P700_df['y_final'] - ECS_DCMU_P700_df['y_initial']
 
     ECS_DCMU_P700_df.to_csv(DestinationFolder + basename + "_" + 'ECS_DCMU_P700_raw.csv')
@@ -57,7 +57,7 @@ def parse_ECS_data(folder, DestinationFolder, basename):
     return ECS_DIRK_data
 
 
-def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df):
+def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, DestinationFolder, basename, rep):
     ESC_DCMU_P700_slope = pd.DataFrame(columns=['x_initial', 'x_final', 'y_initial', 'y_final'])
     for x in range(8, 18):
         rates_dict = {}
@@ -70,9 +70,19 @@ def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df):
     ESC_DCMU_P700_slope['Rate'] = (ESC_DCMU_P700_slope['y_final'] - ESC_DCMU_P700_slope['y_initial']) / (
     ESC_DCMU_P700_slope['x_final'] - ESC_DCMU_P700_slope['x_initial'])
 
+    values_dict = {}
+    values_dict['rates_mean'] = ESC_DCMU_P700_slope['Rate'].mean()
+    values_dict['rates_std_dev'] = ESC_DCMU_P700_slope['Rate'].std()
+    values_dict['end_trace_mean'] = ECS_DCMU_P700_df['y_correct'].iloc[2685:2695].mean(axis=0)
+    values_dict['end_trace_std_dev'] = ECS_DCMU_P700_df['y_correct'].iloc[2685:2695].std(axis=0)
+    values_dict['y_initial'] = ECS_DCMU_P700_df['y_correct'].iloc[2490:2499].mean(axis=0)
+    values_dict['amplitude'] =  values_dict['end_trace_mean'] - values_dict['y_initial']
+    ECS_DCMU_P700_calc_values_df = pd.DataFrame(values_dict, index=["rep" + str(rep)])
+    ECS_DCMU_P700_calc_values_df.to_csv(DestinationFolder + basename + "_" + "ECS_DCMU_P700_values.csv")
+
     mean = ESC_DCMU_P700_slope['Rate'].mean()
     std_dev = ESC_DCMU_P700_slope['Rate'].std()
-    return ESC_DCMU_P700_slope, mean, std_dev
+    return ECS_DCMU_P700_calc_values_df, ESC_DCMU_P700_slope, mean, std_dev
 
 
 def ECS_rates_calculator(ECS_DIRK_data, DestinationFolder, basename, rep):
