@@ -53,7 +53,7 @@ for sample in ["CC-1009", "CC-2343"]:
             plots.save_flr_plot(WholeTrace, DestinationFolder, basename)
 
             # compute fm, phi2, etc. for this sample/time/rep
-            flr_calc_values_df = parse_math.calculator(WholeTrace, rep)
+            flr_calc_values_df = parse_math.flr_calculator(WholeTrace, rep)
 
             # append the computed values to the dictionary that will contain all the reps for this sample/time
             all_reps_flr_measurements.append(flr_calc_values_df)
@@ -113,10 +113,10 @@ for sample in ["CC-1009", "CC-2343"]:
         all_reps_ECS_DIRK['std dev'] = all_reps_ECS_DIRK.std(axis=1)
         all_reps_ECS_DIRK.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_trace.csv")
 
-        # plot of avg and std dev for timepoint
+        # plot of flr avg and std dev for timepoint
         plots.plot_flr_avg(averagesDestination, all_reps_fluor, sample, timepoint)
 
-        # plot of all replicates for timepoint
+        # plot of all flr replicates for timepoint
         plots.plot_flr_allreps(averagesDestination, all_reps_fluor, sample, timepoint, reps_list)
 
         # plot of ECS DIRK avg and std dev for timepoint

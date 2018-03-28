@@ -76,21 +76,21 @@ def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df):
 
 
 def ECS_rates_calculator(ECS_DIRK_data, DestinationFolder, basename, rep):
-    df = pd.DataFrame(columns=['x_initial', 'x_final', 'y_initial', 'y_final'])
+    slope_df = pd.DataFrame(columns=['x_initial', 'x_final', 'y_initial', 'y_final'])
     for x in range(10, 20):
         rates_dict = {}
         rates_dict['x_initial'] = ECS_DIRK_data['x_correct'][249]
         rates_dict['x_final'] = ECS_DIRK_data['x_correct'][250 + x]
         rates_dict['y_initial'] = ECS_DIRK_data['y_correct'].iloc[240:249].mean(axis=0)
         rates_dict['y_final'] = ECS_DIRK_data['y_correct'].iloc[249 + x:251 + x].mean(axis=0)
-        df = df.append(rates_dict, ignore_index=True)
+        slope_df = slope_df.append(rates_dict, ignore_index=True)
 
-    df['Rate'] = (df['y_final'] - df['y_initial']) / (df['x_final'] - df['x_initial'])
-    df.to_csv(DestinationFolder + basename + "_" + "ECS_DIRK_rates.csv")
+    slope_df['Rate'] = (slope_df['y_final'] - slope_df['y_initial']) / (slope_df['x_final'] - slope_df['x_initial'])
+    slope_df.to_csv(DestinationFolder + basename + "_" + "ECS_DIRK_rates.csv")
 
     values_dict = {}
-    values_dict['rates_mean'] = df['Rate'].mean()
-    values_dict['rates_std_dev'] = df['Rate'].std()
+    values_dict['rates_mean'] = slope_df['Rate'].mean()
+    values_dict['rates_std_dev'] = slope_df['Rate'].std()
     values_dict['end_trace_mean'] = ECS_DIRK_data['y_correct'].iloc[470:495].mean(axis=0)
     values_dict['end_trace_std_dev'] = ECS_DIRK_data['y_correct'].iloc[470:495].std(axis=0)
     values_dict['y_initial'] = ECS_DIRK_data['y_correct'].iloc[240:249].mean(axis=0)
@@ -98,14 +98,14 @@ def ECS_rates_calculator(ECS_DIRK_data, DestinationFolder, basename, rep):
     ECS_DIRK_calc_values_df = pd.DataFrame(values_dict, index=["rep" + str(rep)])
     ECS_DIRK_calc_values_df.to_csv(DestinationFolder + basename + "_" + "ECS_DIRK_values.csv")
 
-    mean = df['Rate'].mean()
-    std_dev = df['Rate'].std()
-    return df, ECS_DIRK_calc_values_df, mean, std_dev
+    mean = slope_df['Rate'].mean()
+    std_dev = slope_df['Rate'].std()
+    return slope_df, ECS_DIRK_calc_values_df, mean, std_dev
 
 
-def calculator(WholeTrace, rep):
+def flr_calculator(WholeTrace, rep):
     """
-    calculate Fs, Fm, etc values.  Returns a dataframe with one row
+    calculate F0, Fs, Fm, etc.  Returns a dataframe with one row
     """
     calc_dict = {}
 

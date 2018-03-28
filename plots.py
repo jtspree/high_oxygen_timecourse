@@ -19,7 +19,7 @@ def save_ECS_DCMU_P700_plot(DestinationFolder, basename, ECS_DCMU_P700_df, ECS_D
     y2 = ECS_DCMU_P700_df['y_initial']
     y3 = ECS_DCMU_P700_df['y_final']
     y4 = ECS_DCMU_P700_mean * x + ECS_DCMU_P700_df['y_initial'][0]
-    ax.set_xlim(-0.1, 0.8)
+    ax.set_xlim(-0.1, 1)
     ax.set_ylim((ECS_DCMU_P700_df['y_initial'].mean() - 0.00005), (ECS_DCMU_P700_df['y_final'].mean() * 1.2))
     plt.plot(x, y1, label='ECS')
     plt.plot(x, y2, label='y_initial')
