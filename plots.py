@@ -66,16 +66,6 @@ def save_flr_plot(WholeTrace, DestinationFolder, basename):
     fig.savefig(DestinationFolder + basename + "_" + "flr_plot.png")
     plt.clf()
 
-# plot of flr avg and std dev for timepoint
-def plot_flr_avg(averagesDestination, all_reps_fluor, sample, timepoint):
-    fig = plt.figure(1, figsize=(10, 6))
-    ax = fig.add_subplot(1, 1, 1)
-    ax.errorbar(all_reps_fluor.index, all_reps_fluor['average'], all_reps_fluor['std dev'], ecolor='red')
-    ax.set_ylim(0, 4)
-    ax.set_ylabel("Fluorescence")
-    fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "flr_avg_plot.png")
-    plt.clf()
-
 # plot of all flr replicates for timepoint
 def plot_flr_allreps(averagesDestination, all_reps_fluor, sample, timepoint, reps_list):
     fig = plt.figure(1, figsize=(10, 6))
@@ -86,15 +76,6 @@ def plot_flr_allreps(averagesDestination, all_reps_fluor, sample, timepoint, rep
     ax.legend()
     ax.set_ylabel("Fluorescence")
     fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "flr_all_plot.png")
-    plt.clf()
-
-# plot ECS DIRK avg and std dev for timepoint
-def plot_ECS_DIRK_avg(averagesDestination, all_reps_ECS_DIRK, sample, timepoint):
-    fig = plt.figure(1, figsize=(10, 6))
-    ax = fig.add_subplot(1, 1, 1)
-    ax.errorbar(all_reps_ECS_DIRK.index, all_reps_ECS_DIRK['average'], all_reps_ECS_DIRK['std dev'], ecolor='red')
-    ax.set_ylim(-0.0008, 0.001)
-    fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_avg_plot.png")
     plt.clf()
 
 # plot of all ECS DIRK replicates for timepoint
@@ -108,12 +89,13 @@ def plot_ECS_DIRK_allreps(averagesDestination, all_reps_ECS_DIRK, sample, timepo
     fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_all_plot.png")
     plt.clf()
 
-# plot ECS DCMU P700 avg and std dev for timepoint
-def plot_ECS_DCMU_P700_avg(averagesDestination, all_reps_ECS_DCMU_P700, sample, timepoint):
+def plot_allreps_avg(output_path, all_reps_combined_df, xlim=None, ylim=None):
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(1, 1, 1)
-    ax.errorbar(all_reps_ECS_DCMU_P700.index, all_reps_ECS_DCMU_P700['average'], all_reps_ECS_DCMU_P700['std dev'], ecolor='red')
-    ax.set_xlim(-0.1, 1)
-    ax.set_ylim(-0.0008, 0.001)
-    fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DCMU_P700_avg_plot.png")
+    ax.errorbar(all_reps_combined_df.index, all_reps_combined_df['average'], all_reps_combined_df['std dev'], ecolor='red')
+    if xlim is not None:
+        ax.set_xlim(xlim[0], xlim[1])
+    if xlim is not None:
+        ax.set_ylim(ylim[0], ylim[1])
+    fig.savefig(output_path)
     plt.clf()

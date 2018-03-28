@@ -127,16 +127,19 @@ for sample in ["CC-1009", "CC-2343"]:
         all_reps_ECS_DCMU_P700.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DCMU_P700_trace.csv")
 
         # plot of flr avg and std dev for timepoint
-        plots.plot_flr_avg(averagesDestination, all_reps_fluor, sample, timepoint)
+        output_path = averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "flr_avg_plot.png"
+        plots.plot_allreps_avg(output_path, all_reps_fluor, ylim=(0, 4))
 
         # plot of all flr replicates for timepoint
         plots.plot_flr_allreps(averagesDestination, all_reps_fluor, sample, timepoint, reps_list)
 
         # plot of ECS DIRK avg and std dev for timepoint
-        plots.plot_ECS_DIRK_avg(averagesDestination, all_reps_ECS_DIRK, sample, timepoint)
+        output_path = averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_avg_plot.png"
+        plots.plot_allreps_avg(output_path, all_reps_ECS_DIRK, ylim=(-0.0008, 0.001))
 
         # plot of all ECS DIRK replicates for timepoint
         plots.plot_ECS_DIRK_allreps(averagesDestination, all_reps_ECS_DIRK, sample, timepoint, reps_list)
 
         # plot ECS DCMU P700 avg and std dev for timepoint
-        plots.plot_ECS_DCMU_P700_avg(averagesDestination, all_reps_ECS_DCMU_P700, sample, timepoint)
+        output_path = averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DCMU_P700_avg_plot.png"
+        plots.plot_allreps_avg(output_path, all_reps_ECS_DCMU_P700, xlim=(-0.1, 1), ylim=(-0.0002, 0.001))
