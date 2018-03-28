@@ -66,29 +66,6 @@ def save_flr_plot(WholeTrace, DestinationFolder, basename):
     fig.savefig(DestinationFolder + basename + "_" + "flr_plot.png")
     plt.clf()
 
-# plot of all flr replicates for timepoint
-def plot_flr_allreps(averagesDestination, all_reps_fluor, sample, timepoint, reps_list):
-    fig = plt.figure(1, figsize=(10, 6))
-    ax = fig.add_subplot(1, 1, 1)
-    for rep in reps_list:
-        ax.plot(all_reps_fluor[rep], label='rep_' + str(rep))
-    ax.set_ylim(0, 4)
-    ax.legend()
-    ax.set_ylabel("Fluorescence")
-    fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "flr_all_plot.png")
-    plt.clf()
-
-# plot of all ECS DIRK replicates for timepoint
-def plot_ECS_DIRK_allreps(averagesDestination, all_reps_ECS_DIRK, sample, timepoint, reps_list):
-    fig = plt.figure(1, figsize=(10, 6))
-    ax = fig.add_subplot(1, 1, 1)
-    for rep in reps_list:
-        ax.plot(all_reps_ECS_DIRK[rep], label='rep_' + str(rep))
-    ax.set_ylim(-0.0008, 0.001)
-    ax.legend()
-    fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_all_plot.png")
-    plt.clf()
-
 def plot_allreps_avg(output_path, all_reps_combined_df, xlim=None, ylim=None):
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(1, 1, 1)
@@ -97,5 +74,18 @@ def plot_allreps_avg(output_path, all_reps_combined_df, xlim=None, ylim=None):
         ax.set_xlim(xlim[0], xlim[1])
     if xlim is not None:
         ax.set_ylim(ylim[0], ylim[1])
+    fig.savefig(output_path)
+    plt.clf()
+
+def plot_allreps_separate(output_path, all_reps_combined_df, reps_list, xlim=None, ylim=None):
+    fig = plt.figure(1, figsize=(10, 6))
+    ax = fig.add_subplot(1, 1, 1)
+    for rep in reps_list:
+        ax.plot(all_reps_combined_df[rep], label='rep_' + str(rep))
+    if xlim is not None:
+        ax.set_xlim(xlim[0], xlim[1])
+    if xlim is not None:
+        ax.set_ylim(ylim[0], ylim[1])
+    ax.legend()
     fig.savefig(output_path)
     plt.clf()
