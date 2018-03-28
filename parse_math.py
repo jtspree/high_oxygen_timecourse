@@ -49,6 +49,24 @@ def parse_ECS_data(folder, DestinationFolder, basename):
     return ECS_DIRK_data
 
 
+def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df):
+    ESC_DCMU_P700_slope = pd.DataFrame(columns=['x_initial', 'x_final', 'y_initial', 'y_final'])
+    for x in range(8, 18):
+        rates_dict = {}
+        rates_dict['x_initial'] = ECS_DCMU_P700_df['x_correct'][2499]
+        rates_dict['x_final'] = ECS_DCMU_P700_df['x_correct'][2500 + x]
+        rates_dict['y_initial'] = ECS_DCMU_P700_df['y_correct'].iloc[2490:2499].mean(axis=0)
+        rates_dict['y_final'] = ECS_DCMU_P700_df['y_correct'].iloc[2500 + x]
+        ESC_DCMU_P700_slope = ESC_DCMU_P700_slope.append(rates_dict, ignore_index=True)
+
+    ESC_DCMU_P700_slope['Rate'] = (ESC_DCMU_P700_slope['y_final'] - ESC_DCMU_P700_slope['y_initial']) / (
+    ESC_DCMU_P700_slope['x_final'] - ESC_DCMU_P700_slope['x_initial'])
+
+    mean = ESC_DCMU_P700_slope['Rate'].mean()
+    std_dev = ESC_DCMU_P700_slope['Rate'].std()
+    return ESC_DCMU_P700_slope, mean, std_dev
+
+
 def ECS_rates_calculator(ECS_DIRK_data, DestinationFolder, basename, rep):
     df = pd.DataFrame(columns=['x_initial', 'x_final', 'y_initial', 'y_final'])
     for x in range(10, 20):
