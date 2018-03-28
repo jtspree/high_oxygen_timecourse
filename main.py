@@ -126,26 +126,12 @@ for sample in ["CC-1009", "CC-2343"]:
         all_reps_ECS_DCMU_P700['std dev'] = all_reps_ECS_DCMU_P700.std(axis=1)
         all_reps_ECS_DCMU_P700.to_csv(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DCMU_P700_trace.csv")
 
+        output_path_prefix = averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_"
         # plot of flr avg and std dev for timepoint
-        output_path = averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "flr_avg_plot.png"
-        plots.plot_allreps_avg(output_path, all_reps_fluor, ylim=(0, 4))
-
-        # plot of all flr replicates for timepoint
-        output_path = averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "flr_all_plot.png"
-        plots.plot_allreps_separate(output_path, all_reps_fluor, reps_list, xlim=None, ylim=(0, 4))
+        plots.save_allreps_plots(output_path_prefix + "flr", all_reps_fluor, reps_list, ylim=(0, 4))
 
         # plot of ECS DIRK avg and std dev for timepoint
-        output_path = averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_avg_plot.png"
-        plots.plot_allreps_avg(output_path, all_reps_ECS_DIRK, ylim=(-0.0008, 0.001))
-
-        # plot of all ECS DIRK replicates for timepoint
-        output_path = averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_all_plot.png"
-        plots.plot_allreps_separate(output_path, all_reps_ECS_DIRK, reps_list, xlim=None, ylim=(-0.0008, 0.001))
+        plots.save_allreps_plots(output_path_prefix + "ECS_DIRK", all_reps_ECS_DIRK, reps_list, ylim=(-0.0008, 0.001))
 
         # plot ECS DCMU P700 avg and std dev for timepoint
-        output_path = averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DCMU_P700_avg_plot.png"
-        plots.plot_allreps_avg(output_path, all_reps_ECS_DCMU_P700, xlim=(-0.1, 1), ylim=(-0.0002, 0.001))
-
-        # plot all ECS DCMU P700 reps for timepoint
-        output_path = averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DCMU_P700_all_plot.png"
-        plots.plot_allreps_separate(output_path, all_reps_ECS_DCMU_P700, reps_list, xlim=(-0.1, 1), ylim=(-0.0002, 0.001))
+        plots.save_allreps_plots(output_path_prefix + "ECS_DCMU_P700", all_reps_ECS_DCMU_P700, reps_list, xlim=(-0.1, 1), ylim=(-0.0002, 0.001))

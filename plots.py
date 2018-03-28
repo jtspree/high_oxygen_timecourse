@@ -66,7 +66,7 @@ def save_flr_plot(WholeTrace, DestinationFolder, basename):
     fig.savefig(DestinationFolder + basename + "_" + "flr_plot.png")
     plt.clf()
 
-def plot_allreps_avg(output_path, all_reps_combined_df, xlim=None, ylim=None):
+def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim=None, ylim=None):
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(1, 1, 1)
     ax.errorbar(all_reps_combined_df.index, all_reps_combined_df['average'], all_reps_combined_df['std dev'], ecolor='red')
@@ -74,10 +74,9 @@ def plot_allreps_avg(output_path, all_reps_combined_df, xlim=None, ylim=None):
         ax.set_xlim(xlim[0], xlim[1])
     if xlim is not None:
         ax.set_ylim(ylim[0], ylim[1])
-    fig.savefig(output_path)
+    fig.savefig(output_path_prefix + "_avg_plot.png")
     plt.clf()
 
-def plot_allreps_separate(output_path, all_reps_combined_df, reps_list, xlim=None, ylim=None):
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(1, 1, 1)
     for rep in reps_list:
@@ -87,5 +86,5 @@ def plot_allreps_separate(output_path, all_reps_combined_df, reps_list, xlim=Non
     if xlim is not None:
         ax.set_ylim(ylim[0], ylim[1])
     ax.legend()
-    fig.savefig(output_path)
+    fig.savefig(output_path_prefix + "_all_plot.png")
     plt.clf()
