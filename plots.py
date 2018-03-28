@@ -1,7 +1,14 @@
 """
 INFO
 
-Plot functions
+Functions to plot various flr, ECS data
+
+Created by Joshua Temple
+Assistance from Oliver Tessmer
+
+Created 2018-03-27
+
+@jtspree
 """
 
 # LIBRARY
@@ -27,6 +34,7 @@ def save_ECS_DCMU_P700_plot(DestinationFolder, basename, ECS_DCMU_P700_df, ECS_D
     plt.plot(x, y4, label='slope')
     plt.legend()
     plt.savefig(DestinationFolder + basename + "_" +  'ECS_DCMU_P700_plot.png')
+    plt.clf()
 
 
 # save ECS DIRK plot
@@ -38,7 +46,7 @@ def save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean):
     y2 = ECS_DIRK_data['y_initial']
     y3 = mean * x + ECS_DIRK_data['y_initial'][0]
     y4 = ECS_DIRK_data['amplitude']
-    ax.set_ylim(-0.0008, 0.0008)
+    ax.set_ylim(-0.0008, 0.001)
     plt.plot(x, y1, label='ECS')
     plt.plot(x, y2, label='y_initial')
     plt.plot(x, y3, label='slope')
@@ -86,7 +94,7 @@ def plot_ECS_DIRK_avg(averagesDestination, all_reps_ECS_DIRK, sample, timepoint)
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(1, 1, 1)
     ax.errorbar(all_reps_ECS_DIRK.index, all_reps_ECS_DIRK['average'], all_reps_ECS_DIRK['std dev'], ecolor='red')
-    ax.set_ylim(-0.0008, 0.0008)
+    ax.set_ylim(-0.0008, 0.001)
     fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_avg_plot.png")
     plt.clf()
 
@@ -96,7 +104,7 @@ def plot_ECS_DIRK_allreps(averagesDestination, all_reps_ECS_DIRK, sample, timepo
     ax = fig.add_subplot(1, 1, 1)
     for rep in reps_list:
         ax.plot(all_reps_ECS_DIRK[rep], label='rep_' + str(rep))
-    ax.set_ylim(-0.0008, 0.0008)
+    ax.set_ylim(-0.0008, 0.001)
     ax.legend()
     fig.savefig(averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_" + "ECS_DIRK_all_plot.png")
     plt.clf()

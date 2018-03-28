@@ -1,5 +1,14 @@
 """
 INFO
+
+Functions to parse various flr, ECS data
+
+Created by Joshua Temple
+Assistance from Oliver Tessmer
+
+Created 2018-03-27
+
+@jtspree
 """
 
 # LIBRARY
