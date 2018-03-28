@@ -20,7 +20,7 @@ import os
 
 # parse ECS DCMU P700 data
 ECS_DIRK_DCMU_P700_suffix = "dcmu_p700_0005.dat"
-def parse_ECS_DCMU_P700_data(folder, DestinationFolder, basename):
+def parse_ECS_DCMU_P700_data(folder):
     ECS_DCMU_P700_filename = None
     for filename in os.listdir(folder):
         if filename.endswith(ECS_DIRK_DCMU_P700_suffix):
@@ -40,12 +40,12 @@ def parse_ECS_DCMU_P700_data(folder, DestinationFolder, basename):
     ECS_DCMU_P700_df['y_final'] = ECS_DCMU_P700_df['y_correct'].iloc[2685:2695].mean(axis=0)
     ECS_DCMU_P700_df['amplitude'] = ECS_DCMU_P700_df['y_final'] - ECS_DCMU_P700_df['y_initial']
 
-    ECS_DCMU_P700_df.to_csv(DestinationFolder + basename + "_" + 'ECS_DCMU_P700_raw.csv')
+    # ECS_DCMU_P700_df.to_csv(DestinationFolder + basename + "_" + 'ECS_DCMU_P700_raw.csv')
     return ECS_DCMU_P700_df
 
 
 ECS_DIRK_suffix = "dcmu_ecs_0003.dat"
-def parse_ECS_data(folder, DestinationFolder, basename):
+def parse_ECS_data(folder):
     ECS_DIRK_filename = None
     for filename in os.listdir(folder):
         if filename.endswith(ECS_DIRK_suffix):
@@ -62,11 +62,11 @@ def parse_ECS_data(folder, DestinationFolder, basename):
     ECS_DIRK_data['y_initial'] = ECS_DIRK_data['y_correct'].iloc[240:249].mean(axis=0)
     ECS_DIRK_data['amplitude'] = ECS_DIRK_data['y_correct'].iloc[470:495].mean(axis=0)
 
-    ECS_DIRK_data.to_csv(DestinationFolder + basename + "_" + "ECS_DIRK_raw.csv")
+    # ECS_DIRK_data.to_csv(DestinationFolder + basename + "_" + "ECS_DIRK_raw.csv")
     return ECS_DIRK_data
 
 
-def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, DestinationFolder, basename, rep):
+def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, rep):
     ESC_DCMU_P700_slope = pd.DataFrame(columns=['x_initial', 'x_final', 'y_initial', 'y_final'])
     for x in range(8, 18):
         rates_dict = {}
@@ -87,14 +87,13 @@ def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, DestinationFolder, basename, rep)
     values_dict['y_initial'] = ECS_DCMU_P700_df['y_correct'].iloc[2490:2499].mean(axis=0)
     values_dict['amplitude'] =  values_dict['end_trace_mean'] - values_dict['y_initial']
     ECS_DCMU_P700_calc_values_df = pd.DataFrame(values_dict, index=["rep" + str(rep)])
-    ECS_DCMU_P700_calc_values_df.to_csv(DestinationFolder + basename + "_" + "ECS_DCMU_P700_values.csv")
 
-    mean = ESC_DCMU_P700_slope['Rate'].mean()
-    std_dev = ESC_DCMU_P700_slope['Rate'].std()
-    return ECS_DCMU_P700_calc_values_df, ESC_DCMU_P700_slope, mean, std_dev
+    # mean = ESC_DCMU_P700_slope['Rate'].mean()
+    # std_dev = ESC_DCMU_P700_slope['Rate'].std()
+    # return ECS_DCMU_P700_calc_values_df, ESC_DCMU_P700_slope, mean, std_dev
+    return ECS_DCMU_P700_calc_values_df
 
-
-def ECS_rates_calculator(ECS_DIRK_data, DestinationFolder, basename, rep):
+def ECS_rates_calculator(ECS_DIRK_data, rep):
     slope_df = pd.DataFrame(columns=['x_initial', 'x_final', 'y_initial', 'y_final'])
     for x in range(10, 20):
         rates_dict = {}
@@ -105,7 +104,6 @@ def ECS_rates_calculator(ECS_DIRK_data, DestinationFolder, basename, rep):
         slope_df = slope_df.append(rates_dict, ignore_index=True)
 
     slope_df['Rate'] = (slope_df['y_final'] - slope_df['y_initial']) / (slope_df['x_final'] - slope_df['x_initial'])
-    slope_df.to_csv(DestinationFolder + basename + "_" + "ECS_DIRK_rates.csv")
 
     values_dict = {}
     values_dict['rates_mean'] = slope_df['Rate'].mean()
@@ -115,11 +113,11 @@ def ECS_rates_calculator(ECS_DIRK_data, DestinationFolder, basename, rep):
     values_dict['y_initial'] = ECS_DIRK_data['y_correct'].iloc[240:249].mean(axis=0)
     values_dict['amplitude'] = values_dict['y_initial'] - values_dict['end_trace_mean']
     ECS_DIRK_calc_values_df = pd.DataFrame(values_dict, index=["rep" + str(rep)])
-    ECS_DIRK_calc_values_df.to_csv(DestinationFolder + basename + "_" + "ECS_DIRK_values.csv")
 
-    mean = slope_df['Rate'].mean()
-    std_dev = slope_df['Rate'].std()
-    return slope_df, ECS_DIRK_calc_values_df, mean, std_dev
+    # mean = slope_df['Rate'].mean()
+    # std_dev = slope_df['Rate'].std()
+    # return slope_df, ECS_DIRK_calc_values_df, mean, std_dev
+    return ECS_DIRK_calc_values_df
 
 
 def flr_calculator(WholeTrace, rep):
@@ -194,6 +192,7 @@ def parse_phi2_fluor(folder):
     Norm_Val = BaseLineCor[90:98].mean(axis=0)
     NormFluor = BaseLineCor / Norm_Val
     WholeTrace['NormFluor'] = NormFluor
+    WholeTrace['y_correct'] = WholeTrace['NormFluor']
     return WholeTrace
 
 def get_path(rootFolder, sample, timepoint, rep):

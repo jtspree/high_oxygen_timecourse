@@ -33,7 +33,7 @@ def save_ECS_DCMU_P700_plot(DestinationFolder, basename, ECS_DCMU_P700_df, ECS_D
     plt.plot(x, y3, label='y_final')
     plt.plot(x, y4, label='slope')
     plt.legend()
-    plt.savefig(DestinationFolder + basename + "_" +  'ECS_DCMU_P700_plot.png')
+    plt.savefig(DestinationFolder + basename + "_" + 'ECS_DCMU_P700_plot.png')
     plt.clf()
 
 # save ECS DIRK plot
@@ -58,7 +58,7 @@ def save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean):
 def save_flr_plot(WholeTrace, DestinationFolder, basename):
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(1, 1, 1)
-    y = WholeTrace['NormFluor']
+    y = WholeTrace['y_correct']
     ax.plot(y)
     ax.set_ylim(0, 4)
     ax.set_ylabel("Fluorescence")
@@ -67,6 +67,7 @@ def save_flr_plot(WholeTrace, DestinationFolder, basename):
     plt.clf()
 
 def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim=None, ylim=None):
+    # plot of average of reps
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(1, 1, 1)
     ax.errorbar(all_reps_combined_df.index, all_reps_combined_df['average'], all_reps_combined_df['std dev'], ecolor='red')
@@ -77,6 +78,7 @@ def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim
     fig.savefig(output_path_prefix + "_avg_plot.png")
     plt.clf()
 
+    # plot all replicates
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(1, 1, 1)
     for rep in reps_list:
