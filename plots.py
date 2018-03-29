@@ -74,7 +74,7 @@ def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim
     ax.errorbar(all_reps_combined_df.index, all_reps_combined_df['average'], all_reps_combined_df['std dev'], ecolor='red')
     if xlim is not None:
         ax.set_xlim(xlim[0], xlim[1])
-    if xlim is not None:
+    if ylim is not None:
         ax.set_ylim(ylim[0], ylim[1])
     fig.savefig(output_path_prefix + "_avg_plot.png")
     plt.clf()
@@ -86,7 +86,7 @@ def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim
         ax.plot(all_reps_combined_df[rep], label='rep_' + str(rep))
     if xlim is not None:
         ax.set_xlim(xlim[0], xlim[1])
-    if xlim is not None:
+    if ylim is not None:
         ax.set_ylim(ylim[0], ylim[1])
     ax.legend()
     fig.savefig(output_path_prefix + "_all_plot.png")
