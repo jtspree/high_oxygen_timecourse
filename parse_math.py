@@ -206,3 +206,31 @@ def get_path(rootFolder, sample, timepoint, rep):
         return None, None, None
     basename = sample + "_" + "hr" + str(timepoint) + "_" + "rep" + str(rep)
     return rel_path, basename, folder
+
+def build_master_df(master_dict, all_samples, all_timepoints, all_measurements_types):
+    master_df = pd.DataFrame()
+
+    row_index = 0
+    master_df['sample'] = ''
+    master_df['timepoint'] = ''
+
+    for sample in all_samples:
+        for timepoint in all_timepoints:
+            master_df.loc[row_index, 'sample'] = sample
+            master_df.loc[row_index, 'timepoint'] = timepoint
+
+            for measurements_type in all_measurements_types.keys():
+                df = master_dict[sample][timepoint][measurements_type]
+                for column in df.columns:
+                    avg = df.loc['average', column]
+                    std_dev = df.loc['std dev', column]
+                    output_avg_col_name = column + '_' + 'avg'
+                    output_stddev_col_name = column + '_' + 'stddev'
+                    if output_avg_col_name not in master_df.columns:
+                        master_df[output_avg_col_name] = ''
+                    if output_stddev_col_name not in master_df.columns:
+                        master_df[output_stddev_col_name] = ''
+                    master_df.loc[row_index, output_avg_col_name] = avg
+                    master_df.loc[row_index, output_stddev_col_name] = std_dev
+            row_index = row_index + 1
+    return master_df

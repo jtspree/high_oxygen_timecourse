@@ -22,6 +22,7 @@ import parse_math
 
 
 root_folder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw/"
+root_output = "C:/Users/templejo/Desktop/PBRexp060_PyScript/output/"
 
 all_measurements_types = {
     # type name: [parsing function, calculator function, xlim, ylim]
@@ -36,9 +37,13 @@ all_timepoints = [0, 1, 3, 6, 12, 24, 48]
 
 all_reps = [1, 2, 3, 4]
 
+master_dict = {}
+
 
 for sample in all_samples:
+    master_dict[sample] = {}
     for timepoint in all_timepoints:
+        master_dict[sample][timepoint] = {}
         all_reps_computed_values = {}
         all_reps_raw_data = {}
         for measurements_type in all_measurements_types.keys():
@@ -51,7 +56,7 @@ for sample in all_samples:
             if rel_path is None:
                 continue
 
-            DestinationFolder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/output/" + rel_path
+            DestinationFolder = root_output + rel_path
             if not os.path.isdir(DestinationFolder):
                 os.makedirs(DestinationFolder)
 
@@ -101,6 +106,8 @@ for sample in all_samples:
             all_measurements_df.loc['std dev'] = all_measurements_df.std()
             all_measurements_df.to_csv(averages_output_path_prefix + measurements_type + "_averages.csv")
 
+            master_dict[sample][timepoint][measurements_type] = all_measurements_df
+
             reps_list = list(all_reps_raw_data[measurements_type].columns)
 
             all_reps_raw_data[measurements_type]['average'] = all_reps_raw_data[measurements_type].mean(axis=1)
@@ -110,3 +117,11 @@ for sample in all_samples:
             plots.save_allreps_plots(averages_output_path_prefix + measurements_type, all_reps_raw_data[measurements_type],
                                      reps_list, xlim=all_measurements_types[measurements_type][2],
                                      ylim=all_measurements_types[measurements_type][3])
+
+master_df = parse_math.build_master_df(master_dict, all_samples, all_timepoints, all_measurements_types)
+
+root_master_folder = root_output + '/' + 'master/'
+if not os.path.isdir(root_master_folder):
+    os.makedirs(root_master_folder)
+
+master_df.to_csv(root_master_folder + '/' + 'master_calc_values.csv')
