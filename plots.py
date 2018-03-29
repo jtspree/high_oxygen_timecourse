@@ -92,9 +92,17 @@ def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim
     # fig.savefig(output_path_prefix + "_all_plot.png")
     plt.clf()
 
-def save_calc_values_plots(master_df, root_output):
-    fig = plt.figure(1, figsize=(10, 6))
-    ax = fig.add_subplot(1, 1, 1)
-    ax.legend()
-    # fig.savefig(output_path_prefix + "_all_plot.png")
-    plt.clf()
+
+def save_calc_values_plots(master_df, root_master_folder):
+    for col_index in range(2, len(master_df.columns), 2):
+        fig = plt.figure(1, figsize=(10, 6))
+        ax = fig.add_subplot(1, 1, 1)
+        for sample in master_df['sample'].unique():
+            sample_df = master_df[master_df['sample']==sample]
+            avgs = sample_df.iloc[:,col_index]
+            std_dev = sample_df.iloc[:,col_index+1]
+            timepoint = sample_df['timepoint']
+            ax.errorbar(timepoint, avgs, std_dev, label=sample)
+        ax.legend()
+        fig.savefig(root_master_folder + '/' + master_df.columns[col_index] + '.png')
+        plt.clf()
