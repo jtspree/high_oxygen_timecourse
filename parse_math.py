@@ -66,7 +66,7 @@ def parse_ECS_data(folder):
     return ECS_DIRK_data
 
 
-def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, rep):
+def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, sample, timepoint, rep, DestinationFolder):
     ESC_DCMU_P700_slope = pd.DataFrame(columns=['x_initial', 'x_final', 'y_initial', 'y_final'])
     for x in range(8, 18):
         rates_dict = {}
@@ -78,6 +78,7 @@ def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, rep):
 
     ESC_DCMU_P700_slope['Rate'] = (ESC_DCMU_P700_slope['y_final'] - ESC_DCMU_P700_slope['y_initial']) / (
     ESC_DCMU_P700_slope['x_final'] - ESC_DCMU_P700_slope['x_initial'])
+    ESC_DCMU_P700_slope.to_csv(DestinationFolder + '/{0}_hr{1}_rep{2}_ECS_DCMU_P700_slopes.csv'.format(sample, timepoint, rep))
 
     values_dict = {}
     values_dict['rates_mean'] = ESC_DCMU_P700_slope['Rate'].mean()
@@ -93,7 +94,7 @@ def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, rep):
     # return ECS_DCMU_P700_calc_values_df, ESC_DCMU_P700_slope, mean, std_dev
     return ECS_DCMU_P700_calc_values_df
 
-def ECS_rates_calculator(ECS_DIRK_data, rep):
+def ECS_rates_calculator(ECS_DIRK_data, sample, timepoint, rep, DestinationFolder ):
     slope_df = pd.DataFrame(columns=['x_initial', 'x_final', 'y_initial', 'y_final'])
     for x in range(10, 20):
         rates_dict = {}
@@ -104,6 +105,8 @@ def ECS_rates_calculator(ECS_DIRK_data, rep):
         slope_df = slope_df.append(rates_dict, ignore_index=True)
 
     slope_df['Rate'] = (slope_df['y_final'] - slope_df['y_initial']) / (slope_df['x_final'] - slope_df['x_initial'])
+    slope_df.to_csv(DestinationFolder + '/{0}_hr{1}_rep{2}_ECS_DIRK_slopes.csv'.format(sample, timepoint, rep))
+
 
     values_dict = {}
     values_dict['rates_mean'] = slope_df['Rate'].mean()
@@ -120,7 +123,7 @@ def ECS_rates_calculator(ECS_DIRK_data, rep):
     return ECS_DIRK_calc_values_df
 
 
-def flr_calculator(WholeTrace, rep):
+def flr_calculator(WholeTrace, sample, timepoint, rep, DestinationFolder):
     """
     calculate F0, Fs, Fm, etc.  Returns a dataframe with one row
     """

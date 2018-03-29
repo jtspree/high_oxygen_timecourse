@@ -25,20 +25,27 @@ root_folder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw/"
 
 all_measurements_types = {
     # type name: [parsing function, calculator function, xlim, ylim]
-    'flr'            : [parse_math.parse_phi2_fluor, parse_math.flr_calculator, None, (0,4)],
-    'ECS_DIRK'       : [parse_math.parse_ECS_data, parse_math.ECS_rates_calculator, None, (-0.0008,0.001)],
-    'ECS_DCMU_P700'  : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, None, (-0.0008,0.001)]
+    'flr'            : [parse_math.parse_phi2_fluor, parse_math.flr_calculator, None, (0, 4)],
+    'ECS_DIRK'       : [parse_math.parse_ECS_data, parse_math.ECS_rates_calculator, None, (-0.001, 0.001)],
+    'ECS_DCMU_P700'  : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, None, (-0.0008, 0.0012)]
 }
 
-for sample in ["CC-1009", "CC-2343"]:
-    for timepoint in [0, 1, 3, 6, 12, 24, 48]:
+all_samples = ["CC-1009", "CC-2343"]
+
+all_timepoints = [0, 1, 3, 6, 12, 24, 48]
+
+all_reps = [1, 2, 3, 4]
+
+
+for sample in all_samples:
+    for timepoint in all_timepoints:
         all_reps_computed_values = {}
         all_reps_raw_data = {}
         for measurements_type in all_measurements_types.keys():
             all_reps_computed_values[measurements_type] = []
             all_reps_raw_data[measurements_type] = pd.DataFrame()
 
-        for rep in [1, 2, 3, 4]:
+        for rep in all_reps:
 
             rel_path, basename, folder = parse_math.get_path(root_folder, sample, timepoint, rep)
             if rel_path is None:
@@ -60,7 +67,7 @@ for sample in ["CC-1009", "CC-2343"]:
 
                 # compute fm, phi2, etc. for this sample/time/rep
                 calc_function = all_measurements_types[measurements_type][1]
-                calc_values_df = calc_function(trace_df, rep)
+                calc_values_df = calc_function(trace_df, sample, timepoint, rep, DestinationFolder)
 
                 # save an image file with the fluorescence plot for this sample/time/rep
                 if measurements_type == 'flr':
@@ -86,20 +93,20 @@ for sample in ["CC-1009", "CC-2343"]:
         if not os.path.isdir(averagesDestination):
             os.makedirs(averagesDestination)
 
-        output_path_prefix = averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_"
+        averages_output_path_prefix = averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_"
 
         for measurements_type in all_measurements_types.keys():
             all_measurements_df = pd.concat(all_reps_computed_values[measurements_type])
             all_measurements_df.loc['average'] = all_measurements_df.mean()
             all_measurements_df.loc['std dev'] = all_measurements_df.std()
-            all_measurements_df.to_csv(output_path_prefix + measurements_type + "_averages.csv")
+            all_measurements_df.to_csv(averages_output_path_prefix + measurements_type + "_averages.csv")
 
             reps_list = list(all_reps_raw_data[measurements_type].columns)
 
             all_reps_raw_data[measurements_type]['average'] = all_reps_raw_data[measurements_type].mean(axis=1)
             all_reps_raw_data[measurements_type]['std dev'] = all_reps_raw_data[measurements_type].std(axis=1)
-            all_reps_raw_data[measurements_type].to_csv(output_path_prefix + measurements_type + "_trace.csv")
+            all_reps_raw_data[measurements_type].to_csv(averages_output_path_prefix + measurements_type + "_trace.csv")
 
-            plots.save_allreps_plots(output_path_prefix + measurements_type, all_reps_raw_data[measurements_type],
+            plots.save_allreps_plots(averages_output_path_prefix + measurements_type, all_reps_raw_data[measurements_type],
                                      reps_list, xlim=all_measurements_types[measurements_type][2],
                                      ylim=all_measurements_types[measurements_type][3])

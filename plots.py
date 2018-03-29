@@ -27,7 +27,7 @@ def save_ECS_DCMU_P700_plot(DestinationFolder, basename, ECS_DCMU_P700_df, ECS_D
     y3 = ECS_DCMU_P700_df['y_final']
     y4 = ECS_DCMU_P700_mean * x + ECS_DCMU_P700_df['y_initial'][0]
     ax.set_xlim(-0.1, 1)
-    ax.set_ylim((ECS_DCMU_P700_df['y_initial'].mean() - 0.00005), (ECS_DCMU_P700_df['y_final'].mean() * 1.2))
+    ax.set_ylim((ECS_DCMU_P700_df['y_initial'].mean() - 0.00005), (ECS_DCMU_P700_df['y_final'].mean() * 1.3))
     plt.plot(x, y1, label='ECS')
     plt.plot(x, y2, label='y_initial')
     plt.plot(x, y3, label='y_final')
@@ -45,7 +45,8 @@ def save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean):
     y2 = ECS_DIRK_data['y_initial']
     y3 = mean * x + ECS_DIRK_data['y_initial'][0]
     y4 = ECS_DIRK_data['amplitude']
-    ax.set_ylim(-0.0008, 0.001)
+    ax.set_xlim(-0.1, 1)
+    ax.set_ylim(-0.001, 0.001)
     plt.plot(x, y1, label='ECS')
     plt.plot(x, y2, label='y_initial')
     plt.plot(x, y3, label='slope')

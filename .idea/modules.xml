@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Spec.iml" filepath="$PROJECT_DIR$/.idea/Spec.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../matrix_data/.idea/matrix_data.iml" filepath="$PROJECT_DIR$/../matrix_data/.idea/matrix_data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spec_scripts.iml" filepath="$PROJECT_DIR$/.idea/spec_scripts.iml" />
     </modules>
   </component>
 </project>
