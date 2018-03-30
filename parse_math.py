@@ -184,8 +184,8 @@ def parse_phi2_fluor(folder):
     flr_data = pd.read_table(folder + flr_filename)
     flr_data.columns = ["Time", "Fluorescence", "Reference", "Delta"]
     flr_data = flr_data[[0, 1]]
-    FvFm_Trace = pd.DataFrame(flr_data[:599])
-    dark_rec_trace = pd.DataFrame(flr_data[600:])
+    FvFm_Trace = pd.DataFrame(flr_data[:1199])
+    dark_rec_trace = pd.DataFrame(flr_data[1200:])
 
     T1 =(FvFm_Trace, phi2_data, dark_rec_trace)
 
