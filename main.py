@@ -26,14 +26,14 @@ root_output = "C:/Users/templejo/Desktop/PBRexp060_PyScript/output/"
 
 all_measurements_types = {
     # type name: [parsing function, calculator function, xlim, ylim]
-    'flr'            : [parse_math.parse_phi2_fluor, parse_math.flr_calculator, None, (0, 4)],
-    'ECS_DIRK'       : [parse_math.parse_ECS_data, parse_math.ECS_rates_calculator, None, (-0.001, 0.001)],
-    'ECS_DCMU_P700'  : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, None, (-0.0008, 0.0012)]
+    'flr'            : [parse_math.parse_phi2_fluor, parse_math.flr_calculator, None, (0, 4), True],
+    'ECS_DIRK'       : [parse_math.parse_ECS_data, parse_math.ECS_rates_calculator, None, (-0.001, 0.001), False],
+    'ECS_DCMU_P700'  : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, None, (-0.0008, 0.0012), False]
 }
 
 all_samples = ["CC-1009", "CC-2343"]
 
-all_timepoints = [0, 1, 3, 6, 12, 24, 48]
+all_timepoints = [1, 3, 6, 12, 24, 48]
 
 all_reps = [1, 2, 3, 4]
 
@@ -48,7 +48,7 @@ for sample in all_samples:
         all_reps_raw_data = {}
         for measurements_type in all_measurements_types.keys():
             all_reps_computed_values[measurements_type] = []
-            all_reps_raw_data[measurements_type] = pd.DataFrame()
+            all_reps_raw_data[measurements_type] = None
 
         for rep in all_reps:
 
@@ -68,7 +68,15 @@ for sample in all_samples:
                 if trace_df is None:
                     continue
 
-                all_reps_raw_data[measurements_type][rep] = trace_df['y_correct']
+                if all_reps_raw_data[measurements_type] is None:
+                    all_reps_raw_data[measurements_type] = pd.DataFrame(index=trace_df['Time'])
+
+                # print(len(trace_df['y_correct']))
+                # print(len(trace_df['Time']))
+                # print(len(all_reps_raw_data[measurements_type].index))
+                print(measurements_type, sample, timepoint, rep, '\n')
+                all_reps_raw_data[measurements_type][rep] = trace_df['y_correct'].values
+
 
                 # compute fm, phi2, etc. for this sample/time/rep
                 calc_function = all_measurements_types[measurements_type][1]
@@ -116,16 +124,16 @@ for sample in all_samples:
 
             plots.save_allreps_plots(averages_output_path_prefix + measurements_type, all_reps_raw_data[measurements_type],
                                      reps_list, xlim=all_measurements_types[measurements_type][2],
-                                     ylim=all_measurements_types[measurements_type][3])
+                                     ylim=all_measurements_types[measurements_type][3],
+                                     ignore_index=all_measurements_types[measurements_type][4])
 
 master_df = parse_math.build_master_df(master_dict, all_samples, all_timepoints, all_measurements_types)
 
 root_master_folder = root_output + '/' + 'master/'
-if not os.path.isdir(root_master_folder):
-    os.makedirs(root_master_folder)
+root_master_plots_folder = root_master_folder + '/' + 'plots/'
 
-if not os.path.isdir(root_master_folder + '/' + 'plots/'):
-    os.makedirs(root_master_folder + '/' + 'plots/')
+if not os.path.isdir(root_master_plots_folder):
+    os.makedirs(root_master_plots_folder)
 
 master_df.to_csv(root_master_folder + '/' + 'master_calc_values.csv')
 

@@ -67,11 +67,13 @@ def save_flr_plot(WholeTrace, DestinationFolder, basename):
     fig.savefig(DestinationFolder + basename + "_" + "flr_plot.png")
     plt.clf()
 
-def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim=None, ylim=None):
+def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim=None, ylim=None, ignore_index=False):
     # plot of average of reps
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(1, 1, 1)
-    ax.errorbar(all_reps_combined_df.index, all_reps_combined_df['average'], all_reps_combined_df['std dev'], ecolor='red')
+    ax.errorbar(
+        range(len(all_reps_combined_df.index)) if ignore_index else all_reps_combined_df.index,
+        all_reps_combined_df['average'], all_reps_combined_df['std dev'], ecolor='red')
     if xlim is not None:
         ax.set_xlim(xlim[0], xlim[1])
     if ylim is not None:
@@ -83,7 +85,9 @@ def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(1, 1, 1)
     for rep in reps_list:
-        ax.plot(all_reps_combined_df[rep], label='rep_' + str(rep))
+        ax.plot(
+            range(len(all_reps_combined_df.index)) if ignore_index else all_reps_combined_df.index,
+            all_reps_combined_df[rep], label='rep_' + str(rep))
     if xlim is not None:
         ax.set_xlim(xlim[0], xlim[1])
     if ylim is not None:
@@ -93,16 +97,34 @@ def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim
     plt.clf()
 
 
-def save_calc_values_plots(master_df, root_master_folder):
+calc_values_dict = {
+    # calc_value: [y_lim]
+    'phi2': (0, None),
+    'NPQ': (0, 1),
+    'qE': (0, 1),
+    'qI': (0, 1),
+    'qL': (0, 1),
+    'qP': (0, 1),
+    'qT': (0, 1)
+}
+
+def save_calc_values_plots(master_df, root_master_plots_folder):
+    missing_calc_values = list(calc_values_dict.keys())
     for col_index in range(2, len(master_df.columns), 2):
-        fig = plt.figure(1, figsize=(10, 6))
-        ax = fig.add_subplot(1, 1, 1)
-        for sample in master_df['sample'].unique():
-            sample_df = master_df[master_df['sample'] == sample]
-            avgs = sample_df.iloc[:,col_index]
-            std_dev = sample_df.iloc[:,col_index+1]
-            timepoint = sample_df['timepoint']
-            ax.errorbar(timepoint, avgs, std_dev, label=sample, marker='o', capsize=3)
-        ax.legend()
-        fig.savefig(root_master_folder + '/' + 'plots' + '/' + master_df.columns[col_index] + '.png')
-        plt.clf()
+        col_name = master_df.columns[col_index][:-4]
+        if col_name in calc_values_dict.keys():
+            missing_calc_values.remove(col_name)
+            fig = plt.figure(1, figsize=(10, 6))
+            ax = fig.add_subplot(1, 1, 1)
+            for sample in master_df['sample'].unique():
+                sample_df = master_df[master_df['sample'] == sample]
+                avgs = sample_df.iloc[:,col_index]
+                std_dev = sample_df.iloc[:,col_index+1]
+                timepoint = sample_df['timepoint']
+                ax.errorbar(timepoint, avgs, std_dev, label=sample, marker='o', capsize=3)
+            ax.set_ylim(calc_values_dict[col_name])
+            ax.legend()
+            fig.savefig(root_master_plots_folder + '/' + col_name + '.png')
+            plt.clf()
+    if len(missing_calc_values) > 0:
+        raise Exception('missing calculated values from calc_values_list: ' + str(missing_calc_values))
