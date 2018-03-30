@@ -40,7 +40,6 @@ def parse_ECS_DCMU_P700_data(folder):
     ECS_DCMU_P700_df['y_final'] = ECS_DCMU_P700_df['y_correct'].iloc[2685:2695].mean(axis=0)
     ECS_DCMU_P700_df['amplitude'] = ECS_DCMU_P700_df['y_final'] - ECS_DCMU_P700_df['y_initial']
 
-    # ECS_DCMU_P700_df.to_csv(DestinationFolder + basename + "_" + 'ECS_DCMU_P700_raw.csv')
     return ECS_DCMU_P700_df
 
 
@@ -62,7 +61,6 @@ def parse_ECS_data(folder):
     ECS_DIRK_data['y_initial'] = ECS_DIRK_data['y_correct'].iloc[240:249].mean(axis=0)
     ECS_DIRK_data['amplitude'] = ECS_DIRK_data['y_correct'].iloc[470:495].mean(axis=0)
 
-    # ECS_DIRK_data.to_csv(DestinationFolder + basename + "_" + "ECS_DIRK_raw.csv")
     return ECS_DIRK_data
 
 
@@ -89,9 +87,6 @@ def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, sample, timepoint, rep, Destinati
     values_dict['amplitude'] =  values_dict['end_trace_mean'] - values_dict['y_initial']
     ECS_DCMU_P700_calc_values_df = pd.DataFrame(values_dict, index=["rep" + str(rep)])
 
-    # mean = ESC_DCMU_P700_slope['Rate'].mean()
-    # std_dev = ESC_DCMU_P700_slope['Rate'].std()
-    # return ECS_DCMU_P700_calc_values_df, ESC_DCMU_P700_slope, mean, std_dev
     return ECS_DCMU_P700_calc_values_df
 
 def ECS_rates_calculator(ECS_DIRK_data, sample, timepoint, rep, DestinationFolder ):
@@ -117,9 +112,6 @@ def ECS_rates_calculator(ECS_DIRK_data, sample, timepoint, rep, DestinationFolde
     values_dict['amplitude'] = values_dict['y_initial'] - values_dict['end_trace_mean']
     ECS_DIRK_calc_values_df = pd.DataFrame(values_dict, index=["rep" + str(rep)])
 
-    # mean = slope_df['Rate'].mean()
-    # std_dev = slope_df['Rate'].std()
-    # return slope_df, ECS_DIRK_calc_values_df, mean, std_dev
     return ECS_DIRK_calc_values_df
 
 
@@ -224,36 +216,6 @@ def flr_calculator(whole_trace, sample, timepoint, rep, DestinationFolder):
     calc_dict["qT"] = (darkrec_FR_2_Fm - darkrec_noFR_3_Fm) / darkrec_noFR_3_Fm
     calc_dict["qP"] = (phi2_Fm - phi2_Fs) / (phi2_Fm - phi2_F0)
     calc_dict['qI'] = (FvFm1_Fm - darkrec_FR_2_Fm) / FvFm1_Fm
-
-
-    # # Values
-    # calc_dict["F0"] = whole_trace.iloc[98][2]
-    # calc_dict["Fm"] = whole_trace['y_correct'].iloc[99:198].quantile(q=0.98)
-    # calc_dict["Fs"] = whole_trace['y_correct'].iloc[687:697].mean(axis=0)
-    # calc_dict["Fm_prime"] = whole_trace['y_correct'].iloc[700:780].quantile(q=0.98)
-    # calc_dict["F0_prime"] = whole_trace['y_correct'].iloc[1187:1197].mean(axis=0)
-    # calc_dict["Fm_prime2"] = whole_trace['y_correct'].iloc[1305:1380].quantile(q=0.98)
-    # calc_dict["Fm_prime4"] = whole_trace['y_correct'].iloc[2500:2580].quantile(q=0.98)
-    # calc_dict["Fm_prime6"] = whole_trace['y_correct'].iloc[3700:3780].quantile(q=0.98)
-    #
-    # F0 = calc_dict["F0"]
-    # Fm = calc_dict["Fm"]
-    # Fs = calc_dict["Fs"]
-    # Fm_prime = calc_dict["Fm_prime"]
-    # F0_prime = calc_dict["F0_prime"]
-    # Fm_prime2 = calc_dict["Fm_prime2"]
-    # Fm_prime4 = calc_dict["Fm_prime4"]
-    # Fm_prime6 = calc_dict["Fm_prime6"]
-    #
-    # # Calculations
-    # calc_dict["Fv"] = Fm - F0
-    # calc_dict["FvFm"] = calc_dict["Fv"] / Fm
-    # calc_dict["NPQ"] = (Fm - Fm_prime) / Fm_prime
-    # calc_dict["qE"] = Fm_prime2 - Fm_prime
-    # calc_dict["qL"] = ((Fm_prime - Fs) / (Fm_prime - F0_prime)) * (F0_prime / Fs)
-    # calc_dict["qT"] = Fm_prime6 - Fm_prime4
-    # calc_dict["qP"] = (Fm_prime - Fs) / (Fm_prime - F0_prime)
-    # calc_dict['qI'] = (Fm - Fm_prime6) / Fm
 
     measurements = pd.DataFrame(calc_dict, index=["rep" + str(rep)])
     return measurements
