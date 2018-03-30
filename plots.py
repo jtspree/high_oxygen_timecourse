@@ -98,7 +98,7 @@ def save_calc_values_plots(master_df, root_master_folder):
         fig = plt.figure(1, figsize=(10, 6))
         ax = fig.add_subplot(1, 1, 1)
         for sample in master_df['sample'].unique():
-            sample_df = master_df[master_df['sample']==sample]
+            sample_df = master_df[master_df['sample'] == sample]
             avgs = sample_df.iloc[:,col_index]
             std_dev = sample_df.iloc[:,col_index+1]
             timepoint = sample_df['timepoint']
