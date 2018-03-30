@@ -21,7 +21,7 @@ import parse_math
 # CODE
 
 
-root_folder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw/"
+root_folder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw_edited/"
 root_output = "C:/Users/templejo/Desktop/PBRexp060_PyScript/output/"
 
 all_measurements_types = {
@@ -123,6 +123,9 @@ master_df = parse_math.build_master_df(master_dict, all_samples, all_timepoints,
 root_master_folder = root_output + '/' + 'master/'
 if not os.path.isdir(root_master_folder):
     os.makedirs(root_master_folder)
+
+if not os.path.isdir(root_master_folder + '/' + 'plots/'):
+    os.makedirs(root_master_folder + '/' + 'plots/')
 
 master_df.to_csv(root_master_folder + '/' + 'master_calc_values.csv')
 

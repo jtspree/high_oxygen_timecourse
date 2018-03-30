@@ -33,7 +33,7 @@ def save_ECS_DCMU_P700_plot(DestinationFolder, basename, ECS_DCMU_P700_df, ECS_D
     plt.plot(x, y3, label='y_final')
     plt.plot(x, y4, label='slope')
     plt.legend()
-    # plt.savefig(DestinationFolder + basename + "_" + 'ECS_DCMU_P700_plot.png')
+    plt.savefig(DestinationFolder + basename + "_" + 'ECS_DCMU_P700_plot.png')
     plt.clf()
 
 # save ECS DIRK plot
@@ -52,7 +52,7 @@ def save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean):
     plt.plot(x, y3, label='slope')
     plt.plot(x, y4, label='amplitude')
     plt.legend()
-    # plt.savefig(DestinationFolder + basename + "_" + "ECS_DIRK_plot.png")
+    plt.savefig(DestinationFolder + basename + "_" + "ECS_DIRK_plot.png")
     plt.clf()
 
 # save plot of flr trace
@@ -64,7 +64,7 @@ def save_flr_plot(WholeTrace, DestinationFolder, basename):
     ax.set_ylim(0, 4)
     ax.set_ylabel("Fluorescence")
     ax.set_xlabel("")
-    # fig.savefig(DestinationFolder + basename + "_" + "flr_plot.png")
+    fig.savefig(DestinationFolder + basename + "_" + "flr_plot.png")
     plt.clf()
 
 def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim=None, ylim=None):
@@ -76,7 +76,7 @@ def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim
         ax.set_xlim(xlim[0], xlim[1])
     if ylim is not None:
         ax.set_ylim(ylim[0], ylim[1])
-    # fig.savefig(output_path_prefix + "_avg_plot.png")
+    fig.savefig(output_path_prefix + "_avg_plot.png")
     plt.clf()
 
     # plot all replicates
@@ -89,7 +89,7 @@ def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim
     if ylim is not None:
         ax.set_ylim(ylim[0], ylim[1])
     ax.legend()
-    # fig.savefig(output_path_prefix + "_all_plot.png")
+    fig.savefig(output_path_prefix + "_all_plot.png")
     plt.clf()
 
 
@@ -104,5 +104,5 @@ def save_calc_values_plots(master_df, root_master_folder):
             timepoint = sample_df['timepoint']
             ax.errorbar(timepoint, avgs, std_dev, label=sample)
         ax.legend()
-        fig.savefig(root_master_folder + '/' + master_df.columns[col_index] + '.png')
+        fig.savefig(root_master_folder + '/' + 'plots' + '/' + master_df.columns[col_index] + '.png')
         plt.clf()
