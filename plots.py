@@ -102,7 +102,7 @@ def save_calc_values_plots(master_df, root_master_folder):
             avgs = sample_df.iloc[:,col_index]
             std_dev = sample_df.iloc[:,col_index+1]
             timepoint = sample_df['timepoint']
-            ax.errorbar(timepoint, avgs, std_dev, label=sample)
+            ax.errorbar(timepoint, avgs, std_dev, label=sample, marker='o', capsize=3)
         ax.legend()
         fig.savefig(root_master_folder + '/' + 'plots' + '/' + master_df.columns[col_index] + '.png')
         plt.clf()
