@@ -125,38 +125,80 @@ def ECS_rates_calculator(ECS_DIRK_data, sample, timepoint, rep, DestinationFolde
 
 def flr_calculator(whole_trace, sample, timepoint, rep, DestinationFolder):
     """
-    calculate F0, Fs, Fm, etc.  Returns a dataframe with one row
+    calculate F0, Fs, Fm, etc.  Returns dataframe with one row
     """
     calc_dict = {}
 
-    # Values
-    calc_dict["F0"] = whole_trace.iloc[98][2]
-    calc_dict["Fm"] = whole_trace['y_correct'].iloc[99:198].quantile(q=0.98)
-    calc_dict["Fs"] = whole_trace['y_correct'].iloc[687:697].mean(axis=0)
-    calc_dict["Fm_prime"] = whole_trace['y_correct'].iloc[700:780].quantile(q=0.98)
-    calc_dict["F0_prime"] = whole_trace['y_correct'].iloc[1187:1197].mean(axis=0)
-    calc_dict["Fm_prime2"] = whole_trace['y_correct'].iloc[1305:1380].quantile(q=0.98)
-    calc_dict["Fm_prime4"] = whole_trace['y_correct'].iloc[2500:2580].quantile(q=0.98)
-    calc_dict["Fm_prime6"] = whole_trace['y_correct'].iloc[3700:3780].quantile(q=0.98)
+    # FvFm1 values
+    calc_dict["FvFm1_F0"] = whole_trace.iloc[98][2]
+    calc_dict["FvFm1_Fm"] = whole_trace['y_correct'].iloc[105:185].quantile(q=0.98)
+    calc_dict["FvFm1_Fs"] = whole_trace['y_correct'].iloc[585:595].mean(axis=0)
 
-    F0 = calc_dict["F0"]
-    Fm = calc_dict["Fm"]
-    Fs = calc_dict["Fs"]
-    Fm_prime = calc_dict["Fm_prime"]
-    F0_prime = calc_dict["F0_prime"]
-    Fm_prime2 = calc_dict["Fm_prime2"]
-    Fm_prime4 = calc_dict["Fm_prime4"]
-    Fm_prime6 = calc_dict["Fm_prime6"]
+    # FvFm2 values
 
-    # Calculations
-    calc_dict["Fv"] = Fm - F0
-    calc_dict["FvFm"] = calc_dict["Fv"] / Fm
-    calc_dict["NPQ"] = (Fm - Fm_prime) / Fm_prime
-    calc_dict["qE"] = Fm_prime2 - Fm_prime
-    calc_dict["qL"] = ((Fm_prime - Fs) / (Fm_prime - F0_prime)) * (F0_prime / Fs)
-    calc_dict["qT"] = Fm_prime6 - Fm_prime4
-    calc_dict["qP"] = (Fm_prime - Fs) / (Fm_prime - F0_prime)
-    calc_dict['qI'] = (Fm - Fm_prime6) / Fm
+    calc_dict["FvFm2_F0"] = whole_trace['y_correct'].iloc[685:695].mean(axis=0)
+    calc_dict["FvFm2_Fm"] = whole_trace['y_correct'].iloc[705:785].quantile(q=0.98)
+    calc_dict["FvFm2_Fs"] = whole_trace['y_correct'].iloc[1185:1195].mean(axis=0)
+
+    # phi2 values
+    calc_dict["phi2_Fs"] = whole_trace['y_correct'].iloc[1288:1298].mean(axis=0)
+    calc_dict["phi2_Fm"] = whole_trace['y_correct'].iloc[1300:1395].quantile(q=0.98)
+    calc_dict["phi2_F0"] = whole_trace['y_correct'].iloc[1785:1795].mean(axis=0)
+
+    # dark recovery, no FR
+    calc_dict["darkrec_noFR_1_F0"] = whole_trace['y_correct'].iloc[1885:1895].mean(axis=0)
+    calc_dict["darkrec_noFR_1_Fm"] = whole_trace['y_correct'].iloc[1905:1985].quantile(q=0.98)
+    calc_dict["darkrec_noFR_1_Fs"] = whole_trace['y_correct'].iloc[2385:2395].mean(axis=0)
+
+    calc_dict["darkrec_noFR_2_F0"] = whole_trace['y_correct'].iloc[2485:2495].mean(axis=0)
+    calc_dict["darkrec_noFR_2_Fm"] = whole_trace['y_correct'].iloc[2505:2585].quantile(q=0.98)
+    calc_dict["darkrec_noFR_2_Fs"] = whole_trace['y_correct'].iloc[2985:2995].mean(axis=0)
+
+    calc_dict["darkrec_noFR_3_F0"] = whole_trace['y_correct'].iloc[3085:3095].mean(axis=0)
+    calc_dict["darkrec_noFR_3_Fm"] = whole_trace['y_correct'].iloc[3105:3185].quantile(q=0.98)
+    calc_dict["darkrec_noFR_3_Fs"] = whole_trace['y_correct'].iloc[3585:3595].mean(axis=0)
+
+    # dark recovery, FR
+    calc_dict["darkrec_FR_1_F0"] = whole_trace['y_correct'].iloc[3685:3695].mean(axis=0)
+    calc_dict["darkrec_FR_1_Fm"] = whole_trace['y_correct'].iloc[3705:3785].quantile(q=0.98)
+    calc_dict["darkrec_FR_1_Fs"] = whole_trace['y_correct'].iloc[4185:4195].mean(axis=0)
+
+    calc_dict["darkrec_FR_2_F0"] = whole_trace['y_correct'].iloc[4285:4295].mean(axis=0)
+    calc_dict["darkrec_FR_2_Fm"] = whole_trace['y_correct'].iloc[4305:4385].quantile(q=0.98)
+    calc_dict["darkrec_FR_2_Fs"] = whole_trace['y_correct'].iloc[4785:4795].mean(axis=0)
+
+    calc_dict["darkrec_FR_3_F0"] = whole_trace['y_correct'].iloc[4885:4895].mean(axis=0)
+    calc_dict["darkrec_FR_3_Fm"] = whole_trace['y_correct'].iloc[4905:4985].quantile(q=0.98)
+    calc_dict["darkrec_FR_3_Fs"] = whole_trace['y_correct'].iloc[5385:5395].mean(axis=0)
+
+    # # Values
+    # calc_dict["F0"] = whole_trace.iloc[98][2]
+    # calc_dict["Fm"] = whole_trace['y_correct'].iloc[99:198].quantile(q=0.98)
+    # calc_dict["Fs"] = whole_trace['y_correct'].iloc[687:697].mean(axis=0)
+    # calc_dict["Fm_prime"] = whole_trace['y_correct'].iloc[700:780].quantile(q=0.98)
+    # calc_dict["F0_prime"] = whole_trace['y_correct'].iloc[1187:1197].mean(axis=0)
+    # calc_dict["Fm_prime2"] = whole_trace['y_correct'].iloc[1305:1380].quantile(q=0.98)
+    # calc_dict["Fm_prime4"] = whole_trace['y_correct'].iloc[2500:2580].quantile(q=0.98)
+    # calc_dict["Fm_prime6"] = whole_trace['y_correct'].iloc[3700:3780].quantile(q=0.98)
+    #
+    # F0 = calc_dict["F0"]
+    # Fm = calc_dict["Fm"]
+    # Fs = calc_dict["Fs"]
+    # Fm_prime = calc_dict["Fm_prime"]
+    # F0_prime = calc_dict["F0_prime"]
+    # Fm_prime2 = calc_dict["Fm_prime2"]
+    # Fm_prime4 = calc_dict["Fm_prime4"]
+    # Fm_prime6 = calc_dict["Fm_prime6"]
+    #
+    # # Calculations
+    # calc_dict["Fv"] = Fm - F0
+    # calc_dict["FvFm"] = calc_dict["Fv"] / Fm
+    # calc_dict["NPQ"] = (Fm - Fm_prime) / Fm_prime
+    # calc_dict["qE"] = Fm_prime2 - Fm_prime
+    # calc_dict["qL"] = ((Fm_prime - Fs) / (Fm_prime - F0_prime)) * (F0_prime / Fs)
+    # calc_dict["qT"] = Fm_prime6 - Fm_prime4
+    # calc_dict["qP"] = (Fm_prime - Fs) / (Fm_prime - F0_prime)
+    # calc_dict['qI'] = (Fm - Fm_prime6) / Fm
 
     measurements = pd.DataFrame(calc_dict, index=["rep" + str(rep)])
     return measurements
