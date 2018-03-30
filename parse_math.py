@@ -160,43 +160,43 @@ def flr_calculator(WholeTrace, sample, timepoint, rep, DestinationFolder):
     measurements = pd.DataFrame(calc_dict, index=["rep" + str(rep)])
     return measurements
 
-Phi2_Filename_Suffix = "vo2_flr_0001.dat"
-Fluor_Filename_Suffix = "flr_0001.dat"
+phi2_filename_suffix = "vo2_flr_0001.dat"
+flr_filename_suffix = "flr_0001.dat"
 def parse_phi2_fluor(folder):
-    Phi2_Filename = None
-    Fluor_Filename = None
+    phi2_filename = None
+    flr_filename = None
     for filename in os.listdir(folder):
-        if filename.endswith(Phi2_Filename_Suffix):
-            Phi2_Filename = filename
-        elif filename.endswith(Fluor_Filename_Suffix):
-            Fluor_Filename = filename
-    if (Phi2_Filename is None):
+        if filename.endswith(phi2_filename_suffix):
+            phi2_filename = filename
+        elif filename.endswith(flr_filename_suffix):
+            flr_filename = filename
+    if (phi2_filename is None):
         print("No phi2 file for " + folder)
         return None
-    if (Fluor_Filename is None):
+    if (flr_filename is None):
         print("No fluorescence file for " + folder)
         return None
-    Phi2_data =  pd.read_table(folder + Phi2_Filename)
-    Phi2_data.columns = ["Time", "Fluorescence", "Reference", "Delta"]
-    Phi2_data = Phi2_data[[0, 1]]
+    phi2_data =  pd.read_table(folder + phi2_filename)
+    phi2_data.columns = ["Time", "Fluorescence", "Reference", "Delta"]
+    phi2_data = phi2_data[[0, 1]]
 
-    Fluor_data = pd.read_table(folder + Fluor_Filename)
+    Fluor_data = pd.read_table(folder + flr_filename)
     Fluor_data.columns = ["Time", "Fluorescence", "Reference", "Delta"]
     Fluor_data = Fluor_data[[0, 1]]
     FvFm_Trace = pd.DataFrame(Fluor_data[:599])
     DarkRec_Trace = pd.DataFrame(Fluor_data[600:])
 
-    T1 =(FvFm_Trace, Phi2_data, DarkRec_Trace)
+    T1 =(FvFm_Trace, phi2_data, DarkRec_Trace)
 
-    WholeTrace = pd.concat(T1)
-    WholeTrace.reset_index(WholeTrace, inplace=True, drop=True)
+    whole_trace = pd.concat(T1)
+    whole_trace.reset_index(whole_trace, inplace=True, drop=True)
 
-    BaseLineCor = (WholeTrace['Fluorescence'] - 0.127)
+    BaseLineCor = (whole_trace['Fluorescence'] - 0.127)
     Norm_Val = BaseLineCor[90:98].mean(axis=0)
     NormFluor = BaseLineCor / Norm_Val
-    WholeTrace['NormFluor'] = NormFluor
-    WholeTrace['y_correct'] = WholeTrace['NormFluor']
-    return WholeTrace
+    whole_trace['NormFluor'] = NormFluor
+    whole_trace['y_correct'] = whole_trace['NormFluor']
+    return whole_trace
 
 def get_path(rootFolder, sample, timepoint, rep):
     rel_path = sample + "/" + "hr" + str(timepoint) + "/" + "rep" + str(rep) + "/"
