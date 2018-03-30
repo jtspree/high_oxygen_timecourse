@@ -12,14 +12,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.72617614">
+    <splitter split-orientation="horizontal" split-proportion="0.5651387">
       <split-first>
         <leaf>
           <file leaf-file-name="parse_math.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/parse_math.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="280">
-                  <caret line="140" column="81" lean-forward="true" selection-start-line="140" selection-start-column="81" selection-end-line="140" selection-end-column="81" />
+                <state relative-caret-position="2587">
+                  <caret line="227" lean-forward="true" selection-start-line="227" selection-end-line="227" />
                   <folding>
                     <element signature="e#0#141#1" />
                   </folding>
@@ -46,8 +46,8 @@
           <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="482">
-                  <caret line="122" column="48" selection-start-line="122" selection-start-column="48" selection-end-line="122" selection-end-column="48" />
+                <state relative-caret-position="422">
+                  <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
                   <folding>
                     <element signature="e#0#195#1" />
                     <element signature="e#208#227#0" expanded="true" />
@@ -215,23 +215,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/parse_math.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="122" column="48" selection-start-line="122" selection-start-column="48" selection-end-line="122" selection-end-column="48" />
+        <state relative-caret-position="2587">
+          <caret line="227" lean-forward="true" selection-start-line="227" selection-end-line="227" />
           <folding>
-            <element signature="e#0#195#1" />
-            <element signature="e#208#227#0" expanded="true" />
+            <element signature="e#0#141#1" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parse_math.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="140" column="81" lean-forward="true" selection-start-line="140" selection-start-column="81" selection-end-line="140" selection-end-column="81" />
+        <state relative-caret-position="422">
+          <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
           <folding>
-            <element signature="e#0#141#1" />
+            <element signature="e#0#195#1" />
+            <element signature="e#208#227#0" expanded="true" />
           </folding>
         </state>
       </provider>

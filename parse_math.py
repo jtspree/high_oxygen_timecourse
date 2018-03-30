@@ -135,7 +135,6 @@ def flr_calculator(whole_trace, sample, timepoint, rep, DestinationFolder):
     calc_dict["FvFm1_Fs"] = whole_trace['y_correct'].iloc[585:595].mean(axis=0)
 
     # FvFm2 values
-
     calc_dict["FvFm2_F0"] = whole_trace['y_correct'].iloc[685:695].mean(axis=0)
     calc_dict["FvFm2_Fm"] = whole_trace['y_correct'].iloc[705:785].quantile(q=0.98)
     calc_dict["FvFm2_Fs"] = whole_trace['y_correct'].iloc[1185:1195].mean(axis=0)
@@ -170,6 +169,62 @@ def flr_calculator(whole_trace, sample, timepoint, rep, DestinationFolder):
     calc_dict["darkrec_FR_3_F0"] = whole_trace['y_correct'].iloc[4885:4895].mean(axis=0)
     calc_dict["darkrec_FR_3_Fm"] = whole_trace['y_correct'].iloc[4905:4985].quantile(q=0.98)
     calc_dict["darkrec_FR_3_Fs"] = whole_trace['y_correct'].iloc[5385:5395].mean(axis=0)
+
+    # calc_dict to use variables
+
+    # FvFm1 values
+    FvFm1_F0 = calc_dict["FvFm1_F0"]
+    FvFm1_Fm = calc_dict["FvFm1_Fm"]
+    FvFm1_Fs = calc_dict["FvFm1_Fs"]
+
+    # FvFm2 values
+    FvFm2_F0 = calc_dict["FvFm2_F0"]
+    FvFm2_Fm = calc_dict["FvFm2_Fm"]
+    FvFm2_Fs = calc_dict["FvFm2_Fs"]
+
+    # phi2 values
+    phi2_Fs = calc_dict["phi2_Fs"]
+    phi2_Fm = calc_dict["phi2_Fm"]
+    phi2_F0 = calc_dict["phi2_F0"]
+
+    # dark recovery, no FR
+    darkrec_noFR_1_F0 = calc_dict["darkrec_noFR_1_F0"]
+    darkrec_noFR_1_Fm = calc_dict["darkrec_noFR_1_Fm"]
+    darkrec_noFR_1_Fs = calc_dict["darkrec_noFR_1_Fs"]
+
+    darkrec_noFR_2_F0 = calc_dict["darkrec_noFR_2_F0"]
+    darkrec_noFR_2_Fm = calc_dict["darkrec_noFR_2_Fm"]
+    darkrec_noFR_2_Fs = calc_dict["darkrec_noFR_2_Fs"]
+
+    darkrec_noFR_3_F0 = calc_dict["darkrec_noFR_3_F0"]
+    darkrec_noFR_3_Fm = calc_dict["darkrec_noFR_3_Fm"]
+    darkrec_noFR_3_Fs = calc_dict["darkrec_noFR_3_Fs"]
+
+    # dark recovery, FR
+    darkrec_FR_1_F0 = calc_dict["darkrec_FR_1_F0"]
+    darkrec_FR_1_Fm = calc_dict["darkrec_FR_1_Fm"]
+    darkrec_FR_1_Fs = calc_dict["darkrec_FR_1_Fs"]
+
+    darkrec_FR_2_F0 = calc_dict["darkrec_FR_2_F0"]
+    darkrec_FR_2_Fm = calc_dict["darkrec_FR_2_Fm"]
+    darkrec_FR_2_Fs = calc_dict["darkrec_FR_2_Fs"]
+
+    darkrec_FR_3_F0 = calc_dict["darkrec_FR_3_F0"]
+    darkrec_FR_3_Fm = calc_dict["darkrec_FR_3_Fm"]
+    darkrec_FR_3_Fs = calc_dict["darkrec_FR_3_Fs"]
+
+    # calculations
+
+    calc_dict["Fv"] = FvFm1_Fm - FvFm1_F0
+    calc_dict["FvFm"] = calc_dict["Fv"] / FvFm1_Fm
+    calc_dict['phi2'] = (phi2_Fm - phi2_Fs) / phi2_Fm
+    calc_dict["NPQ"] = (FvFm1_Fm - phi2_Fm) / phi2_Fm
+    calc_dict["qE"] = darkrec_noFR_1_Fm - phi2_Fm
+    calc_dict["qL"] = ((phi2_Fm - phi2_Fs) / (phi2_Fm - phi2_F0)) * (phi2_F0 / phi2_Fs)
+    calc_dict["qT"] = (darkrec_FR_2_Fm - darkrec_noFR_3_Fm) / darkrec_noFR_3_Fm
+    calc_dict["qP"] = (phi2_Fm - phi2_Fs) / (phi2_Fm - phi2_F0)
+    calc_dict['qI'] = (FvFm1_Fm - darkrec_FR_2_Fm) / FvFm1_Fm
+
 
     # # Values
     # calc_dict["F0"] = whole_trace.iloc[98][2]
