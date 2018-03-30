@@ -123,21 +123,21 @@ def ECS_rates_calculator(ECS_DIRK_data, sample, timepoint, rep, DestinationFolde
     return ECS_DIRK_calc_values_df
 
 
-def flr_calculator(WholeTrace, sample, timepoint, rep, DestinationFolder):
+def flr_calculator(whole_trace, sample, timepoint, rep, DestinationFolder):
     """
     calculate F0, Fs, Fm, etc.  Returns a dataframe with one row
     """
     calc_dict = {}
 
     # Values
-    calc_dict["F0"] = WholeTrace.iloc[98][2]
-    calc_dict["Fm"] = WholeTrace['NormFluor'].iloc[99:198].quantile(q=0.98)
-    calc_dict["Fs"] = WholeTrace['NormFluor'].iloc[687:697].mean(axis=0)
-    calc_dict["Fm_prime"] = WholeTrace['NormFluor'].iloc[700:780].quantile(q=0.98)
-    calc_dict["F0_prime"] = WholeTrace['NormFluor'].iloc[1187:1197].mean(axis=0)
-    calc_dict["Fm_prime2"] = WholeTrace['NormFluor'].iloc[1305:1380].quantile(q=0.98)
-    calc_dict["Fm_prime4"] = WholeTrace['NormFluor'].iloc[2500:2580].quantile(q=0.98)
-    calc_dict["Fm_prime6"] = WholeTrace['NormFluor'].iloc[3700:3780].quantile(q=0.98)
+    calc_dict["F0"] = whole_trace.iloc[98][2]
+    calc_dict["Fm"] = whole_trace['y_correct'].iloc[99:198].quantile(q=0.98)
+    calc_dict["Fs"] = whole_trace['y_correct'].iloc[687:697].mean(axis=0)
+    calc_dict["Fm_prime"] = whole_trace['y_correct'].iloc[700:780].quantile(q=0.98)
+    calc_dict["F0_prime"] = whole_trace['y_correct'].iloc[1187:1197].mean(axis=0)
+    calc_dict["Fm_prime2"] = whole_trace['y_correct'].iloc[1305:1380].quantile(q=0.98)
+    calc_dict["Fm_prime4"] = whole_trace['y_correct'].iloc[2500:2580].quantile(q=0.98)
+    calc_dict["Fm_prime6"] = whole_trace['y_correct'].iloc[3700:3780].quantile(q=0.98)
 
     F0 = calc_dict["F0"]
     Fm = calc_dict["Fm"]
@@ -156,6 +156,7 @@ def flr_calculator(WholeTrace, sample, timepoint, rep, DestinationFolder):
     calc_dict["qL"] = ((Fm_prime - Fs) / (Fm_prime - F0_prime)) * (F0_prime / Fs)
     calc_dict["qT"] = Fm_prime6 - Fm_prime4
     calc_dict["qP"] = (Fm_prime - Fs) / (Fm_prime - F0_prime)
+    calc_dict['qI'] = (Fm - Fm_prime6) / Fm
 
     measurements = pd.DataFrame(calc_dict, index=["rep" + str(rep)])
     return measurements
@@ -176,26 +177,25 @@ def parse_phi2_fluor(folder):
     if (flr_filename is None):
         print("No fluorescence file for " + folder)
         return None
-    phi2_data =  pd.read_table(folder + phi2_filename)
+    phi2_data = pd.read_table(folder + phi2_filename)
     phi2_data.columns = ["Time", "Fluorescence", "Reference", "Delta"]
     phi2_data = phi2_data[[0, 1]]
 
-    Fluor_data = pd.read_table(folder + flr_filename)
-    Fluor_data.columns = ["Time", "Fluorescence", "Reference", "Delta"]
-    Fluor_data = Fluor_data[[0, 1]]
-    FvFm_Trace = pd.DataFrame(Fluor_data[:599])
-    DarkRec_Trace = pd.DataFrame(Fluor_data[600:])
+    flr_data = pd.read_table(folder + flr_filename)
+    flr_data.columns = ["Time", "Fluorescence", "Reference", "Delta"]
+    flr_data = flr_data[[0, 1]]
+    FvFm_Trace = pd.DataFrame(flr_data[:599])
+    dark_rec_trace = pd.DataFrame(flr_data[600:])
 
-    T1 =(FvFm_Trace, phi2_data, DarkRec_Trace)
+    T1 =(FvFm_Trace, phi2_data, dark_rec_trace)
 
     whole_trace = pd.concat(T1)
     whole_trace.reset_index(whole_trace, inplace=True, drop=True)
 
-    BaseLineCor = (whole_trace['Fluorescence'] - 0.127)
-    Norm_Val = BaseLineCor[90:98].mean(axis=0)
-    NormFluor = BaseLineCor / Norm_Val
-    whole_trace['NormFluor'] = NormFluor
-    whole_trace['y_correct'] = whole_trace['NormFluor']
+    baseline_correction = (whole_trace['Fluorescence'] - 0.127)
+    norm_value = baseline_correction[90:98].mean(axis=0)
+    flr_norm = baseline_correction / norm_value
+    whole_trace['y_correct'] = flr_norm
     return whole_trace
 
 def get_path(rootFolder, sample, timepoint, rep):
