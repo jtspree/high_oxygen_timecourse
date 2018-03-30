@@ -57,7 +57,7 @@ def parse_ECS_data(folder):
     ECS_DIRK_data = ECS_DIRK_data[[0, 3]]
     ECS_DIRK_data = pd.DataFrame(ECS_DIRK_data)
     ECS_DIRK_data['x_correct'] = ECS_DIRK_data['Time'] - ECS_DIRK_data['Time'][249]
-    ECS_DIRK_data['y_correct'] = ECS_DIRK_data['Delta'] - ECS_DIRK_data['Delta'][249]
+    ECS_DIRK_data['y_correct'] = ECS_DIRK_data['Delta'] - ECS_DIRK_data['Delta'][240:249].mean(axis=0)
     ECS_DIRK_data['y_initial'] = ECS_DIRK_data['y_correct'].iloc[240:249].mean(axis=0)
     ECS_DIRK_data['amplitude'] = ECS_DIRK_data['y_correct'].iloc[470:495].mean(axis=0)
 
