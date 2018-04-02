@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0690640e-6b11-4953-aae5-86304585ce66" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse_math.py" beforeDir="false" afterPath="$PROJECT_DIR$/parse_math.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/plots.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,8 +30,8 @@
           <file leaf-file-name="plots.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/plots.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="453">
-                  <caret line="130" column="53" lean-forward="true" selection-start-line="130" selection-start-column="53" selection-end-line="130" selection-end-column="53" />
+                <state relative-caret-position="353">
+                  <caret line="133" column="54" selection-start-line="133" selection-start-column="54" selection-end-line="133" selection-end-column="54" />
                   <folding>
                     <element signature="e#0#140#1" />
                   </folding>
@@ -48,8 +46,8 @@
           <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="423">
-                  <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+                <state relative-caret-position="443">
+                  <caret line="139" column="34" selection-start-line="139" selection-start-column="34" selection-end-line="139" selection-end-column="34" />
                   <folding>
                     <element signature="e#0#195#1" />
                     <element signature="e#208#227#0" expanded="true" />
@@ -261,8 +259,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plots.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="130" column="53" lean-forward="true" selection-start-line="130" selection-start-column="53" selection-end-line="130" selection-end-column="53" />
+        <state relative-caret-position="353">
+          <caret line="133" column="54" selection-start-line="133" selection-start-column="54" selection-end-line="133" selection-end-column="54" />
           <folding>
             <element signature="e#0#140#1" />
           </folding>
@@ -271,8 +269,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+        <state relative-caret-position="443">
+          <caret line="139" column="34" selection-start-line="139" selection-start-column="34" selection-end-line="139" selection-end-column="34" />
           <folding>
             <element signature="e#0#195#1" />
             <element signature="e#208#227#0" expanded="true" />

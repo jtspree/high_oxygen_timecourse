@@ -137,4 +137,4 @@ if not os.path.isdir(root_master_plots_folder):
 
 master_df.to_csv(root_master_folder + '/' + 'master_calc_values.csv')
 
-plots.save_calc_values_plots(master_df, root_master_folder)
+plots.save_calc_values_plots(master_df, root_master_plots_folder)
