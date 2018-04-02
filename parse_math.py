@@ -84,7 +84,7 @@ def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, sample, timepoint, rep, Destinati
     values_dict['end_trace_mean'] = ECS_DCMU_P700_df['y_correct'].iloc[2685:2695].mean(axis=0)
     values_dict['end_trace_std_dev'] = ECS_DCMU_P700_df['y_correct'].iloc[2685:2695].std(axis=0)
     values_dict['y_initial'] = ECS_DCMU_P700_df['y_correct'].iloc[2490:2499].mean(axis=0)
-    values_dict['amplitude'] =  values_dict['end_trace_mean'] - values_dict['y_initial']
+    values_dict['ECS_DCMU_P700_amplitude'] =  values_dict['end_trace_mean'] - values_dict['y_initial']
     ECS_DCMU_P700_calc_values_df = pd.DataFrame(values_dict, index=["rep" + str(rep)])
 
     return ECS_DCMU_P700_calc_values_df
@@ -109,7 +109,7 @@ def ECS_rates_calculator(ECS_DIRK_data, sample, timepoint, rep, DestinationFolde
     values_dict['end_trace_mean'] = ECS_DIRK_data['y_correct'].iloc[470:495].mean(axis=0)
     values_dict['end_trace_std_dev'] = ECS_DIRK_data['y_correct'].iloc[470:495].std(axis=0)
     values_dict['y_initial'] = ECS_DIRK_data['y_correct'].iloc[240:249].mean(axis=0)
-    values_dict['amplitude'] = values_dict['y_initial'] - values_dict['end_trace_mean']
+    values_dict['ECS_DIRK_amplitude'] = values_dict['y_initial'] - values_dict['end_trace_mean']
     ECS_DIRK_calc_values_df = pd.DataFrame(values_dict, index=["rep" + str(rep)])
 
     return ECS_DIRK_calc_values_df
