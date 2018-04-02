@@ -99,6 +99,7 @@ def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim
 
 calc_values_dict = {
     # calc_value: [y_lim]
+    'FvFm': (0, 1),
     'phi2': (0, None),
     'NPQ': (0, 1),
     'qE': (0, 1),
