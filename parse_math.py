@@ -79,7 +79,7 @@ def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, sample, timepoint, rep, Destinati
     ESC_DCMU_P700_slope.to_csv(DestinationFolder + '/{0}_hr{1}_rep{2}_ECS_DCMU_P700_slopes.csv'.format(sample, timepoint, rep))
 
     values_dict = {}
-    values_dict['rates_mean'] = ESC_DCMU_P700_slope['rate'].mean()
+    values_dict['ECS_DCMU_P700_rates_mean'] = ESC_DCMU_P700_slope['rate'].mean()
     values_dict['rates_std_dev'] = ESC_DCMU_P700_slope['rate'].std()
     values_dict['end_trace_mean'] = ECS_DCMU_P700_df['y_correct'].iloc[2685:2695].mean(axis=0)
     values_dict['end_trace_std_dev'] = ECS_DCMU_P700_df['y_correct'].iloc[2685:2695].std(axis=0)
@@ -104,7 +104,7 @@ def ECS_rates_calculator(ECS_DIRK_data, sample, timepoint, rep, DestinationFolde
 
 
     values_dict = {}
-    values_dict['rates_mean'] = slope_df['Rate'].mean()
+    values_dict['ECS_DIRK_rates_mean'] = slope_df['Rate'].mean()
     values_dict['rates_std_dev'] = slope_df['Rate'].std()
     values_dict['end_trace_mean'] = ECS_DIRK_data['y_correct'].iloc[470:495].mean(axis=0)
     values_dict['end_trace_std_dev'] = ECS_DIRK_data['y_correct'].iloc[470:495].std(axis=0)

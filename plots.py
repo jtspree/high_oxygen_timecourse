@@ -108,7 +108,9 @@ calc_values_dict = {
     'qP': (0, 1),
     'qT': (0, 1),
     'ECS_DIRK_amplitude': (0, None),
-    'ECS_DCMU_P700_amplitude': (0, None)
+    'ECS_DIRK_rates_mean': (None, None),
+    'ECS_DCMU_P700_amplitude': (0, None),
+    'ECS_DCMU_P700_rates_mean': (None, None)
 }
 
 def save_calc_values_plots(master_df, root_master_plots_folder):
@@ -125,6 +127,8 @@ def save_calc_values_plots(master_df, root_master_plots_folder):
                 std_dev = sample_df.iloc[:,col_index+1]
                 timepoint = sample_df['timepoint']
                 ax.errorbar(timepoint, avgs, std_dev, label=sample, marker='o', capsize=3)
+            ax.set_xlabel('Timepoint (hours)', fontsize=14)
+            ax.set_ylabel('Fluorscence', fontsize=14)
             ax.set_ylim(calc_values_dict[col_name])
             ax.legend()
             fig.savefig(root_master_plots_folder + '/' + col_name + '.png')

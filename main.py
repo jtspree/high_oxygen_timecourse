@@ -74,7 +74,7 @@ for sample in all_samples:
                 # print(len(trace_df['y_correct']))
                 # print(len(trace_df['Time']))
                 # print(len(all_reps_raw_data[measurements_type].index))
-                print(measurements_type, sample, timepoint, rep, '\n')
+                print(measurements_type, sample, timepoint, rep)
                 all_reps_raw_data[measurements_type][rep] = trace_df['y_correct'].values
 
 
@@ -86,10 +86,10 @@ for sample in all_samples:
                 if measurements_type == 'flr':
                     plots.save_flr_plot(trace_df, DestinationFolder, basename)
                 if measurements_type == 'ECS_DIRK':
-                    mean = calc_values_df['rates_mean'].values[0]
+                    mean = calc_values_df['ECS_DIRK_rates_mean'].values[0]
                     plots.save_ECS_DIRK_plot(DestinationFolder, basename, trace_df, mean)
                 if measurements_type == 'ECS_DCMU_P700':
-                    ECS_DCMU_P700_mean = calc_values_df['rates_mean'].values[0]
+                    ECS_DCMU_P700_mean = calc_values_df['ECS_DCMU_P700_rates_mean'].values[0]
                     plots.save_ECS_DCMU_P700_plot(DestinationFolder, basename, trace_df, ECS_DCMU_P700_mean)
 
 
