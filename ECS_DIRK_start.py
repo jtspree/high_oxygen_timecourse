@@ -48,7 +48,7 @@ def parse_ECS_DIRK_start_data(folder):
 
 def ECS_DIRK_start_rates_calc(ECS_DIRK_start_df, sample, timepoint, rep, DestinationFolder):
     ECS_DIRK_start_slope = pd.DataFrame(columns=['x_initial', 'x_final', 'y_initial', 'y_final'])
-    for x in range(5, 10):
+    for x in range(2, 7):
         rates_dict = {}
         rates_dict['x_initial'] = ECS_DIRK_start_df['x_correct'][499]
         rates_dict['x_final'] = ECS_DIRK_start_df['x_correct'][499 + x]
