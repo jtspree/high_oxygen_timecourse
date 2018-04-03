@@ -1,5 +1,12 @@
 """
+INFO
 
+Created by Joshua Temple
+Assistance from Oliver Tessmer
+
+Created 2018-04-03
+
+#jtspree
 """
 
 # LIBRARY
@@ -26,7 +33,6 @@ box_plot_dict = {
     'light': ['yellow', '1000', 'black'] ,
     'far_red': ['red', 'FR', 'white']
 }
-
 # box plot order and start positions
 # must use box_plot_dictkeys
 box_order = ['dark', 'light','dark', 'far_red']
