@@ -23,7 +23,7 @@ import ECS_DIRK_start
 # CODE
 
 
-root_folder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw_edited/"
+root_folder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw_edited_test/"
 root_output = "C:/Users/templejo/Desktop/PBRexp060_PyScript/output/"
 
 all_measurements_types = {
@@ -35,7 +35,7 @@ all_measurements_types = {
 
 all_samples = ["CC-1009", "CC-2343"]
 
-all_timepoints = [1, 3, 6, 12, 24, 48]
+all_timepoints = [1, 3]
 
 all_reps = [1, 2, 3, 4]
 
