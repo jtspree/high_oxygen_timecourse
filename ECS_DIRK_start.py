@@ -70,3 +70,22 @@ def ECS_DIRK_start_rates_calc(ECS_DIRK_start_df, sample, timepoint, rep, Destina
     ECS_DIRK_start_calc_values_df = pd.DataFrame(values_dict, index=["rep" + str(rep)])
 
     return ECS_DIRK_start_calc_values_df
+
+
+def save_ECS_DIRK_start_plot(DestinationFolder, basename, ECS_DIRK_start_df, ECS_DIRK_start_mean):
+    fig = plt.figure(1, figsize=(10, 6))
+    ax = fig.add_subplot(1, 1, 1)
+    x = ECS_DIRK_start_df['x_correct']
+    y1 = ECS_DIRK_start_df['y_correct']
+    y2 = ECS_DIRK_start_df['y_initial']
+    y3 = ECS_DIRK_start_df['y_final']
+    y4 = ECS_DIRK_start_mean * x + ECS_DIRK_start_df['y_initial'][0]
+    ax.set_xlim(-0.5, 4)
+    ax.set_ylim(-0.001, .0002)
+    plt.plot(x, y1, label='ECS')
+    plt.plot(x, y2, label='y_initial')
+    plt.plot(x, y3, label='y_final')
+    plt.plot(x, y4, label='slope')
+    plt.legend()
+    plt.savefig(DestinationFolder + basename + "_" + 'ECS_DIRK_start_plot.png')
+    plt.clf()

@@ -31,7 +31,7 @@ all_measurements_types = {
     'flr'            : [parse_math.parse_phi2_fluor, parse_math.flr_calculator, None, (0, 4), True],
     'ECS_DIRK'       : [parse_math.parse_ECS_data, parse_math.ECS_rates_calculator, None, (-0.001, 0.001), False],
     'ECS_DCMU_P700'  : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, None, (-0.0008, 0.0012), False],
-    'ECS_DIRK_start' : [ECS_DIRK_start.parse_ECS_DIRK_start_data, ECS_DIRK_start.ECS_DIRK_start_rates_calc, None, (None, None), False]
+    'ECS_DIRK_start' : [ECS_DIRK_start.parse_ECS_DIRK_start_data, ECS_DIRK_start.ECS_DIRK_start_rates_calc, None, (None, 0.0002), False]
 }
 
 all_samples = ["CC-1009", "CC-2343"]
@@ -94,6 +94,10 @@ for sample in all_samples:
                 if measurements_type == 'ECS_DCMU_P700':
                     ECS_DCMU_P700_mean = calc_values_df['ECS_DCMU_P700_rates_mean'].values[0]
                     plots.save_ECS_DCMU_P700_plot(DestinationFolder, basename, trace_df, ECS_DCMU_P700_mean)
+                if measurements_type == 'ECS_DIRK_start':
+                    ECS_DIRK_start_mean = calc_values_df['ECS_DIRK_start_rate_mean'].values[0]
+                    ECS_DIRK_start.save_ECS_DIRK_start_plot(
+                        DestinationFolder, basename, trace_df, ECS_DIRK_start_mean)
 
 
                 # append the computed values to the dictionary that will contain all the reps for this sample/time
