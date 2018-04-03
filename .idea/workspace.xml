@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0690640e-6b11-4953-aae5-86304585ce66" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/ECS_DIRK_start.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ECS_DIRK_start.py" beforeDir="false" afterPath="$PROJECT_DIR$/ECS_DIRK_start.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,8 +18,8 @@
           <file leaf-file-name="parse_math.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/parse_math.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="77">
-                  <caret line="15" selection-start-line="15" selection-end-line="16" selection-end-column="9" />
+                <state relative-caret-position="320">
+                  <caret line="42" column="27" lean-forward="true" selection-start-line="20" selection-end-line="42" selection-end-column="27" />
                   <folding>
                     <element signature="e#0#141#1" />
                     <element signature="e#154#173#0" expanded="true" />
@@ -57,8 +56,8 @@
           <file leaf-file-name="ECS_DIRK_start.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ECS_DIRK_start.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="200">
-                  <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+                <state relative-caret-position="260">
+                  <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
                   <folding>
                     <element signature="e#0#16#2" />
                     <element signature="e#161#180#0" expanded="true" />
@@ -112,8 +111,8 @@
         <option value="$PROJECT_DIR$/plots.py" />
         <option value="$PROJECT_DIR$/parse_math.py" />
         <option value="$PROJECT_DIR$/plot_meas_values.py" />
-        <option value="$PROJECT_DIR$/ECS_DIRK_start.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/ECS_DIRK_start.py" />
       </list>
     </option>
   </component>
@@ -203,7 +202,7 @@
     <frame x="1672" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1459431" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1459431" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32995495" />
       <window_info anchor="bottom" id="Version Control" order="7" />
@@ -289,17 +288,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parse_math.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="15" selection-start-line="15" selection-end-line="16" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#141#1" />
-            <element signature="e#154#173#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -332,10 +320,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/parse_math.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="42" column="27" lean-forward="true" selection-start-line="20" selection-end-line="42" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#141#1" />
+            <element signature="e#154#173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ECS_DIRK_start.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="260">
+          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
           <folding>
             <element signature="e#0#16#2" />
             <element signature="e#161#180#0" expanded="true" />
