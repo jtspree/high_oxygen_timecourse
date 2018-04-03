@@ -44,3 +44,29 @@ def parse_ECS_DIRK_start_data(folder):
     ECS_DIRK_start_df['amplitude'] = (ECS_DIRK_start_df['y_final'] - ECS_DIRK_start_df['y_initial']).abs()
 
     return ECS_DIRK_start_df
+
+
+def ECS_DIRK_start_rates_calc(ECS_DIRK_start_df, sample, timepoint, rep, DestinationFolder):
+    ECS_DIRK_start_slope = pd.DataFrame(columns=['x_initial', 'x_final', 'y_initial', 'y_final'])
+    for x in range(5, 10):
+        rates_dict = {}
+        rates_dict['x_initial'] = ECS_DIRK_start_df['x_correct'][499]
+        rates_dict['x_final'] = ECS_DIRK_start_df['x_correct'][499 + x]
+        rates_dict['y_initial'] = ECS_DIRK_start_df['y_correct'].iloc[479:499].mean(axis=0)
+        rates_dict['y_final'] = ECS_DIRK_start_df['y_correct'].iloc[499 + x]
+        ECS_DIRK_start_slope = ECS_DIRK_start_slope.append(rates_dict, ignore_index=True)
+
+    ECS_DIRK_start_slope['rate'] = ((ECS_DIRK_start_slope['y_final'] - ECS_DIRK_start_slope['y_initial'])
+                                / (ECS_DIRK_start_slope['x_final'] - ECS_DIRK_start_slope['x_initial']))
+    ECS_DIRK_start_slope.to_csv(DestinationFolder + '/{0}_hr{1}_rep{2}_ECS_DIRK_start_slopes.csv'.format(sample, timepoint, rep))
+
+    values_dict = {}
+    values_dict['ECS_DIRK_start_rate_mean'] = ECS_DIRK_start_slope['rate'].mean()
+    values_dict['ECS_DIRK_start_rate_std_dev'] = ECS_DIRK_start_slope['rate'].std()
+    values_dict['end_trace_mean'] = ECS_DIRK_start_df['y_correct'].iloc[479:499].mean(axis=0)
+    values_dict['end_trace_std_dev'] = ECS_DIRK_start_df['y_correct'].iloc[479:499].std(axis=0)
+    values_dict['y_initial'] = ECS_DIRK_start_df['y_correct'].iloc[479:499].mean(axis=0)
+    values_dict['ECS_DIRK_start_amplitude'] = values_dict['y_initial'] - values_dict['end_trace_mean']
+    ECS_DIRK_start_calc_values_df = pd.DataFrame(values_dict, index=["rep" + str(rep)])
+
+    return ECS_DIRK_start_calc_values_df

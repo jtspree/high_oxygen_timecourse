@@ -27,10 +27,11 @@ root_folder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw_edited_
 root_output = "C:/Users/templejo/Desktop/PBRexp060_PyScript/output/"
 
 all_measurements_types = {
-    # type name: [parsing function, calculator function, xlim, ylim]
+    # type name: [parsing function, calculator function, xlim, ylim, ignore_index]
     'flr'            : [parse_math.parse_phi2_fluor, parse_math.flr_calculator, None, (0, 4), True],
     'ECS_DIRK'       : [parse_math.parse_ECS_data, parse_math.ECS_rates_calculator, None, (-0.001, 0.001), False],
-    'ECS_DCMU_P700'  : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, None, (-0.0008, 0.0012), False]
+    'ECS_DCMU_P700'  : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, None, (-0.0008, 0.0012), False],
+    'ECS_DIRK_start' : [ECS_DIRK_start.parse_ECS_DIRK_start_data, ECS_DIRK_start.ECS_DIRK_start_rates_calc, None, (None, None), False]
 }
 
 all_samples = ["CC-1009", "CC-2343"]
