@@ -17,6 +17,7 @@ import pandas as pd
 import os
 import plots
 import parse_math
+import plot_meas_values
 
 # CODE
 
@@ -138,3 +139,6 @@ if not os.path.isdir(root_master_plots_folder):
 master_df.to_csv(root_master_folder + '/' + 'master_calc_values.csv')
 
 plots.save_calc_values_plots(master_df, root_master_plots_folder)
+
+plot_meas_values.save_flr_measurement_plot(master_df, root_master_folder,
+                        figure_rows=all_timepoints, figure_columns=all_samples)
