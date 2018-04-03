@@ -46,7 +46,7 @@ measurement_suffix = ['F0', 'Fm', 'Fs']
 def save_flr_measurement_plot(master_df, root_master_folder, figure_rows, figure_columns):
     fig = plt.figure()
     fig.set_figwidth(6)
-    fig.set_figheight(16)
+    fig.set_figheight(12)
 
     i = 1
     for timepoint in figure_rows:
@@ -105,5 +105,5 @@ def save_flr_measurement_plot(master_df, root_master_folder, figure_rows, figure
                 ax.legend()
 
     fig.tight_layout()
-    fig.savefig(root_master_folder + '/' + 'flr_meas_plot.png')
+    fig.savefig(root_master_folder + '/' + 'flr_measurements_plot.png')
     fig.clf()

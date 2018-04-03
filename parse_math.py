@@ -84,7 +84,7 @@ def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, sample, timepoint, rep, Destinati
     values_dict['end_trace_mean'] = ECS_DCMU_P700_df['y_correct'].iloc[2685:2695].mean(axis=0)
     values_dict['end_trace_std_dev'] = ECS_DCMU_P700_df['y_correct'].iloc[2685:2695].std(axis=0)
     values_dict['y_initial'] = ECS_DCMU_P700_df['y_correct'].iloc[2490:2499].mean(axis=0)
-    values_dict['ECS_DCMU_P700_amplitude'] =  values_dict['end_trace_mean'] - values_dict['y_initial']
+    values_dict['ECS_DCMU_P700_amplitude'] = values_dict['end_trace_mean'] - values_dict['y_initial']
     ECS_DCMU_P700_calc_values_df = pd.DataFrame(values_dict, index=["rep" + str(rep)])
 
     return ECS_DCMU_P700_calc_values_df
@@ -102,7 +102,6 @@ def ECS_rates_calculator(ECS_DIRK_data, sample, timepoint, rep, DestinationFolde
     slope_df['Rate'] = (slope_df['y_final'] - slope_df['y_initial']) / (slope_df['x_final'] - slope_df['x_initial'])
     slope_df.to_csv(DestinationFolder + '/{0}_hr{1}_rep{2}_ECS_DIRK_slopes.csv'.format(sample, timepoint, rep))
 
-
     values_dict = {}
     values_dict['ECS_DIRK_rates_mean'] = slope_df['Rate'].mean()
     values_dict['rates_std_dev'] = slope_df['Rate'].std()
@@ -116,9 +115,8 @@ def ECS_rates_calculator(ECS_DIRK_data, sample, timepoint, rep, DestinationFolde
 
 
 def flr_calculator(whole_trace, sample, timepoint, rep, DestinationFolder):
-    """
-    calculate F0, Fs, Fm, etc.  Returns dataframe with one row
-    """
+    # calculate F0, Fs, Fm, etc.  Returns dataframe with one row
+
     calc_dict = {}
 
     # FvFm1 values
