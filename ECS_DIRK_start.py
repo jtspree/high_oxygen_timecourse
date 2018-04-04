@@ -63,8 +63,8 @@ def ECS_DIRK_start_rates_calc(ECS_DIRK_start_df, sample, timepoint, rep, Destina
     values_dict = {}
     values_dict['ECS_DIRK_start_rate_mean'] = ECS_DIRK_start_slope['rate'].mean()
     values_dict['ECS_DIRK_start_rate_std_dev'] = ECS_DIRK_start_slope['rate'].std()
-    values_dict['end_trace_mean'] = ECS_DIRK_start_df['y_correct'].iloc[479:499].mean(axis=0)
-    values_dict['end_trace_std_dev'] = ECS_DIRK_start_df['y_correct'].iloc[479:499].std(axis=0)
+    values_dict['end_trace_mean'] = ECS_DIRK_start_df['y_correct'].iloc[1000:1100].mean(axis=0)
+    values_dict['end_trace_std_dev'] = ECS_DIRK_start_df['y_correct'].iloc[1000:1100].std(axis=0)
     values_dict['y_initial'] = ECS_DIRK_start_df['y_correct'].iloc[479:499].mean(axis=0)
     values_dict['ECS_DIRK_start_amplitude'] = values_dict['y_initial'] - values_dict['end_trace_mean']
     ECS_DIRK_start_calc_values_df = pd.DataFrame(values_dict, index=["rep" + str(rep)])

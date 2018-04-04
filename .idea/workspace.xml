@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0690640e-6b11-4953-aae5-86304585ce66" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_flr_meas_timepoint.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_flr_meas_timepoint.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ECS_DIRK_start.py" beforeDir="false" afterPath="$PROJECT_DIR$/ECS_DIRK_start.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/plots.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,8 +32,8 @@
           <file leaf-file-name="plots.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/plots.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="52">
-                  <caret line="20" selection-start-line="20" selection-end-line="36" selection-end-column="13" />
+                <state relative-caret-position="333">
+                  <caret line="111" column="41" lean-forward="true" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="41" />
                   <folding>
                     <element signature="e#0#140#1" />
                   </folding>
@@ -41,11 +41,23 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="plot_flr_meas_timepoint.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/plot_flr_meas_timepoint.py">
+          <file leaf-file-name="ECS_DIRK_start.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/ECS_DIRK_start.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="420">
-                  <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+                  <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+                  <folding>
+                    <element signature="e#161#180#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="plot_flr_meas_timepoint.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/plot_flr_meas_timepoint.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="260">
+                  <caret line="46" column="69" lean-forward="true" selection-start-line="46" selection-start-column="69" selection-end-line="46" selection-end-column="69" />
                   <folding>
                     <element signature="e#0#18#1" />
                     <element signature="e#21#52#0" expanded="true" />
@@ -61,8 +73,8 @@
           <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="386">
-                  <caret line="142" column="22" lean-forward="true" selection-start-line="142" selection-start-column="22" selection-end-line="142" selection-end-column="22" />
+                <state relative-caret-position="480">
+                  <caret line="40" column="23" lean-forward="true" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
                   <folding>
                     <element signature="e#0#195#1" />
                   </folding>
@@ -86,6 +98,8 @@
       <find>trace</find>
       <find>allre</find>
       <find>.csv</find>
+      <find>ampli</find>
+      <find>ylim</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -95,12 +109,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../matrix_data/main.py" />
-        <option value="$PROJECT_DIR$/plots.py" />
         <option value="$PROJECT_DIR$/parse_math.py" />
         <option value="$PROJECT_DIR$/plot_meas_values.py" />
+        <option value="$PROJECT_DIR$/plot_flr_meas_timepoint.py" />
+        <option value="$PROJECT_DIR$/plots.py" />
         <option value="$PROJECT_DIR$/ECS_DIRK_start.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/plot_flr_meas_timepoint.py" />
       </list>
     </option>
   </component>
@@ -287,10 +301,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/plot_flr_meas_timepoint.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="46" column="69" lean-forward="true" selection-start-line="46" selection-start-column="69" selection-end-line="46" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#18#1" />
+            <element signature="e#21#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/plots.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="20" selection-start-line="20" selection-end-line="36" selection-end-column="13" />
+        <state relative-caret-position="333">
+          <caret line="111" column="41" lean-forward="true" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="41" />
           <folding>
             <element signature="e#0#140#1" />
           </folding>
@@ -299,30 +324,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ECS_DIRK_start.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="35" column="51" lean-forward="true" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#16#2" />
-            <element signature="e#161#180#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plot_flr_meas_timepoint.py">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
           <folding>
-            <element signature="e#0#18#1" />
-            <element signature="e#21#52#0" expanded="true" />
+            <element signature="e#161#180#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="142" column="22" lean-forward="true" selection-start-line="142" selection-start-column="22" selection-end-line="142" selection-end-column="22" />
+        <state relative-caret-position="480">
+          <caret line="40" column="23" lean-forward="true" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
           <folding>
             <element signature="e#0#195#1" />
           </folding>
