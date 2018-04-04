@@ -17,14 +17,16 @@ import pandas as pd
 import os
 import plots
 import parse_math
-import plot_meas_values
+import plot_flr_meas_timepoint
 import ECS_DIRK_start
 
 # CODE
 
-
+# root folders for file input and output
 root_folder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw_edited_test/"
 root_output = "C:/Users/templejo/Desktop/PBRexp060_PyScript/output/"
+root_master_folder = root_output + '/' + 'master/'
+root_master_plots_folder = root_master_folder + '/' + 'plots/'
 
 all_measurements_types = {
     # type name: [parsing function, calculator function, xlim, ylim, ignore_index]
@@ -34,14 +36,12 @@ all_measurements_types = {
     'ECS_DIRK_start' : [ECS_DIRK_start.parse_ECS_DIRK_start_data, ECS_DIRK_start.ECS_DIRK_start_rates_calc, None, (None, 0.0002), False]
 }
 
+# select samples, timepoints, reps for script to analyze
 all_samples = ["CC-1009", "CC-2343"]
-
 all_timepoints = [1, 3]
-
 all_reps = [1, 2, 3, 4]
 
 master_dict = {}
-
 
 for sample in all_samples:
     master_dict[sample] = {}
@@ -74,14 +74,10 @@ for sample in all_samples:
                 if all_reps_raw_data[measurements_type] is None:
                     all_reps_raw_data[measurements_type] = pd.DataFrame(index=trace_df['Time'])
 
-                # print(len(trace_df['y_correct']))
-                # print(len(trace_df['Time']))
-                # print(len(all_reps_raw_data[measurements_type].index))
                 print(measurements_type, sample, timepoint, rep)
                 all_reps_raw_data[measurements_type][rep] = trace_df['y_correct'].values
 
-
-                # compute fm, phi2, etc. for this sample/time/rep
+                # compute fm, phi2, etc. for this sample, timepoint, rep
                 calc_function = all_measurements_types[measurements_type][1]
                 calc_values_df = calc_function(trace_df, sample, timepoint, rep, DestinationFolder)
 
@@ -99,8 +95,7 @@ for sample in all_samples:
                     ECS_DIRK_start.save_ECS_DIRK_start_plot(
                         DestinationFolder, basename, trace_df, ECS_DIRK_start_mean)
 
-
-                # append the computed values to the dictionary that will contain all the reps for this sample/time
+                # append the computed values to the dictionary that will contain all the reps for this sample/timepoint
                 all_reps_computed_values[measurements_type].append(calc_values_df)
 
                 # save the computed values and the raw fluorescence to csv files (for just one sample/
@@ -134,10 +129,8 @@ for sample in all_samples:
                                      ylim=all_measurements_types[measurements_type][3],
                                      ignore_index=all_measurements_types[measurements_type][4])
 
+# generate master dataframe containing all measurements
 master_df = parse_math.build_master_df(master_dict, all_samples, all_timepoints, all_measurements_types)
-
-root_master_folder = root_output + '/' + 'master/'
-root_master_plots_folder = root_master_folder + '/' + 'plots/'
 
 if not os.path.isdir(root_master_plots_folder):
     os.makedirs(root_master_plots_folder)
@@ -146,5 +139,5 @@ master_df.to_csv(root_master_folder + '/' + 'master_calc_values.csv')
 
 plots.save_calc_values_plots(master_df, root_master_plots_folder)
 
-plot_meas_values.save_flr_measurement_plot(master_df, root_master_folder,
-                        figure_rows=all_timepoints, figure_columns=all_samples)
+plot_flr_meas_timepoint.save_flr_measurement_plot(master_df, root_master_folder,
+                                                  figure_rows=all_timepoints, figure_columns=all_samples)

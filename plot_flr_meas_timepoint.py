@@ -18,12 +18,14 @@ import matplotlib.patches as patches
 
 # 1 subplot per figure column and figure row
 
-# x-axis tick labels of all subplots and cooresponding input column name prefixs
+# x-axis tick labels of all subplots and corresponding input column name prefixes
 x_axis = [98, 695, 1298, 1895, 2495, 3095, 3695, 4295, 4895]
 
-# sets plot limits
-x_lim = (0 , 5000)
+# figure settings
+x_lim = (0, 5000)
 y_lim = (0, 4)
+fig_height = 12
+fig_width = 6
 
 # colors for a row of boxes at the top of each subplot
 # indicates the light environment
@@ -51,8 +53,8 @@ measurement_suffix = ['F0', 'Fm', 'Fs']
 
 def save_flr_measurement_plot(master_df, root_master_folder, figure_rows, figure_columns):
     fig = plt.figure()
-    fig.set_figwidth(6)
-    fig.set_figheight(12)
+    fig.set_figwidth(fig_width)
+    fig.set_figheight(fig_height)
 
     i = 1
     for timepoint in figure_rows:
