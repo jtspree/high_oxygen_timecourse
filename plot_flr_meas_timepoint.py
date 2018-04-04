@@ -24,24 +24,23 @@ x_axis = [98, 695, 1298, 1895, 2495, 3095, 3695, 4295, 4895]
 # figure settings
 x_lim = (0, 5000)
 y_lim = (0, 4)
-fig_height = 12
+fig_height = 6
 fig_width = 6
+alpha = 0.3
+linestyle = {"linestyle": "-", "linewidth": 2, "markeredgewidth": 4, "elinewidth": 2, "capsize": 2}
 
 # colors for a row of boxes at the top of each subplot
 # indicates the light environment
 # dict: [box_color, box_text, box_text_color]
 box_plot_dict = {
     'dark': ['black', 'dark', 'white'],
-    'light': ['yellow', '1000', 'black'] ,
+    'light': ['yellow', '1000', 'black'],
     'far_red': ['red', 'FR', 'white']
 }
 # box plot order and start positions
 # must use box_plot_dictkeys
-box_order = ['dark', 'light','dark', 'far_red']
-box_start_x_pos = [0, 1298, 1895, 3695]
-
-# plot linestyle
-linestyle = {"linestyle": "-", "linewidth": 2, "markeredgewidth": 4, "elinewidth": 2, "capsize": 2}
+box_order = ['far_red', 'dark', 'light', 'dark', 'far_red']
+box_start_x_pos = [0, 400, 1000, 1600, 3400]
 
 measurement_prefix = ['FvFm1', 'FvFm2', 'phi2',
                       'darkrec_noFR_1', 'darkrec_noFR_2', 'darkrec_noFR_3',
@@ -103,11 +102,11 @@ def save_flr_measurement_plot(master_df, root_master_folder, figure_rows, figure
                 x = box_start_x_pos[index]
                 width = (box_start_x_pos[index + 1] - x) if (index < len(box_order) - 1) else (x_lim[1] - x)
                 ax.add_patch(patches.Rectangle(
-                    (x, (y_lim[0])), width=width, height=(y_lim[1] - y_lim[0]), color=box_specs[0], alpha=0.2))
+                    (x, (y_lim[0])), width=width, height=(y_lim[1] - y_lim[0]), color=box_specs[0], alpha=alpha))
                 ax.text(x + 0.5 * width, y_lim[1] - 0.25, box_specs[1],
                         horizontalalignment='center',
                         verticalalignment='center',
-                        fontsize=6, color=box_specs[2])
+                        fontsize=8, color=box_specs[2])
 
             if (sample == figure_columns[-1]) and (timepoint == figure_rows[0]):
                 ax.legend()
