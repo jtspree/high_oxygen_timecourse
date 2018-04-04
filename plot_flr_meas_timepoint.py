@@ -24,7 +24,7 @@ x_axis = [98, 695, 1298, 1895, 2495, 3095, 3695, 4295, 4895]
 # figure settings
 x_lim = (0, 5000)
 y_lim = (0, 4)
-fig_height = 6
+fig_height = 12
 fig_width = 6
 alpha = 0.3
 linestyle = {"linestyle": "-", "linewidth": 2, "markeredgewidth": 4, "elinewidth": 2, "capsize": 2}

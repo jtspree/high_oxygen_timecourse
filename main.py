@@ -23,7 +23,7 @@ import ECS_DIRK_start
 # CODE
 
 # root folders for file input and output
-root_folder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw_edited_test/"
+root_folder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw_edited/"
 root_output = "C:/Users/templejo/Desktop/PBRexp060_PyScript/output/"
 root_master_folder = root_output + '/' + 'master/'
 root_master_plots_folder = root_master_folder + '/' + 'plots/'
@@ -38,7 +38,7 @@ all_measurements_types = {
 
 # select samples, timepoints, reps for script to analyze
 all_samples = ["CC-1009", "CC-2343"]
-all_timepoints = [1, 3]
+all_timepoints = [1, 3, 6, 12, 24, 48]
 all_reps = [1, 2, 3, 4]
 
 master_dict = {}
