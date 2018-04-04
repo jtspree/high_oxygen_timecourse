@@ -111,8 +111,8 @@ calc_values_dict = {
     'ECS_DIRK_rates_mean': (None, None),
     'ECS_DCMU_P700_amplitude': (0, None),
     'ECS_DCMU_P700_rates_mean': (None, None),
-    'ECS_DIRK_start_amplitude': (None, None),
-    'ECS_DIRK_start_rate_mean': (None, None)
+    'ECS_DIRK_oxidation_amplitude': (None, None),
+    'ECS_DIRK_oxidation_rate_mean': (None, None)
 }
 
 def save_calc_values_plots(master_df, root_master_plots_folder):
@@ -125,12 +125,11 @@ def save_calc_values_plots(master_df, root_master_plots_folder):
             ax = fig.add_subplot(1, 1, 1)
             for sample in master_df['sample'].unique():
                 sample_df = master_df[master_df['sample'] == sample]
-                avgs = sample_df.iloc[:,col_index]
-                std_dev = sample_df.iloc[:,col_index+1]
+                avgs = sample_df.iloc[:, col_index]
+                std_dev = sample_df.iloc[:, col_index+1]
                 timepoint = sample_df['timepoint']
                 ax.errorbar(timepoint, avgs, std_dev, label=sample, marker='o', capsize=3)
             ax.set_xlabel('Timepoint (hours)', fontsize=14)
-            ax.set_ylabel('Fluorscence', fontsize=14)
             ax.set_ylim(calc_values_dict[col_name])
             ax.legend()
             fig.savefig(root_master_plots_folder + '/' + col_name + '.png')

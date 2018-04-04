@@ -18,27 +18,27 @@ import os
 import plots
 import parse_math
 import plot_flr_meas_timepoint
-import ECS_DIRK_start
+import ECS_DIRK_oxidation
 
 # CODE
 
 # root folders for file input and output
-root_folder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw_edited/"
+root_folder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw_edited_test/"
 root_output = "C:/Users/templejo/Desktop/PBRexp060_PyScript/output/"
 root_master_folder = root_output + '/' + 'master/'
 root_master_plots_folder = root_master_folder + '/' + 'plots/'
 
 all_measurements_types = {
     # type name: [parsing function, calculator function, xlim, ylim, ignore_index]
-    'flr'            : [parse_math.parse_phi2_fluor, parse_math.flr_calculator, None, (0, 4), True],
-    'ECS_DIRK'       : [parse_math.parse_ECS_data, parse_math.ECS_rates_calculator, None, (-0.001, 0.001), False],
-    'ECS_DCMU_P700'  : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, None, (-0.0008, 0.0012), False],
-    'ECS_DIRK_start' : [ECS_DIRK_start.parse_ECS_DIRK_start_data, ECS_DIRK_start.ECS_DIRK_start_rates_calc, None, (None, 0.0002), False]
+    'flr'               : [parse_math.parse_phi2_fluor, parse_math.flr_calculator, None, (0, 4), True],
+    'ECS_DIRK'          : [parse_math.parse_ECS_data, parse_math.ECS_rates_calculator, None, (-0.001, 0.001), False],
+    'ECS_DCMU_P700'     : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, None, (-0.0008, 0.0012), False],
+    'ECS_DIRK_oxidation': [ECS_DIRK_oxidation.parse_ECS_DIRK_oxidation_data, ECS_DIRK_oxidation.ECS_DIRK_oxidation_rates_calc, None, (None, 0.0002), False]
 }
 
 # select samples, timepoints, reps for script to analyze
 all_samples = ["CC-1009", "CC-2343"]
-all_timepoints = [1, 3, 6, 12, 24, 48]
+all_timepoints = [1, 3]
 all_reps = [1, 2, 3, 4]
 
 master_dict = {}
@@ -90,10 +90,10 @@ for sample in all_samples:
                 if measurements_type == 'ECS_DCMU_P700':
                     ECS_DCMU_P700_mean = calc_values_df['ECS_DCMU_P700_rates_mean'].values[0]
                     plots.save_ECS_DCMU_P700_plot(DestinationFolder, basename, trace_df, ECS_DCMU_P700_mean)
-                if measurements_type == 'ECS_DIRK_start':
-                    ECS_DIRK_start_mean = calc_values_df['ECS_DIRK_start_rate_mean'].values[0]
-                    ECS_DIRK_start.save_ECS_DIRK_start_plot(
-                        DestinationFolder, basename, trace_df, ECS_DIRK_start_mean)
+                if measurements_type == 'ECS_DIRK_oxidation':
+                    ECS_DIRK_oxidation_mean = calc_values_df['ECS_DIRK_oxidation_rate_mean'].values[0]
+                    ECS_DIRK_oxidation.save_ECS_DIRK_oxidation_plot(
+                        DestinationFolder, basename, trace_df, ECS_DIRK_oxidation_mean)
 
                 # append the computed values to the dictionary that will contain all the reps for this sample/timepoint
                 all_reps_computed_values[measurements_type].append(calc_values_df)

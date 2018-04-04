@@ -109,7 +109,7 @@ def save_flr_measurement_plot(master_df, root_master_folder, figure_rows, figure
                         fontsize=8, color=box_specs[2])
 
             if (sample == figure_columns[-1]) and (timepoint == figure_rows[0]):
-                ax.legend()
+                ax.legend(prop={'size': 5})
 
     fig.tight_layout()
     fig.savefig(root_master_folder + '/' + 'flr_measurements_plot.png')
