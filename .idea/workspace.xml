@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0690640e-6b11-4953-aae5-86304585ce66" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/ECS_DIRK_oxidation.py" beforeDir="false" afterPath="$PROJECT_DIR$/ECS_DIRK_oxidation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/plots.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="143" column="105" lean-forward="true" selection-start-line="143" selection-start-column="105" selection-end-line="143" selection-end-column="105" />
+            <state relative-caret-position="1238">
+              <caret line="136" column="41" lean-forward="true" selection-start-line="136" selection-start-column="41" selection-end-line="136" selection-end-column="41" />
               <folding>
                 <element signature="e#0#195#1" />
               </folding>
@@ -38,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ECS_DIRK_oxidation.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ECS_DIRK_oxidation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ECS_DIRK_oxidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="68" column="108" selection-start-line="68" selection-start-column="108" selection-end-line="68" selection-end-column="108" />
+            <state relative-caret-position="197">
+              <caret line="59" column="112" selection-start-line="59" selection-start-column="112" selection-end-line="59" selection-end-column="112" />
             </state>
           </provider>
         </entry>
@@ -77,6 +76,7 @@
       <find>.eps</find>
       <find>.ep</find>
       <find>.abs</find>
+      <find>abs</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -457,20 +457,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ECS_DIRK_oxidation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="68" column="108" selection-start-line="68" selection-start-column="108" selection-end-line="68" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="143" column="105" lean-forward="true" selection-start-line="143" selection-start-column="105" selection-end-line="143" selection-end-column="105" />
+        <state relative-caret-position="1238">
+          <caret line="136" column="41" lean-forward="true" selection-start-line="136" selection-start-column="41" selection-end-line="136" selection-end-column="41" />
           <folding>
             <element signature="e#0#195#1" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ECS_DIRK_oxidation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="59" column="112" selection-start-line="59" selection-start-column="112" selection-end-line="59" selection-end-column="112" />
         </state>
       </provider>
     </entry>
