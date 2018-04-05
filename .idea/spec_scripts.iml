@@ -5,6 +5,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="matrix_data" />
+    <orderEntry type="module" module-name="test_code" />
   </component>
   <component name="TestRunnerService">
     <option name="projectConfiguration" value="py.test" />

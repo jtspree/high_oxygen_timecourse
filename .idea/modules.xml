@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../matrix_data/.idea/matrix_data.iml" filepath="$PROJECT_DIR$/../matrix_data/.idea/matrix_data.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/spec_scripts.iml" filepath="$PROJECT_DIR$/.idea/spec_scripts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../test_code/.idea/test_code.iml" filepath="$PROJECT_DIR$/../test_code/.idea/test_code.iml" />
     </modules>
   </component>
 </project>

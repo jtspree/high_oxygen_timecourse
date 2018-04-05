@@ -17,6 +17,7 @@ import matplotlib.pyplot as plt
 
 # FUNCTIONS
 
+
 # save ECS DCMU P700 plot
 def save_ECS_DCMU_P700_plot(DestinationFolder, basename, ECS_DCMU_P700_df, ECS_DCMU_P700_mean):
     fig = plt.figure(1, figsize=(8, 8))
@@ -35,6 +36,7 @@ def save_ECS_DCMU_P700_plot(DestinationFolder, basename, ECS_DCMU_P700_df, ECS_D
     plt.legend()
     plt.savefig(DestinationFolder + basename + "_" + 'ECS_DCMU_P700_plot.png')
     plt.clf()
+
 
 # save ECS DIRK plot
 def save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean):
@@ -55,6 +57,7 @@ def save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean):
     plt.savefig(DestinationFolder + basename + "_" + "ECS_DIRK_plot.png")
     plt.clf()
 
+
 # save plot of flr trace
 def save_flr_plot(WholeTrace, DestinationFolder, basename):
     fig = plt.figure(1, figsize=(10, 6))
@@ -67,6 +70,7 @@ def save_flr_plot(WholeTrace, DestinationFolder, basename):
     fig.savefig(DestinationFolder + basename + "_" + "flr_plot.png")
     plt.clf()
 
+
 def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim=None, ylim=None, ignore_index=False):
     # plot of average of reps
     fig = plt.figure(1, figsize=(10, 6))
@@ -78,7 +82,7 @@ def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim
         ax.set_xlim(xlim[0], xlim[1])
     if ylim is not None:
         ax.set_ylim(ylim[0], ylim[1])
-    fig.savefig(output_path_prefix + "_avg_plot.png")
+    fig.savefig(output_path_prefix + '_avg_plot.png')
     plt.clf()
 
     # plot all replicates
@@ -114,6 +118,7 @@ calc_values_dict = {
     'ECS_DIRK_oxidation_amplitude': (None, None),
     'ECS_DIRK_oxidation_rate_mean': (None, None)
 }
+
 
 def save_calc_values_plots(master_df, root_master_plots_folder):
     missing_calc_values = list(calc_values_dict.keys())

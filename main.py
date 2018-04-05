@@ -23,7 +23,7 @@ import ECS_DIRK_oxidation
 # CODE
 
 # root folders for file input and output
-root_folder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw_edited_test/"
+root_folder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw_edited/"
 root_output = "C:/Users/templejo/Desktop/PBRexp060_PyScript/output/"
 root_master_folder = root_output + '/' + 'master/'
 root_master_plots_folder = root_master_folder + '/' + 'plots/'
@@ -32,13 +32,13 @@ all_measurements_types = {
     # type name: [parsing function, calculator function, xlim, ylim, ignore_index]
     'flr'               : [parse_math.parse_phi2_fluor, parse_math.flr_calculator, None, (0, 4), True],
     'ECS_DIRK'          : [parse_math.parse_ECS_data, parse_math.ECS_rates_calculator, None, (-0.001, 0.001), False],
-    'ECS_DCMU_P700'     : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, None, (-0.0008, 0.0012), False],
+    'ECS_DCMU_P700'     : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, (12.4, 13), (-0.0002, 0.0012), False],
     'ECS_DIRK_oxidation': [ECS_DIRK_oxidation.parse_ECS_DIRK_oxidation_data, ECS_DIRK_oxidation.ECS_DIRK_oxidation_rates_calc, None, (None, 0.0002), False]
 }
 
 # select samples, timepoints, reps for script to analyze
 all_samples = ["CC-1009", "CC-2343"]
-all_timepoints = [1, 3]
+all_timepoints = [1, 3, 6, 12, 24, 48]
 all_reps = [1, 2, 3, 4]
 
 master_dict = {}
@@ -65,7 +65,7 @@ for sample in all_samples:
 
             for measurements_type in all_measurements_types.keys():
 
-                # trace_df = parse_math.parse_phi2_fluor(folder)
+                # raw trace dataframe from parse functions
                 trace_df = all_measurements_types[measurements_type][0](folder)
 
                 if trace_df is None:
