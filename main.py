@@ -32,8 +32,8 @@ all_measurements_types = {
     # type name: [parsing function, calculator function, xlim, ylim, ignore_index]
     'flr'               : [parse_math.parse_phi2_fluor, parse_math.flr_calculator, None, (0, 4), True],
     'ECS_DIRK'          : [parse_math.parse_ECS_data, parse_math.ECS_rates_calculator, None, (-0.001, 0.001), False],
-    'ECS_DCMU_P700'     : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, (12.4, 13), (-0.0002, 0.0012), False],
-    'ECS_DIRK_oxidation': [ECS_DIRK_oxidation.parse_ECS_DIRK_oxidation_data, ECS_DIRK_oxidation.ECS_DIRK_oxidation_rates_calc, None, (None, 0.0002), False]
+    'ECS_DCMU_P700'     : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, (12.4, 13.4), (-0.0002, 0.0012), False],
+    'ECS_DIRK_oxidation': [ECS_DIRK_oxidation.parse_ECS_DIRK_oxidation_data, ECS_DIRK_oxidation.ECS_DIRK_oxidation_rates_calc, (2.4, 4), (None, 0.0002), False]
 }
 
 # select samples, timepoints, reps for script to analyze
@@ -124,8 +124,9 @@ for sample in all_samples:
             all_reps_raw_data[measurements_type]['std dev'] = all_reps_raw_data[measurements_type].std(axis=1)
             all_reps_raw_data[measurements_type].to_csv(averages_output_path_prefix + measurements_type + "_trace.csv")
 
-            plots.save_allreps_plots(averages_output_path_prefix + measurements_type, all_reps_raw_data[measurements_type],
-                                     reps_list, xlim=all_measurements_types[measurements_type][2],
+            plots.save_allreps_plots(averages_output_path_prefix + measurements_type,
+                                     all_reps_raw_data[measurements_type], reps_list,
+                                     xlim=all_measurements_types[measurements_type][2],
                                      ylim=all_measurements_types[measurements_type][3],
                                      ignore_index=all_measurements_types[measurements_type][4])
 
