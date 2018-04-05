@@ -126,7 +126,9 @@ def save_calc_values_plots(master_df, root_master_plots_folder):
         col_name = master_df.columns[col_index][:-4]
         if col_name in calc_values_dict.keys():
             missing_calc_values.remove(col_name)
-            fig = plt.figure(1, figsize=(10, 6))
+            fig = plt.figure(1)
+            fig.set_figheight(5)
+            fig.set_figwidth(5)
             ax = fig.add_subplot(1, 1, 1)
             for sample in master_df['sample'].unique():
                 sample_df = master_df[master_df['sample'] == sample]
@@ -135,6 +137,7 @@ def save_calc_values_plots(master_df, root_master_plots_folder):
                 timepoint = sample_df['timepoint']
                 ax.errorbar(timepoint, avgs, std_dev, label=sample, marker='o', capsize=3)
             ax.set_xlabel('Timepoint (hours)', fontsize=14)
+            ax.set_ylabel(col_name, fontsize=14)
             ax.set_ylim(calc_values_dict[col_name])
             ax.legend()
             fig.savefig(root_master_plots_folder + '/' + col_name + '.png')
