@@ -17,9 +17,9 @@ import pandas as pd
 import os
 import matplotlib.pyplot as plt
 
-# CODE
+# FUNCTIONS
 
-# parse ECS_DIRK_starting data
+# parse ECS_DIRK_oxidation data
 ECS_DIRK_oxidation_suffix = "dcmu_p700_0005.dat"
 def parse_ECS_DIRK_oxidation_data(folder):
     ECS_DIRK_oxidation_filename = None
@@ -46,7 +46,7 @@ def parse_ECS_DIRK_oxidation_data(folder):
     return ECS_DIRK_oxidation_df
 
 
-def ECS_DIRK_oxidation_rates_calc(ECS_DIRK_oxidation_df, sample, timepoint, rep, DestinationFolder):
+def ECS_DIRK_oxidation_rates_calc(ECS_DIRK_oxidation_df, sample, timepoint, rep, destination_folder):
     ECS_DIRK_oxidation_slope = pd.DataFrame(columns=['x_initial', 'x_final', 'y_initial', 'y_final'])
     for x in range(2, 7):
         rates_dict = {}
@@ -58,7 +58,7 @@ def ECS_DIRK_oxidation_rates_calc(ECS_DIRK_oxidation_df, sample, timepoint, rep,
 
     ECS_DIRK_oxidation_slope['rate'] = ((ECS_DIRK_oxidation_slope['y_final'] - ECS_DIRK_oxidation_slope['y_initial'])
                                 / (ECS_DIRK_oxidation_slope['x_final'] - ECS_DIRK_oxidation_slope['x_initial']))
-    ECS_DIRK_oxidation_slope.to_csv(DestinationFolder + '/{0}_hr{1}_rep{2}_ECS_DIRK_oxidation_slopes.csv'.format(sample, timepoint, rep))
+    ECS_DIRK_oxidation_slope.to_csv(destination_folder + '/{0}_hr{1}_rep{2}_ECS_DIRK_oxidation_slopes.csv'.format(sample, timepoint, rep))
 
     values_dict = {}
     values_dict['ECS_DIRK_oxidation_rate_mean'] = ECS_DIRK_oxidation_slope['rate'].mean()
@@ -72,7 +72,7 @@ def ECS_DIRK_oxidation_rates_calc(ECS_DIRK_oxidation_df, sample, timepoint, rep,
     return ECS_DIRK_oxidation_calc_values_df
 
 
-def save_ECS_DIRK_oxidation_plot(DestinationFolder, basename, ECS_DIRK_oxidation_df, ECS_DIRK_oxidation_mean):
+def save_ECS_DIRK_oxidation_plot(destination_folder, basename, ECS_DIRK_oxidation_df, ECS_DIRK_oxidation_mean):
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(1, 1, 1)
     x = ECS_DIRK_oxidation_df['x_correct']
@@ -87,5 +87,5 @@ def save_ECS_DIRK_oxidation_plot(DestinationFolder, basename, ECS_DIRK_oxidation
     plt.plot(x, y3, label='y_final')
     plt.plot(x, y4, label='slope')
     plt.legend()
-    plt.savefig(DestinationFolder + basename + "_" + 'ECS_DIRK_oxidation_plot.png')
+    plt.savefig(destination_folder + basename + "_" + 'ECS_DIRK_oxidation_plot.png')
     plt.clf()

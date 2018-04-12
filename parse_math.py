@@ -64,7 +64,7 @@ def parse_ECS_data(folder):
     return ECS_DIRK_data
 
 
-def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, sample, timepoint, rep, DestinationFolder):
+def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, sample, timepoint, rep, destination_folder):
     ESC_DCMU_P700_slope = pd.DataFrame(columns=['x_initial', 'x_final', 'y_initial', 'y_final'])
     for x in range(8, 18):
         rates_dict = {}
@@ -76,7 +76,7 @@ def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, sample, timepoint, rep, Destinati
 
     ESC_DCMU_P700_slope['rate'] = (ESC_DCMU_P700_slope['y_final'] - ESC_DCMU_P700_slope['y_initial']) / (
     ESC_DCMU_P700_slope['x_final'] - ESC_DCMU_P700_slope['x_initial'])
-    ESC_DCMU_P700_slope.to_csv(DestinationFolder + '/{0}_hr{1}_rep{2}_ECS_DCMU_P700_slopes.csv'.format(sample, timepoint, rep))
+    ESC_DCMU_P700_slope.to_csv(destination_folder + '/{0}_hr{1}_rep{2}_ECS_DCMU_P700_slopes.csv'.format(sample, timepoint, rep))
 
     values_dict = {}
     values_dict['ECS_DCMU_P700_rates_mean'] = ESC_DCMU_P700_slope['rate'].mean()
@@ -89,7 +89,7 @@ def ECS_DCMU_P700_rates_calc(ECS_DCMU_P700_df, sample, timepoint, rep, Destinati
 
     return ECS_DCMU_P700_calc_values_df
 
-def ECS_rates_calculator(ECS_DIRK_data, sample, timepoint, rep, DestinationFolder ):
+def ECS_rates_calculator(ECS_DIRK_data, sample, timepoint, rep, destination_folder):
     slope_df = pd.DataFrame(columns=['x_initial', 'x_final', 'y_initial', 'y_final'])
     for x in range(10, 20):
         rates_dict = {}
@@ -100,7 +100,7 @@ def ECS_rates_calculator(ECS_DIRK_data, sample, timepoint, rep, DestinationFolde
         slope_df = slope_df.append(rates_dict, ignore_index=True)
 
     slope_df['Rate'] = (slope_df['y_final'] - slope_df['y_initial']) / (slope_df['x_final'] - slope_df['x_initial'])
-    slope_df.to_csv(DestinationFolder + '/{0}_hr{1}_rep{2}_ECS_DIRK_slopes.csv'.format(sample, timepoint, rep))
+    slope_df.to_csv(destination_folder + '/{0}_hr{1}_rep{2}_ECS_DIRK_slopes.csv'.format(sample, timepoint, rep))
 
     values_dict = {}
     values_dict['ECS_DIRK_rates_mean'] = slope_df['Rate'].mean()
@@ -114,7 +114,7 @@ def ECS_rates_calculator(ECS_DIRK_data, sample, timepoint, rep, DestinationFolde
     return ECS_DIRK_calc_values_df
 
 
-def flr_calculator(whole_trace, sample, timepoint, rep, DestinationFolder):
+def flr_calculator(whole_trace, sample, timepoint, rep, destination_folder):
     # calculate F0, Fs, Fm, etc.  Returns dataframe with one row
 
     calc_dict = {}
@@ -220,7 +220,7 @@ def flr_calculator(whole_trace, sample, timepoint, rep, DestinationFolder):
 
 phi2_filename_suffix = "vo2_flr_0001.dat"
 flr_filename_suffix = "flr_0001.dat"
-def parse_phi2_fluor(folder):
+def parse_phi2_flr(folder):
     phi2_filename = None
     flr_filename = None
     for filename in os.listdir(folder):
@@ -255,9 +255,9 @@ def parse_phi2_fluor(folder):
     whole_trace['y_correct'] = flr_norm
     return whole_trace
 
-def get_path(rootFolder, sample, timepoint, rep):
+def get_path(root_folder, sample, timepoint, rep):
     rel_path = sample + "/" + "hr" + str(timepoint) + "/" + "rep" + str(rep) + "/"
-    folder = rootFolder + rel_path
+    folder = root_folder + rel_path
     if not os.path.isdir(folder):
         print(folder + " does not exist")
         return None, None, None

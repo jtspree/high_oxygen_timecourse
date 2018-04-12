@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 
 
 # save ECS DCMU P700 plot
-def save_ECS_DCMU_P700_plot(DestinationFolder, basename, ECS_DCMU_P700_df, ECS_DCMU_P700_mean):
+def save_ECS_DCMU_P700_plot(destination_folder, basename, ECS_DCMU_P700_df, ECS_DCMU_P700_mean):
     fig = plt.figure(1, figsize=(8, 8))
     ax = fig.add_subplot(1, 1, 1)
     x = ECS_DCMU_P700_df['x_correct']
@@ -34,12 +34,12 @@ def save_ECS_DCMU_P700_plot(DestinationFolder, basename, ECS_DCMU_P700_df, ECS_D
     plt.plot(x, y3, label='y_final')
     plt.plot(x, y4, label='slope')
     plt.legend()
-    plt.savefig(DestinationFolder + basename + "_" + 'ECS_DCMU_P700_plot.png')
+    plt.savefig(destination_folder + basename + "_" + 'ECS_DCMU_P700_plot.png')
     plt.clf()
 
 
 # save ECS DIRK plot
-def save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean):
+def save_ECS_DIRK_plot(destination_folder, basename, ECS_DIRK_data, mean):
     fig = plt.figure(1, figsize=(8, 6))
     ax = fig.add_subplot(1, 1, 1)
     x = ECS_DIRK_data['x_correct']
@@ -54,12 +54,12 @@ def save_ECS_DIRK_plot(DestinationFolder, basename, ECS_DIRK_data, mean):
     plt.plot(x, y3, label='slope')
     plt.plot(x, y4, label='amplitude')
     plt.legend()
-    plt.savefig(DestinationFolder + basename + "_" + "ECS_DIRK_plot.png")
+    plt.savefig(destination_folder + basename + "_" + "ECS_DIRK_plot.png")
     plt.clf()
 
 
 # save plot of flr trace
-def save_flr_plot(WholeTrace, DestinationFolder, basename):
+def save_flr_plot(WholeTrace, destination_folder, basename):
     fig = plt.figure(1, figsize=(10, 6))
     ax = fig.add_subplot(1, 1, 1)
     y = WholeTrace['y_correct']
@@ -67,7 +67,7 @@ def save_flr_plot(WholeTrace, DestinationFolder, basename):
     ax.set_ylim(0, 4)
     ax.set_ylabel("Fluorescence")
     ax.set_xlabel("")
-    fig.savefig(DestinationFolder + basename + "_" + "flr_plot.png")
+    fig.savefig(destination_folder + basename + "_" + "flr_plot.png")
     plt.clf()
 
 

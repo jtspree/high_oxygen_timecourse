@@ -46,7 +46,7 @@ measurement_prefix = ['FvFm1', 'FvFm2', 'phi2',
                       'darkrec_noFR_1', 'darkrec_noFR_2', 'darkrec_noFR_3',
                       'darkrec_FR_1', 'darkrec_FR_2', 'darkrec_FR_3']
 
-# every sublot will contain 1 line per measurement suffix (input column name suffixes)
+# every subplot will contain 1 line per measurement suffix (input column name suffixes)
 measurement_suffix = ['F0', 'Fm', 'Fs']
 
 

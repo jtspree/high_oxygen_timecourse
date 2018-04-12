@@ -30,7 +30,7 @@ root_master_plots_folder = root_master_folder + '/' + 'plots/'
 
 all_measurements_types = {
     # type name: [parsing function, calculator function, xlim, ylim, ignore_index]
-    'flr'               : [parse_math.parse_phi2_fluor, parse_math.flr_calculator, None, (0, 4), True],
+    'flr'               : [parse_math.parse_phi2_flr, parse_math.flr_calculator, None, (0, 4), True],
     'ECS_DIRK'          : [parse_math.parse_ECS_data, parse_math.ECS_rates_calculator, None, (-0.001, 0.001), False],
     'ECS_DCMU_P700'     : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, (12.4, 13.4), (-0.0002, 0.0012), False],
     'ECS_DIRK_oxidation': [ECS_DIRK_oxidation.parse_ECS_DIRK_oxidation_data, ECS_DIRK_oxidation.ECS_DIRK_oxidation_rates_calc, (2.4, 4), (None, 0.0002), False]
@@ -38,7 +38,7 @@ all_measurements_types = {
 
 # select samples, timepoints, reps for script to analyze
 all_samples = ["CC-1009", "CC-2343"]
-all_timepoints = [1, 3, 6, 12, 24, 48]
+all_timepoints = [1, 3]
 all_reps = [1, 2, 3, 4]
 
 master_dict = {}
@@ -59,9 +59,9 @@ for sample in all_samples:
             if rel_path is None:
                 continue
 
-            DestinationFolder = root_output + rel_path
-            if not os.path.isdir(DestinationFolder):
-                os.makedirs(DestinationFolder)
+            destination_folder = root_output + rel_path
+            if not os.path.isdir(destination_folder):
+                os.makedirs(destination_folder)
 
             for measurements_type in all_measurements_types.keys():
 
@@ -79,36 +79,36 @@ for sample in all_samples:
 
                 # compute fm, phi2, etc. for this sample, timepoint, rep
                 calc_function = all_measurements_types[measurements_type][1]
-                calc_values_df = calc_function(trace_df, sample, timepoint, rep, DestinationFolder)
+                calc_values_df = calc_function(trace_df, sample, timepoint, rep, destination_folder)
 
                 # save an image file with the fluorescence plot for this sample/time/rep
                 if measurements_type == 'flr':
-                    plots.save_flr_plot(trace_df, DestinationFolder, basename)
+                    plots.save_flr_plot(trace_df, destination_folder, basename)
                 if measurements_type == 'ECS_DIRK':
                     mean = calc_values_df['ECS_DIRK_rates_mean'].values[0]
-                    plots.save_ECS_DIRK_plot(DestinationFolder, basename, trace_df, mean)
+                    plots.save_ECS_DIRK_plot(destination_folder, basename, trace_df, mean)
                 if measurements_type == 'ECS_DCMU_P700':
                     ECS_DCMU_P700_mean = calc_values_df['ECS_DCMU_P700_rates_mean'].values[0]
-                    plots.save_ECS_DCMU_P700_plot(DestinationFolder, basename, trace_df, ECS_DCMU_P700_mean)
+                    plots.save_ECS_DCMU_P700_plot(destination_folder, basename, trace_df, ECS_DCMU_P700_mean)
                 if measurements_type == 'ECS_DIRK_oxidation':
                     ECS_DIRK_oxidation_mean = calc_values_df['ECS_DIRK_oxidation_rate_mean'].values[0]
                     ECS_DIRK_oxidation.save_ECS_DIRK_oxidation_plot(
-                        DestinationFolder, basename, trace_df, ECS_DIRK_oxidation_mean)
+                        destination_folder, basename, trace_df, ECS_DIRK_oxidation_mean)
 
                 # append the computed values to the dictionary that will contain all the reps for this sample/timepoint
                 all_reps_computed_values[measurements_type].append(calc_values_df)
 
                 # save the computed values and the raw fluorescence to csv files (for just one sample/
-                calc_values_df.to_csv(DestinationFolder + basename + "_" + measurements_type + "_measurements.csv")
-                trace_df.to_csv(DestinationFolder + basename + "_" + measurements_type + '_trace.csv', sep=',')
+                calc_values_df.to_csv(destination_folder + basename + "_" + measurements_type + "_measurements.csv")
+                trace_df.to_csv(destination_folder + basename + "_" + measurements_type + '_trace.csv', sep=',')
 
-        # Switch to avg std and combined reps
+        # switch to avg std and combined reps
 
-        averagesDestination = os.path.dirname(os.path.abspath(DestinationFolder)) + "/averages"
-        if not os.path.isdir(averagesDestination):
-            os.makedirs(averagesDestination)
+        averages_destination = os.path.dirname(os.path.abspath(destination_folder)) + "/averages"
+        if not os.path.isdir(averages_destination):
+            os.makedirs(averages_destination)
 
-        averages_output_path_prefix = averagesDestination + "/" + sample + "_" + "hr" + str(timepoint) + "_"
+        averages_output_path_prefix = averages_destination + "/" + sample + "_" + "hr" + str(timepoint) + "_"
 
         for measurements_type in all_measurements_types.keys():
             all_measurements_df = pd.concat(all_reps_computed_values[measurements_type])
