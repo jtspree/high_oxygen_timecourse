@@ -31,11 +31,14 @@ root_master_plots_folder = root_master_folder + '/' + 'plots/'
 
 all_measurements_types = {
     # type name: [parsing function, calculator function, xlim, ylim, ignore_index]
-    'flr'               : [parse_math.parse_phi2_flr, parse_math.flr_calculator, None, (0, 4), True],
-    'ECS_DIRK'          : [parse_math.parse_ECS_data, parse_math.ECS_rates_calculator, None, (-0.001, 0.001), False],
-    'ECS_DCMU_P700'     : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, (12.4, 13.4), (-0.0002, 0.0012), False],
-    'ECS_DIRK_oxidation': [ECS_DIRK_oxidation.parse_ECS_DIRK_oxidation_data, ECS_DIRK_oxidation.ECS_DIRK_oxidation_rates_calc, (2.4, 4), (None, 0.0002), False]
-}
+    'flr'                   : [parse_math.parse_phi2_flr, parse_math.flr_calculator, None, (0, 4), True],
+    'ECS_DIRK'              : [parse_math.parse_ECS_data, parse_math.ECS_rates_calculator, None, (-0.001, 0.001), False],
+    'ECS_DCMU_P700'         : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, (12.4, 13.4), (-0.0002, 0.0012), False],
+    'ECS_DIRK_oxidation'    : [ECS_DIRK_oxidation.parse_ECS_DIRK_oxidation_data, ECS_DIRK_oxidation.ECS_DIRK_oxidation_rates_calc,
+                               (2.4, 4), (None, 0.0002), False],
+    'vO2_ECS_DIRK_oxidation': [vO2_ECS_DIRK.parse_vO2_ECS_DIRK_oxidation_data, vO2_ECS_DIRK.vO2_ECS_DIRK_oxidation_rates_calc,
+                               (None, None), (None, None), False]
+    }
 
 # select samples, timepoints, reps for script to analyze
 all_samples = ["CC-1009", "CC-2343"]
@@ -95,6 +98,10 @@ for sample in all_samples:
                     ECS_DIRK_oxidation_mean = calc_values_df['ECS_DIRK_oxidation_rate_mean'].values[0]
                     ECS_DIRK_oxidation.save_ECS_DIRK_oxidation_plot(
                         destination_folder, basename, trace_df, ECS_DIRK_oxidation_mean)
+                if measurements_type == 'vO2_ECS_DIRK_oxidation':
+                    vO2_ECS_DIRK_oxidation_mean = calc_values_df['ECS_DIRK_oxidation_rate_mean'].values[0]
+                    vO2_ECS_DIRK.save_vO2_ECS_DIRK_oxidation_plot(
+                        destination_folder, basename, trace_df, vO2_ECS_DIRK_oxidation_mean)
 
                 # append the computed values to the dictionary that will contain all the reps for this sample/timepoint
                 all_reps_computed_values[measurements_type].append(calc_values_df)
