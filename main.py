@@ -99,7 +99,7 @@ for sample in all_samples:
                     ECS_DIRK_oxidation.save_ECS_DIRK_oxidation_plot(
                         destination_folder, basename, trace_df, ECS_DIRK_oxidation_mean)
                 if measurements_type == 'vO2_ECS_DIRK_oxidation':
-                    vO2_ECS_DIRK_oxidation_mean = calc_values_df['ECS_DIRK_oxidation_rate_mean'].values[0]
+                    vO2_ECS_DIRK_oxidation_mean = calc_values_df['vO2_ECS_DIRK_oxidation_rate_mean'].values[0]
                     vO2_ECS_DIRK.save_vO2_ECS_DIRK_oxidation_plot(
                         destination_folder, basename, trace_df, vO2_ECS_DIRK_oxidation_mean)
 

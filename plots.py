@@ -116,7 +116,9 @@ calc_values_dict = {
     'ECS_DCMU_P700_amplitude': (0, None),
     'ECS_DCMU_P700_rates_mean': (None, None),
     'ECS_DIRK_oxidation_amplitude': (None, None),
-    'ECS_DIRK_oxidation_rate_mean': (None, None)
+    'ECS_DIRK_oxidation_rate_mean': (None, None),
+    'vO2_ECS_DIRK_oxidation_amplitude': (None, None),
+    'vO2_ECS_DIRK_oxidation_rate_mean': (None, None)
 }
 
 

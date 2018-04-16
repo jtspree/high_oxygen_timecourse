@@ -58,15 +58,15 @@ def vO2_ECS_DIRK_oxidation_rates_calc(vO2_ECS_DIRK_oxidation_df, sample, timepoi
 
     vO2_ECS_DIRK_oxidation_slope['rate'] = ((vO2_ECS_DIRK_oxidation_slope['y_final'] - vO2_ECS_DIRK_oxidation_slope['y_initial'])
                                 / (vO2_ECS_DIRK_oxidation_slope['x_final'] - vO2_ECS_DIRK_oxidation_slope['x_initial']))
-    vO2_ECS_DIRK_oxidation_slope.to_csv(destination_folder + '/{0}_hr{1}_rep{2}_ECS_DIRK_oxidation_slopes.csv'.format(sample, timepoint, rep))
+    vO2_ECS_DIRK_oxidation_slope.to_csv(destination_folder + '/{0}_hr{1}_rep{2}_vO2_ECS_DIRK_oxidation_slopes.csv'.format(sample, timepoint, rep))
 
     values_dict = {}
-    values_dict['ECS_DIRK_oxidation_rate_mean'] = vO2_ECS_DIRK_oxidation_slope['rate'].mean()
-    values_dict['ECS_DIRK_oxidation_std_dev'] = vO2_ECS_DIRK_oxidation_slope['rate'].std()
+    values_dict['vO2_ECS_DIRK_oxidation_rate_mean'] = vO2_ECS_DIRK_oxidation_slope['rate'].mean()
+    values_dict['v02_ECS_DIRK_oxidation_std_dev'] = vO2_ECS_DIRK_oxidation_slope['rate'].std()
     values_dict['end_trace_mean'] = vO2_ECS_DIRK_oxidation_df['y_correct'].iloc[280:300].mean(axis=0)
     values_dict['end_trace_std_dev'] = vO2_ECS_DIRK_oxidation_df['y_correct'].iloc[280:300].std(axis=0)
     values_dict['y_initial'] = vO2_ECS_DIRK_oxidation_df['y_correct'].iloc[239:249].mean(axis=0)
-    values_dict['ECS_DIRK_oxidation_amplitude'] = (values_dict['y_initial'] - values_dict['end_trace_mean'])
+    values_dict['vO2_ECS_DIRK_oxidation_amplitude'] = (values_dict['y_initial'] - values_dict['end_trace_mean'])
     vO2_ECS_DIRK_oxidation_calc_values_df = pd.DataFrame(values_dict, index=["rep" + str(rep)])
 
     return vO2_ECS_DIRK_oxidation_calc_values_df
