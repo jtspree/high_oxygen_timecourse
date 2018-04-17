@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0690640e-6b11-4953-aae5-86304585ce66" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vO2_ECS_DIRK.py" beforeDir="false" afterPath="$PROJECT_DIR$/vO2_ECS_DIRK_oxidation.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="1718">
+              <caret line="109" column="68" selection-start-line="109" selection-start-column="68" selection-end-line="109" selection-end-column="68" />
               <folding>
                 <element signature="e#0#195#1" />
               </folding>
@@ -77,7 +75,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vO2_ECS_DIRK_rereduct.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="vO2_ECS_DIRK_rereduct.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
@@ -142,8 +140,8 @@
         <option value="$PROJECT_DIR$/ECS_DIRK_oxidation.py" />
         <option value="$PROJECT_DIR$/vO2_ECS_DIRK.py" />
         <option value="$PROJECT_DIR$/plots.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -518,16 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="e#0#195#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK_oxidation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -544,6 +532,16 @@
           <caret line="90" column="13" lean-forward="true" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
           <folding>
             <element signature="e#0#162#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1718">
+          <caret line="109" column="68" selection-start-line="109" selection-start-column="68" selection-end-line="109" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#195#1" />
           </folding>
         </state>
       </provider>
