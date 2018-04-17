@@ -118,7 +118,9 @@ calc_values_dict = {
     'ECS_DIRK_oxidation_amplitude': (None, None),
     'ECS_DIRK_oxidation_rate_mean': (None, None),
     'vO2_ECS_DIRK_oxidation_amplitude': (None, None),
-    'vO2_ECS_DIRK_oxidation_rate_mean': (None, None)
+    'vO2_ECS_DIRK_oxidation_rate_mean': (None, None),
+    'vO2_ECS_DIRK_rereduct_amplitude': (None, None),
+    'vO2_ECS_DIRK_rereduct_rate_mean': (None, None)
 }
 
 
