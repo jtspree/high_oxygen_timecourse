@@ -19,13 +19,13 @@ import plots
 import parse_math
 import plot_flr_meas_timepoint
 import ECS_DIRK_oxidation
-import vO2_ECS_DIRK
+import vO2_ECS_DIRK_oxidation
 
 # CODE
 
 # root folders for file input and output
-root_folder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw_edited/"
-root_output = "C:/Users/templejo/Desktop/PBRexp060_PyScript/output/"
+root_folder = "C:/Users/templejo/Desktop/high_oxygen_timecourse/specdata_raw_edited/"
+root_output = "C:/Users/templejo/Desktop/high_oxygen_timecourse/output/"
 root_master_folder = root_output + '/' + 'master/'
 root_master_plots_folder = root_master_folder + '/' + 'plots/'
 
@@ -36,7 +36,7 @@ all_measurements_types = {
     'ECS_DCMU_P700'         : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, (12.4, 13.4), (-0.0002, 0.0012), False],
     'ECS_DIRK_oxidation'    : [ECS_DIRK_oxidation.parse_ECS_DIRK_oxidation_data, ECS_DIRK_oxidation.ECS_DIRK_oxidation_rates_calc,
                                (2.4, 4), (None, 0.0002), False],
-    'vO2_ECS_DIRK_oxidation': [vO2_ECS_DIRK.parse_vO2_ECS_DIRK_oxidation_data, vO2_ECS_DIRK.vO2_ECS_DIRK_oxidation_rates_calc,
+    'vO2_ECS_DIRK_oxidation': [vO2_ECS_DIRK_oxidation.parse_vO2_ECS_DIRK_oxidation_data, vO2_ECS_DIRK_oxidation.vO2_ECS_DIRK_oxidation_rates_calc,
                                (None, None), (None, None), False]
     }
 
@@ -100,7 +100,7 @@ for sample in all_samples:
                         destination_folder, basename, trace_df, ECS_DIRK_oxidation_mean)
                 if measurements_type == 'vO2_ECS_DIRK_oxidation':
                     vO2_ECS_DIRK_oxidation_mean = calc_values_df['vO2_ECS_DIRK_oxidation_rate_mean'].values[0]
-                    vO2_ECS_DIRK.save_vO2_ECS_DIRK_oxidation_plot(
+                    vO2_ECS_DIRK_oxidation.save_vO2_ECS_DIRK_oxidation_plot(
                         destination_folder, basename, trace_df, vO2_ECS_DIRK_oxidation_mean)
 
                 # append the computed values to the dictionary that will contain all the reps for this sample/timepoint

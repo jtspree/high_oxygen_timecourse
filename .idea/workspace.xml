@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0690640e-6b11-4953-aae5-86304585ce66" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/plots.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vO2_ECS_DIRK.py" beforeDir="false" afterPath="$PROJECT_DIR$/vO2_ECS_DIRK.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vO2_ECS_DIRK.py" beforeDir="false" afterPath="$PROJECT_DIR$/vO2_ECS_DIRK_oxidation.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,6 +15,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+              <folding>
+                <element signature="e#0#195#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="parse_math.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parse_math.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -28,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plots.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="plots.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plots.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="500">
@@ -53,11 +65,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vO2_ECS_DIRK.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK.py">
+      <file leaf-file-name="vO2_ECS_DIRK_oxidation.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK_oxidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="63" column="50" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="50" />
+            <state relative-caret-position="180">
+              <caret line="22" column="50" lean-forward="true" selection-end-line="90" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#162#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vO2_ECS_DIRK_rereduct.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="90" column="13" lean-forward="true" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#162#1" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,6 +143,7 @@
         <option value="$PROJECT_DIR$/vO2_ECS_DIRK.py" />
         <option value="$PROJECT_DIR$/plots.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py" />
       </list>
     </option>
   </component>
@@ -264,12 +292,12 @@
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1680929" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1680929" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32995495" />
       <window_info anchor="right" x="0" y="0" width="374" height="826" id="Documentation" side_tool="true" weight="0.3294621" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32995495" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3400901" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3400901" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -449,6 +477,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Continuum/Anaconda3/Lib/site-packages/pandas/core/frame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="1382" selection-start-line="1382" selection-end-line="1382" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+          <folding>
+            <element signature="e#0#140#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/ECS_DIRK_oxidation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1260">
@@ -457,13 +505,6 @@
             <element signature="e#0#158#1" />
             <element signature="e#171#190#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Continuum/Anaconda3/Lib/site-packages/pandas/core/frame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="1382" selection-start-line="1382" selection-end-line="1382" />
         </state>
       </provider>
     </entry>
@@ -477,29 +518,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="63" column="50" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="94" column="10" lean-forward="true" selection-start-line="94" selection-start-column="10" selection-end-line="94" selection-end-column="10" />
+        <state relative-caret-position="440">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
           <folding>
             <element signature="e#0#195#1" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plots.py">
+    <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK_oxidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+        <state relative-caret-position="180">
+          <caret line="22" column="50" lean-forward="true" selection-end-line="90" selection-end-column="13" />
           <folding>
-            <element signature="e#0#140#1" />
+            <element signature="e#0#162#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="90" column="13" lean-forward="true" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#162#1" />
           </folding>
         </state>
       </provider>
