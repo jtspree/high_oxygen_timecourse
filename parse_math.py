@@ -268,8 +268,8 @@ def build_master_df(master_dict, all_samples, all_timepoints, all_measurements_t
     master_df = pd.DataFrame()
 
     row_index = 0
-    master_df['sample'] = ''
-    master_df['timepoint'] = ''
+    master_df['sample'] = float('NaN')
+    master_df['timepoint'] = float('NaN')
 
     for sample in all_samples:
         for timepoint in all_timepoints:
@@ -277,6 +277,8 @@ def build_master_df(master_dict, all_samples, all_timepoints, all_measurements_t
             master_df.loc[row_index, 'timepoint'] = timepoint
 
             for measurements_type in all_measurements_types.keys():
+                if measurements_type not in master_dict[sample][timepoint].keys():
+                    continue
                 df = master_dict[sample][timepoint][measurements_type]
                 for column in df.columns:
                     avg = df.loc['average', column]

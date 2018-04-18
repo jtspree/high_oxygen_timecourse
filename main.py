@@ -25,7 +25,9 @@ import vO2_ECS_DIRK_rereduct
 # CODE
 
 # root folders for file input and output
-root_folder = "C:/Users/templejo/Desktop/high_oxygen_timecourse/specdata_raw_edited/"
+# root_folder = "C:/Users/templejo/Desktop/PBRexp060_PyScript/specdata_raw_edited/"
+# root_output = "C:/Users/templejo/Desktop/PBRexp060_PyScript/output/"
+root_folder = "C:/Users/templejo/Desktop/high_oxygen_timecourse/spec_data/"
 root_output = "C:/Users/templejo/Desktop/high_oxygen_timecourse/output/"
 root_master_folder = root_output + '/' + 'master/'
 root_master_plots_folder = root_master_folder + '/' + 'plots/'
@@ -45,7 +47,7 @@ all_measurements_types = {
 
 # select samples, timepoints, reps for script to analyze
 all_samples = ["CC-1009", "CC-2343"]
-all_timepoints = [1, 3]
+all_timepoints = [0, 1, 3]
 all_reps = [1, 2, 3, 4]
 
 master_dict = {}
@@ -126,6 +128,10 @@ for sample in all_samples:
         averages_output_path_prefix = averages_destination + "/" + sample + "_" + "hr" + str(timepoint) + "_"
 
         for measurements_type in all_measurements_types.keys():
+
+            if len(all_reps_computed_values[measurements_type]) == 0:
+                continue
+
             all_measurements_df = pd.concat(all_reps_computed_values[measurements_type])
             all_measurements_df.loc['average'] = all_measurements_df.mean()
             all_measurements_df.loc['std dev'] = all_measurements_df.std()

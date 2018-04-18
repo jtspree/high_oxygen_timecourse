@@ -14,6 +14,7 @@ Created 2018-03-27
 # LIBRARY
 
 import matplotlib.pyplot as plt
+import pandas as pd
 
 # FUNCTIONS
 
@@ -139,7 +140,7 @@ def save_calc_values_plots(master_df, root_master_plots_folder):
                 avgs = sample_df.iloc[:, col_index]
                 std_dev = sample_df.iloc[:, col_index+1]
                 timepoint = sample_df['timepoint']
-                ax.errorbar(timepoint, avgs, std_dev, label=sample, marker='o', capsize=3)
+                ax.errorbar(timepoint, pd.to_numeric(avgs, errors='coerce'), pd.to_numeric(std_dev, errors='coerce'), label=sample, marker='o', capsize=3)
             ax.set_xlabel('Timepoint (hours)', fontsize=14)
             ax.set_ylabel(col_name, fontsize=14)
             ax.set_ylim(calc_values_dict[col_name])
