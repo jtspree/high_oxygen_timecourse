@@ -6,6 +6,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="matrix_data" />
     <orderEntry type="module" module-name="test_code" />
+    <orderEntry type="module" module-name="dice_machine" />
   </component>
   <component name="TestRunnerService">
     <option name="projectConfiguration" value="py.test" />

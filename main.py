@@ -34,20 +34,29 @@ root_master_plots_folder = root_master_folder + '/' + 'plots/'
 
 all_measurements_types = {
     # type name: [parsing function, calculator function, xlim, ylim, ignore_index]
-    'flr'                   : [parse_math.parse_phi2_flr, parse_math.flr_calculator, None, (0, 4), True],
-    'ECS_DIRK'              : [parse_math.parse_ECS_data, parse_math.ECS_rates_calculator, None, (-0.001, 0.001), False],
-    'ECS_DCMU_P700'         : [parse_math.parse_ECS_DCMU_P700_data, parse_math.ECS_DCMU_P700_rates_calc, (12.4, 13.4), (-0.0002, 0.0012), False],
-    'ECS_DIRK_oxidation'    : [ECS_DIRK_oxidation.parse_ECS_DIRK_oxidation_data, ECS_DIRK_oxidation.ECS_DIRK_oxidation_rates_calc,
+    'flr'                   : [parse_math.parse_phi2_flr,
+                               parse_math.flr_calculator,
+                               None, (0, 4), True],
+    'ECS_DIRK'              : [parse_math.parse_ECS_data,
+                               parse_math.ECS_rates_calculator,
+                               None, (-0.001, 0.001), False],
+    'ECS_DCMU_P700'         : [parse_math.parse_ECS_DCMU_P700_data,
+                               parse_math.ECS_DCMU_P700_rates_calc,
+                               (12.4, 13.4), (-0.0002, 0.0012), False],
+    'ECS_DIRK_oxidation'    : [ECS_DIRK_oxidation.parse_ECS_DIRK_oxidation_data,
+                               ECS_DIRK_oxidation.ECS_DIRK_oxidation_rates_calc,
                                (2.4, 4), (None, 0.0002), False],
-    'vO2_ECS_DIRK_oxidation': [vO2_ECS_DIRK_oxidation.parse_vO2_ECS_DIRK_oxidation_data, vO2_ECS_DIRK_oxidation.vO2_ECS_DIRK_oxidation_rates_calc,
+    'vO2_ECS_DIRK_oxidation': [vO2_ECS_DIRK_oxidation.parse_vO2_ECS_DIRK_oxidation_data,
+                               vO2_ECS_DIRK_oxidation.vO2_ECS_DIRK_oxidation_rates_calc,
                                (None, None), (None, None), False],
-    'vO2_ECS_DIRK_rereduct' : [vO2_ECS_DIRK_rereduct.parse_vO2_ECS_DIRK_rereduct_data, vO2_ECS_DIRK_rereduct.vO2_ECS_DIRK_rereduct_rates_calc,
+    'vO2_ECS_DIRK_rereduct' : [vO2_ECS_DIRK_rereduct.parse_vO2_ECS_DIRK_rereduct_data,
+                               vO2_ECS_DIRK_rereduct.vO2_ECS_DIRK_rereduct_rates_calc,
                                (None, None), (None, None), False]
     }
 
 # select samples, timepoints, reps for script to analyze
 all_samples = ["CC-1009", "CC-2343"]
-all_timepoints = [0, 1, 3]
+all_timepoints = [1, 3, 6, 12, 24, 48]
 all_reps = [1, 2, 3, 4]
 
 master_dict = {}
