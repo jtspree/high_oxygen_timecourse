@@ -36,7 +36,7 @@ def save_ECS_DCMU_P700_plot(destination_folder, basename, ECS_DCMU_P700_df, ECS_
     plt.plot(x, y3, label='y_final')
     plt.plot(x, y4, label='slope')
     plt.legend()
-    plt.savefig(destination_folder + basename + "_" + 'ECS_DCMU_P700_plot.png')
+    plt.savefig(destination_folder + basename + "_" + 'DCMU_ECS_FIRK_rereduct_plot.png')
     plt.clf()
 
 
@@ -56,7 +56,7 @@ def save_ECS_DIRK_plot(destination_folder, basename, ECS_DIRK_data, mean):
     plt.plot(x, y3, label='slope')
     plt.plot(x, y4, label='amplitude')
     plt.legend()
-    plt.savefig(destination_folder + basename + "_" + "ECS_DIRK_plot.png")
+    plt.savefig(destination_folder + basename + "_" + "DCMU_ECS_DIRK_plot.png")
     plt.clf()
 
 
@@ -144,8 +144,9 @@ def save_calc_values_plots(master_df, root_master_plots_folder, all_samples):
                 ax.errorbar(timepoint, pd.to_numeric(avgs, errors='coerce'), pd.to_numeric(std_dev, errors='coerce'),
                             color=all_samples[sample][0], label=sample, marker='o', capsize=3)
             ax.set_xlabel('Timepoint (hours)', fontsize=14)
-            ax.set_ylabel(col_name, fontsize=14)
+            # ax.set_ylabel(col_name, fontsize=14)
             ax.set_ylim(calc_values_dict[col_name])
+            plt.title(col_name)
             ax.legend()
             fig.savefig(root_master_plots_folder + '/' + col_name + '.png')
             plt.clf()
@@ -156,7 +157,7 @@ def save_calc_values_plots(master_df, root_master_plots_folder, all_samples):
 def compare_samples_plot(all_samples_raw_trace, all_samples, all_timepoints, all_measurements_types, root_output):
 
     for timepoint in all_timepoints:
-        path = root_output + '/comapre' + '/' + "hr" + str(timepoint) + "/"
+        path = root_output + '/compare' + '/' + "hr" + str(timepoint) + "/"
         if not os.path.isdir(path):
             os.makedirs(path)
         for measurement_type in all_measurements_types:
@@ -183,8 +184,8 @@ def compare_samples_plot(all_samples_raw_trace, all_samples, all_timepoints, all
 
             ax.set_xlabel('Time (s)', fontsize=12)
             ax.set_ylabel('Delta A', fontsize=12)
-
             ax.tick_params('y', labelsize=8)
+            # plt.title('test')
 
             ax.legend()
             plt.tight_layout()

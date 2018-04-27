@@ -34,16 +34,16 @@ root_master_plots_folder = root_master_folder + '/' + 'plots/'
 
 all_measurements_types = {
     # type name: [parsing function, calculator function, xlim, ylim, ignore_index]
-    'flr'                   : [parse_math.parse_phi2_flr,
+    'flr'                      : [parse_math.parse_phi2_flr,
                                parse_math.flr_calculator,
                                None, (0, 4), True],
-    'ECS_DIRK'              : [parse_math.parse_ECS_data,
+    'DCMU_ECS_DIRK'            : [parse_math.parse_ECS_data,
                                parse_math.ECS_rates_calculator,
                                (0.45, 1.1), (-0.001, 0.001), False],
-    'ECS_DCMU_P700'         : [parse_math.parse_ECS_DCMU_P700_data,
+    'DCMU_ECS_FIRK_rereduct'   : [parse_math.parse_ECS_DCMU_P700_data,
                                parse_math.ECS_DCMU_P700_rates_calc,
                                (12.4, 13.4), (-0.0002, 0.0012), False],
-    'ECS_DIRK_oxidation'    : [ECS_DIRK_oxidation.parse_ECS_DIRK_oxidation_data,
+    'DCMU_ECS_FIRK_oxidation'  : [ECS_DIRK_oxidation.parse_ECS_DIRK_oxidation_data,
                                ECS_DIRK_oxidation.ECS_DIRK_oxidation_rates_calc,
                                (2.4, 4), (None, 0.0002), False],
     'vO2_ECS_DIRK_oxidation': [vO2_ECS_DIRK_oxidation.parse_vO2_ECS_DIRK_oxidation_data,
@@ -60,7 +60,7 @@ all_samples = {
     "CC-2343": ['red']
 }
 
-all_timepoints = [1, 3]
+all_timepoints = [1, 3, 6, 12, 24, 48]
 all_reps = [1, 2, 3, 4]
 
 # master_dict contains computed values for all samples and timepoints
@@ -115,13 +115,13 @@ for sample in all_samples.keys():
                 # save an image file with the fluorescence plot for this sample/time/rep
                 if measurements_type == 'flr':
                     plots.save_flr_plot(trace_df, destination_folder, basename)
-                if measurements_type == 'ECS_DIRK':
+                if measurements_type == 'DCMU_ECS_DIRK':
                     mean = calc_values_df['ECS_DIRK_rates_mean'].values[0]
                     plots.save_ECS_DIRK_plot(destination_folder, basename, trace_df, mean)
-                if measurements_type == 'ECS_DCMU_P700':
+                if measurements_type == 'DCMU_ECS_FIRK_rereduct':
                     ECS_DCMU_P700_mean = calc_values_df['ECS_DCMU_P700_rates_mean'].values[0]
                     plots.save_ECS_DCMU_P700_plot(destination_folder, basename, trace_df, ECS_DCMU_P700_mean)
-                if measurements_type == 'ECS_DIRK_oxidation':
+                if measurements_type == 'DCMU_ECS_FIRK_oxidation':
                     ECS_DIRK_oxidation_mean = calc_values_df['ECS_DIRK_oxidation_rate_mean'].values[0]
                     ECS_DIRK_oxidation.save_ECS_DIRK_oxidation_plot(
                         destination_folder, basename, trace_df, ECS_DIRK_oxidation_mean)

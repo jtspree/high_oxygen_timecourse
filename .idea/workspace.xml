@@ -24,12 +24,7 @@
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/temperature/20180313_H2_2343_00-80-A3-B6-27-32_temperature.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/valve1Set/20180313_H2_2343_00-80-A3-B6-27-32_valve1Set.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/valve2Set/20180313_H2_2343_00-80-A3-B6-27-32_valve2Set.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/spec_scripts.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/spec_scripts.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_flr_meas_timepoint.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_flr_meas_timepoint.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/plots.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,11 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="42" column="35" lean-forward="true" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+            <state relative-caret-position="-1962">
+              <caret line="65" column="47" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
               <folding>
                 <element signature="e#0#195#1" />
               </folding>
@@ -53,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plots.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="plots.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plots.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="182" lean-forward="true" selection-start-line="182" selection-end-line="182" />
+            <state relative-caret-position="378">
+              <caret line="188" column="29" lean-forward="true" selection-start-line="188" selection-start-column="29" selection-end-line="188" selection-end-column="29" />
               <folding>
                 <element signature="e#0#140#1" />
                 <element signature="e#153#184#0" expanded="true" />
@@ -151,6 +146,7 @@
       <find>legend</find>
       <find>sub</find>
       <find>figure</find>
+      <find>title</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -174,8 +170,8 @@
         <option value="$PROJECT_DIR$/../dice_machine/dice_functions.py" />
         <option value="$PROJECT_DIR$/../markov/markov_main.py" />
         <option value="$PROJECT_DIR$/plot_flr_meas_timepoint.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/plots.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -760,17 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ECS_DIRK_oxidation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="41" column="88" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="88" />
-          <folding>
-            <element signature="e#0#158#1" />
-            <element signature="e#171#190#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -789,23 +774,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plots.py">
+    <entry file="file://$PROJECT_DIR$/ECS_DIRK_oxidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="182" lean-forward="true" selection-start-line="182" selection-end-line="182" />
+        <state relative-caret-position="360">
+          <caret line="41" column="88" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="88" />
           <folding>
-            <element signature="e#0#140#1" />
-            <element signature="e#153#184#0" expanded="true" />
+            <element signature="e#0#158#1" />
+            <element signature="e#171#190#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="42" column="35" lean-forward="true" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+        <state relative-caret-position="-1962">
+          <caret line="65" column="47" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
           <folding>
             <element signature="e#0#195#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="188" column="29" lean-forward="true" selection-start-line="188" selection-start-column="29" selection-end-line="188" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#140#1" />
+            <element signature="e#153#184#0" expanded="true" />
           </folding>
         </state>
       </provider>
