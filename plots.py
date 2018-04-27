@@ -15,6 +15,7 @@ Created 2018-03-27
 
 import matplotlib.pyplot as plt
 import pandas as pd
+import os
 
 # FUNCTIONS
 
@@ -125,7 +126,7 @@ calc_values_dict = {
 }
 
 
-def save_calc_values_plots(master_df, root_master_plots_folder):
+def save_calc_values_plots(master_df, root_master_plots_folder, all_samples):
     missing_calc_values = list(calc_values_dict.keys())
     for col_index in range(2, len(master_df.columns), 2):
         col_name = master_df.columns[col_index][:-4]
@@ -140,7 +141,8 @@ def save_calc_values_plots(master_df, root_master_plots_folder):
                 avgs = sample_df.iloc[:, col_index]
                 std_dev = sample_df.iloc[:, col_index+1]
                 timepoint = sample_df['timepoint']
-                ax.errorbar(timepoint, pd.to_numeric(avgs, errors='coerce'), pd.to_numeric(std_dev, errors='coerce'), label=sample, marker='o', capsize=3)
+                ax.errorbar(timepoint, pd.to_numeric(avgs, errors='coerce'), pd.to_numeric(std_dev, errors='coerce'),
+                            color=all_samples[sample][0], label=sample, marker='o', capsize=3)
             ax.set_xlabel('Timepoint (hours)', fontsize=14)
             ax.set_ylabel(col_name, fontsize=14)
             ax.set_ylim(calc_values_dict[col_name])
@@ -149,3 +151,42 @@ def save_calc_values_plots(master_df, root_master_plots_folder):
             plt.clf()
     if len(missing_calc_values) > 0:
         raise Exception('missing calculated values from calc_values_list: ' + str(missing_calc_values))
+
+
+def compare_samples_plot(all_samples_raw_trace, all_samples, all_timepoints, all_measurements_types, root_output):
+
+    for timepoint in all_timepoints:
+        path = root_output + '/comapre' + '/' + "hr" + str(timepoint) + "/"
+        if not os.path.isdir(path):
+            os.makedirs(path)
+        for measurement_type in all_measurements_types:
+            xlim = all_measurements_types[measurement_type][2]
+            ylim = all_measurements_types[measurement_type][3]
+            ignore_index = all_measurements_types[measurement_type][4]
+
+            fig = plt.figure(1, figsize=(10, 6))
+            ax = fig.add_subplot(1, 1, 1)
+            for sample in all_samples.keys():
+
+                y = all_samples_raw_trace[sample][timepoint][measurement_type]['average'].values
+                if ignore_index:
+                    x = range(len(y))
+                else:
+                    x = all_samples_raw_trace[sample][timepoint][measurement_type].index
+
+                ax.plot(x, y, label=sample, color=all_samples[sample][0])
+
+            if xlim is not None:
+                ax.set_xlim(xlim[0], xlim[1])
+            if ylim is not None:
+                ax.set_ylim(ylim[0], ylim[1])
+
+            ax.set_xlabel('Time (s)', fontsize=12)
+            ax.set_ylabel('Delta A', fontsize=12)
+
+            ax.tick_params('y', labelsize=8)
+
+            ax.legend()
+            plt.tight_layout()
+            fig.savefig(path + '/' + 'hr' + str(timepoint) + '_' + measurement_type + '.png')
+            plt.clf()

@@ -39,7 +39,7 @@ all_measurements_types = {
                                None, (0, 4), True],
     'ECS_DIRK'              : [parse_math.parse_ECS_data,
                                parse_math.ECS_rates_calculator,
-                               None, (-0.001, 0.001), False],
+                               (0.45, 1.1), (-0.001, 0.001), False],
     'ECS_DCMU_P700'         : [parse_math.parse_ECS_DCMU_P700_data,
                                parse_math.ECS_DCMU_P700_rates_calc,
                                (12.4, 13.4), (-0.0002, 0.0012), False],
@@ -48,25 +48,38 @@ all_measurements_types = {
                                (2.4, 4), (None, 0.0002), False],
     'vO2_ECS_DIRK_oxidation': [vO2_ECS_DIRK_oxidation.parse_vO2_ECS_DIRK_oxidation_data,
                                vO2_ECS_DIRK_oxidation.vO2_ECS_DIRK_oxidation_rates_calc,
-                               (None, None), (None, None), False],
+                               (0.48, 0.6), (None, None), False],
     'vO2_ECS_DIRK_rereduct' : [vO2_ECS_DIRK_rereduct.parse_vO2_ECS_DIRK_rereduct_data,
                                vO2_ECS_DIRK_rereduct.vO2_ECS_DIRK_rereduct_rates_calc,
-                               (None, None), (None, None), False]
+                               (0.98, 1.08), (None, None), False]
     }
 
 # select samples, timepoints, reps for script to analyze
-all_samples = ["CC-1009", "CC-2343"]
-all_timepoints = [1, 3, 6, 12, 24, 48]
+all_samples = {
+    "CC-1009": ['black'],
+    "CC-2343": ['red']
+}
+
+all_timepoints = [1, 3]
 all_reps = [1, 2, 3, 4]
 
+# master_dict contains computed values for all samples and timepoints
 master_dict = {}
+# same as master_dict but raw trace data
+all_samples_raw_trace = {}
 
-for sample in all_samples:
+for sample in all_samples.keys():
+
     master_dict[sample] = {}
+    all_samples_raw_trace[sample] = {}
+
     for timepoint in all_timepoints:
+
         master_dict[sample][timepoint] = {}
+        all_samples_raw_trace[sample][timepoint] = {}
         all_reps_computed_values = {}
         all_reps_raw_data = {}
+
         for measurements_type in all_measurements_types.keys():
             all_reps_computed_values[measurements_type] = []
             all_reps_raw_data[measurements_type] = None
@@ -160,15 +173,19 @@ for sample in all_samples:
                                      ylim=all_measurements_types[measurements_type][3],
                                      ignore_index=all_measurements_types[measurements_type][4])
 
+        all_samples_raw_trace[sample][timepoint] = all_reps_raw_data
+
 # generate master dataframe containing all measurements
-master_df = parse_math.build_master_df(master_dict, all_samples, all_timepoints, all_measurements_types)
+master_df = parse_math.build_master_df(master_dict, all_samples.keys(), all_timepoints, all_measurements_types)
 
 if not os.path.isdir(root_master_plots_folder):
     os.makedirs(root_master_plots_folder)
 
 master_df.to_csv(root_master_folder + '/' + 'master_calc_values.csv')
 
-plots.save_calc_values_plots(master_df, root_master_plots_folder)
+plots.save_calc_values_plots(master_df, root_master_plots_folder, all_samples)
 
 plot_flr_meas_timepoint.save_flr_measurement_plot(master_df, root_master_folder,
-                                                  figure_rows=all_timepoints, figure_columns=all_samples)
+                                                  figure_rows=all_timepoints, figure_columns=list(all_samples.keys()))
+
+plots.compare_samples_plot(all_samples_raw_trace, all_samples, all_timepoints, all_measurements_types, root_output)

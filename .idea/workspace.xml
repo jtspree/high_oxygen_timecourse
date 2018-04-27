@@ -2,10 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0690640e-6b11-4953-aae5-86304585ce66" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/Corrected Optical Density/20180313_H1_1009_00-80-A3-B6-28-D2_Corrected Optical Density.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/Intensity Setting/20180313_H1_1009_00-80-A3-B6-28-D2_Intensity Setting.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/Script Calculated OD/20180313_H1_1009_00-80-A3-B6-28-D2_Script Calculated OD.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/Temperature Setting/20180313_H1_1009_00-80-A3-B6-28-D2_Temperature Setting.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/aux2Set/20180313_H1_1009_00-80-A3-B6-28-D2_aux2Set.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/jacket-temperature/20180313_H1_1009_00-80-A3-B6-28-D2_jacket-temperature.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/optical-density-high-power/20180313_H1_1009_00-80-A3-B6-28-D2_optical-density-high-power.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/optical-density/20180313_H1_1009_00-80-A3-B6-28-D2_optical-density.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/temperature/20180313_H1_1009_00-80-A3-B6-28-D2_temperature.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/valve1Set/20180313_H1_1009_00-80-A3-B6-28-D2_valve1Set.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/valve2Set/20180313_H1_1009_00-80-A3-B6-28-D2_valve2Set.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/Corrected Optical Density/20180313_H2_2343_00-80-A3-B6-27-32_Corrected Optical Density.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/Intensity Setting/20180313_H2_2343_00-80-A3-B6-27-32_Intensity Setting.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/Script Calculated OD/20180313_H2_2343_00-80-A3-B6-27-32_Script Calculated OD.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/Temperature Setting/20180313_H2_2343_00-80-A3-B6-27-32_Temperature Setting.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/aux2Set/20180313_H2_2343_00-80-A3-B6-27-32_aux2Set.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/jacket-temperature/20180313_H2_2343_00-80-A3-B6-27-32_jacket-temperature.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/optical-density-high-power/20180313_H2_2343_00-80-A3-B6-27-32_optical-density-high-power.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/optical-density/20180313_H2_2343_00-80-A3-B6-27-32_optical-density.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/temperature/20180313_H2_2343_00-80-A3-B6-27-32_temperature.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/valve1Set/20180313_H2_2343_00-80-A3-B6-27-32_valve1Set.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/valve2Set/20180313_H2_2343_00-80-A3-B6-27-32_valve2Set.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/spec_scripts.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/spec_scripts.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_flr_meas_timepoint.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_flr_meas_timepoint.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/plots.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,31 +41,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="56" column="56" selection-start-line="56" selection-start-column="56" selection-end-line="56" selection-end-column="56" />
+            <state relative-caret-position="180">
+              <caret line="42" column="35" lean-forward="true" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
               <folding>
                 <element signature="e#0#195#1" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dice_roller.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../dice_machine/dice_roller.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="parse_math.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parse_math.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5180">
-              <caret line="270" column="38" selection-start-line="270" selection-start-column="38" selection-end-line="270" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#141#1" />
-                <element signature="e#154#173#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -49,8 +56,8 @@
       <file leaf-file-name="plots.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plots.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2440">
-              <caret line="133" column="31" selection-start-line="133" selection-start-column="31" selection-end-line="133" selection-end-column="31" />
+            <state relative-caret-position="358">
+              <caret line="182" lean-forward="true" selection-start-line="182" selection-end-line="182" />
               <folding>
                 <element signature="e#0#140#1" />
                 <element signature="e#153#184#0" expanded="true" />
@@ -59,10 +66,35 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="parse_math.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/parse_math.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-220">
+              <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#141#1" />
+                <element signature="e#154#173#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="markov_main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../markov/markov_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#116#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ECS_DIRK_oxidation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ECS_DIRK_oxidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
+            <state relative-caret-position="360">
               <caret line="41" column="88" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="88" />
               <folding>
                 <element signature="e#0#158#1" />
@@ -75,8 +107,8 @@
       <file leaf-file-name="vO2_ECS_DIRK_rereduct.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1760">
-              <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
+            <state relative-caret-position="288">
+              <caret line="54" column="71" lean-forward="true" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="85" />
             </state>
           </provider>
         </entry>
@@ -84,8 +116,8 @@
       <file leaf-file-name="plot_flr_meas_timepoint.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plot_flr_meas_timepoint.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2100">
-              <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
+            <state relative-caret-position="120">
+              <caret line="60" column="22" lean-forward="true" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
               <folding>
                 <element signature="e#0#99#1" />
               </folding>
@@ -116,6 +148,9 @@
       <find>.abs</find>
       <find>abs</find>
       <find>des</find>
+      <find>legend</find>
+      <find>sub</find>
+      <find>figure</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -129,23 +164,28 @@
         <option value="$PROJECT_DIR$/ECS_DIRK_start.py" />
         <option value="$PROJECT_DIR$/ECS_DIRK_ox.py" />
         <option value="$PROJECT_DIR$/../test_code/exponential_fit.py" />
-        <option value="$PROJECT_DIR$/plot_flr_meas_timepoint.py" />
         <option value="$PROJECT_DIR$/ECS_DIRK_oxidation.py" />
         <option value="$PROJECT_DIR$/vO2_ECS_DIRK.py" />
         <option value="$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py" />
         <option value="$PROJECT_DIR$/parse_math.py" />
-        <option value="$PROJECT_DIR$/plots.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/../test_code/dice.py" />
         <option value="$PROJECT_DIR$/../dice_machine/dice_roller.py" />
+        <option value="$PROJECT_DIR$/../dice_machine/dice_main.py" />
+        <option value="$PROJECT_DIR$/../dice_machine/dice_functions.py" />
+        <option value="$PROJECT_DIR$/../markov/markov_main.py" />
+        <option value="$PROJECT_DIR$/plot_flr_meas_timepoint.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/plots.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1680" />
-    <option name="width" value="1920" />
-    <option name="height" value="1040" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1696" />
+    <option name="height" value="1026" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -165,6 +205,10 @@
             </path>
             <path>
               <item name="spec_scripts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="markov" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spec_scripts" type="b2602c69:ProjectViewProjectNode" />
               <item name="matrix_data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -179,7 +223,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/templejo/Documents/Python/spec_scripts/plots.py" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../matrix_data" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../markov" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -194,7 +238,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.dice">
+  <component name="RunManager" selected="Python.main">
     <configuration name="dice" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="test_code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -213,19 +257,37 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="exponential_fit" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="test_code" />
+    <configuration name="dice_main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="dice_machine" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../test_code" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../dice_machine" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\templejo\Documents\Python\test_code\exponential_decay_fit.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../dice_machine/dice_main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="dice_roller" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="dice_machine" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../dice_machine" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\templejo\Documents\Python\dice_machine\dice_main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -249,37 +311,19 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="plot_flr_meas_timepoint" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="spec_scripts" />
+    <configuration name="markov_main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="markov" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../markov" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plot_flr_meas_timepoint.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="plots" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="spec_scripts" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plots.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../markov/markov_main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -287,18 +331,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.exponential_fit" />
-      <item itemvalue="Python.plot_flr_meas_timepoint" />
-      <item itemvalue="Python.plots" />
       <item itemvalue="Python.dice" />
+      <item itemvalue="Python.dice_roller" />
+      <item itemvalue="Python.dice_main" />
+      <item itemvalue="Python.markov_main" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.dice" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.plots" />
-        <item itemvalue="Python.plot_flr_meas_timepoint" />
-        <item itemvalue="Python.exponential_fit" />
+        <item itemvalue="Python.markov_main" />
+        <item itemvalue="Python.dice_main" />
+        <item itemvalue="Python.dice_roller" />
+        <item itemvalue="Python.dice" />
       </list>
     </recent_temporary>
   </component>
@@ -325,15 +369,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1672" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14646997" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16767189" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32995495" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32995495" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32897604" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3400901" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -626,34 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ECS_DIRK_oxidation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="41" column="88" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="88" />
-          <folding>
-            <element signature="e#0#158#1" />
-            <element signature="e#171#190#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1760">
-          <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plot_flr_meas_timepoint.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2100">
-          <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#99#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Continuum/Anaconda3/Lib/site-packages/matplotlib/axes/_base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -675,28 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plots.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2440">
-          <caret line="133" column="31" selection-start-line="133" selection-start-column="31" selection-end-line="133" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#140#1" />
-            <element signature="e#153#184#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parse_math.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5180">
-          <caret line="270" column="38" selection-start-line="270" selection-start-column="38" selection-end-line="270" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#141#1" />
-            <element signature="e#154#173#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../test_code/exponential_decay_fit.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
@@ -714,18 +709,106 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../markov/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dice_machine/dice_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#96#1" />
+            <element signature="e#109#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dice_machine/dice_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="43" column="104" selection-start-line="43" selection-start-column="104" selection-end-line="43" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Continuum/Anaconda3/Lib/site-packages/pandas/core/generic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="5631" selection-start-line="5631" selection-end-line="5631" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../markov/markov_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#116#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_flr_meas_timepoint.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="60" column="22" lean-forward="true" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#99#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ECS_DIRK_oxidation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="41" column="88" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="88" />
+          <folding>
+            <element signature="e#0#158#1" />
+            <element signature="e#171#190#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="54" column="71" lean-forward="true" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parse_math.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-220">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#141#1" />
+            <element signature="e#154#173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="182" lean-forward="true" selection-start-line="182" selection-end-line="182" />
+          <folding>
+            <element signature="e#0#140#1" />
+            <element signature="e#153#184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="56" column="56" selection-start-line="56" selection-start-column="56" selection-end-line="56" selection-end-column="56" />
+        <state relative-caret-position="180">
+          <caret line="42" column="35" lean-forward="true" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
           <folding>
             <element signature="e#0#195#1" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dice_machine/dice_roller.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

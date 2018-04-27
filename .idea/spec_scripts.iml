@@ -2,11 +2,12 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.6.0 (C:\Users\templejo\AppData\Local\Continuum\Anaconda3\python.exe)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="matrix_data" />
     <orderEntry type="module" module-name="test_code" />
     <orderEntry type="module" module-name="dice_machine" />
+    <orderEntry type="module" module-name="markov" />
   </component>
   <component name="TestRunnerService">
     <option name="projectConfiguration" value="py.test" />
