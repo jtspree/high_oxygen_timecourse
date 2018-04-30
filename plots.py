@@ -161,21 +161,31 @@ def compare_samples_plot(all_samples_raw_trace, all_samples, all_timepoints, all
         if not os.path.isdir(path):
             os.makedirs(path)
         for measurement_type in all_measurements_types:
+
             xlim = all_measurements_types[measurement_type][2]
             ylim = all_measurements_types[measurement_type][3]
             ignore_index = all_measurements_types[measurement_type][4]
 
+            line_count = 0
             fig = plt.figure(1, figsize=(10, 6))
             ax = fig.add_subplot(1, 1, 1)
             for sample in all_samples.keys():
 
-                y = all_samples_raw_trace[sample][timepoint][measurement_type]['average'].values
+                try:
+                    y = all_samples_raw_trace[sample][timepoint][measurement_type]['average'].values
+                except:
+                    continue
+
                 if ignore_index:
                     x = range(len(y))
                 else:
                     x = all_samples_raw_trace[sample][timepoint][measurement_type].index
 
+                line_count = line_count + 1
                 ax.plot(x, y, label=sample, color=all_samples[sample][0])
+
+            if line_count < 2:
+                continue
 
             if xlim is not None:
                 ax.set_xlim(xlim[0], xlim[1])

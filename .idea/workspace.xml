@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0690640e-6b11-4953-aae5-86304585ce66" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/P700_DCMU_FIRK_oxidation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/Corrected Optical Density/20180313_H1_1009_00-80-A3-B6-28-D2_Corrected Optical Density.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/Intensity Setting/20180313_H1_1009_00-80-A3-B6-28-D2_Intensity Setting.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/Script Calculated OD/20180313_H1_1009_00-80-A3-B6-28-D2_Script Calculated OD.dat" beforeDir="false" />
@@ -26,8 +25,6 @@
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/valve1Set/20180313_H2_2343_00-80-A3-B6-27-32_valve1Set.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/valve2Set/20180313_H2_2343_00-80-A3-B6-27-32_valve2Set.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ECS_DIRK_oxidation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/plots.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,11 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="190" selection-start-line="190" selection-end-line="190" />
+            <state relative-caret-position="199">
+              <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
               <folding>
                 <element signature="e#0#195#1" />
               </folding>
@@ -51,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plots.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="plots.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plots.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="438">
+              <caret line="186" column="16" lean-forward="true" selection-start-line="186" selection-start-column="16" selection-end-line="186" selection-end-column="73" />
               <folding>
                 <element signature="e#0#140#1" />
                 <element signature="e#153#184#0" expanded="true" />
@@ -67,7 +64,7 @@
       <file leaf-file-name="parse_math.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parse_math.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
+            <state relative-caret-position="20">
               <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
               <folding>
                 <element signature="e#0#141#1" />
@@ -92,7 +89,7 @@
       <file leaf-file-name="P700_DCMU_FIRK_oxidation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/P700_DCMU_FIRK_oxidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="698">
+            <state relative-caret-position="-502">
               <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
               <folding>
                 <element signature="e#171#190#0" expanded="true" />
@@ -241,24 +238,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.main">
-    <configuration name="dice" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="test_code" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../test_code" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../test_code/dice.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="dice_main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="dice_machine" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -331,20 +310,38 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="plots" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="spec_scripts" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plots.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <list>
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.dice" />
       <item itemvalue="Python.dice_roller" />
       <item itemvalue="Python.dice_main" />
       <item itemvalue="Python.markov_main" />
+      <item itemvalue="Python.plots" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.plots" />
         <item itemvalue="Python.markov_main" />
         <item itemvalue="Python.dice_main" />
         <item itemvalue="Python.dice_roller" />
-        <item itemvalue="Python.dice" />
       </list>
     </recent_temporary>
   </component>
@@ -398,7 +395,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="6" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -677,13 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Continuum/Anaconda3/Lib/site-packages/matplotlib/axes/_axes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="2903" selection-start-line="2903" selection-end-line="2903" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../matrix_data/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -749,6 +739,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="54" column="71" lean-forward="true" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parse_math.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#141#1" />
+            <element signature="e#154#173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Continuum/Anaconda3/Lib/site-packages/matplotlib/axes/_axes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="544" selection-start-line="544" selection-end-line="544" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../markov/markov_main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
@@ -759,16 +774,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="54" column="71" lean-forward="true" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/P700_DCMU_FIRK_oxidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="698">
+        <state relative-caret-position="-502">
           <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
           <folding>
             <element signature="e#171#190#0" expanded="true" />
@@ -776,34 +784,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parse_math.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        <state relative-caret-position="199">
+          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
           <folding>
-            <element signature="e#0#141#1" />
-            <element signature="e#154#173#0" expanded="true" />
+            <element signature="e#0#195#1" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plots.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="438">
+          <caret line="186" column="16" lean-forward="true" selection-start-line="186" selection-start-column="16" selection-end-line="186" selection-end-column="73" />
           <folding>
             <element signature="e#0#140#1" />
             <element signature="e#153#184#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="190" selection-start-line="190" selection-end-line="190" />
-          <folding>
-            <element signature="e#0#195#1" />
           </folding>
         </state>
       </provider>
