@@ -43,7 +43,7 @@ all_measurements_types = {
     'DCMU_ECS_FIRK_rereduct'   : [parse_math.parse_ECS_DCMU_P700_data,
                                parse_math.ECS_DCMU_P700_rates_calc,
                                (12.4, 13.4), (-0.0002, 0.0012), False],
-    'P700_DCMU_FIRK_oxidation'  : [P700_DCMU_FIRK_oxidation.parse_P700_DCMU_FIRK_oxidation_data,
+    'P700_DCMU_FIRK_oxidation' : [P700_DCMU_FIRK_oxidation.parse_P700_DCMU_FIRK_oxidation_data,
                                   P700_DCMU_FIRK_oxidation.P700_DCMU_FIRK_oxidation_rates_calc,
                                   (2.4, 4), (None, 0.0002), False],
     'vO2_ECS_DIRK_oxidation': [vO2_ECS_DIRK_oxidation.parse_vO2_ECS_DIRK_oxidation_data,
@@ -183,9 +183,11 @@ if not os.path.isdir(root_master_plots_folder):
 
 master_df.to_csv(root_master_folder + '/' + 'master_calc_values.csv')
 
+# plot all calculated values in master_df
 plots.save_calc_values_plots(master_df, root_master_plots_folder, all_samples)
 
+# plot flr measurements by timepoint in single figure
 plot_flr_meas_timepoint.save_flr_measurement_plot(master_df, root_master_folder,
                                                   figure_rows=all_timepoints, figure_columns=list(all_samples.keys()))
-
+# plots figures that compare samples
 plots.compare_samples_plot(all_samples_raw_trace, all_samples, all_timepoints, all_measurements_types, root_output)
