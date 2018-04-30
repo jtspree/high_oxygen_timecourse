@@ -150,6 +150,7 @@ def save_calc_values_plots(master_df, root_master_plots_folder, all_samples):
             ax.legend()
             fig.savefig(root_master_plots_folder + '/' + col_name + '.png')
             plt.clf()
+
     if len(missing_calc_values) > 0:
         raise Exception('missing calculated values from calc_values_list: ' + str(missing_calc_values))
 
@@ -157,6 +158,7 @@ def save_calc_values_plots(master_df, root_master_plots_folder, all_samples):
 def compare_samples_plot(all_samples_raw_trace, all_samples, all_timepoints, all_measurements_types, root_output):
 
     for timepoint in all_timepoints:
+
         path = root_output + '/compare' + '/' + "hr" + str(timepoint) + "/"
         if not os.path.isdir(path):
             os.makedirs(path)
@@ -184,18 +186,19 @@ def compare_samples_plot(all_samples_raw_trace, all_samples, all_timepoints, all
                 line_count = line_count + 1
                 ax.plot(x, y, label=sample, color=all_samples[sample][0])
 
+            # if y trace less than 2, do not make graph
             if line_count < 2:
                 continue
 
+            # set axis limits & parameters
             if xlim is not None:
                 ax.set_xlim(xlim[0], xlim[1])
             if ylim is not None:
                 ax.set_ylim(ylim[0], ylim[1])
-
             ax.set_xlabel('Time (s)', fontsize=12)
             ax.set_ylabel('Delta A', fontsize=12)
             ax.tick_params('y', labelsize=8)
-            # plt.title('test')
+            plt.title(measurement_type)
 
             ax.legend()
             plt.tight_layout()
