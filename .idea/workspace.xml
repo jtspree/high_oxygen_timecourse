@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0690640e-6b11-4953-aae5-86304585ce66" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/P700_DCMU_FIRK_oxidation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/Corrected Optical Density/20180313_H1_1009_00-80-A3-B6-28-D2_Corrected Optical Density.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/Intensity Setting/20180313_H1_1009_00-80-A3-B6-28-D2_Intensity Setting.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/Script Calculated OD/20180313_H1_1009_00-80-A3-B6-28-D2_Script Calculated OD.dat" beforeDir="false" />
@@ -24,6 +25,8 @@
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/temperature/20180313_H2_2343_00-80-A3-B6-27-32_temperature.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/valve1Set/20180313_H2_2343_00-80-A3-B6-27-32_valve1Set.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/valve2Set/20180313_H2_2343_00-80-A3-B6-27-32_valve2Set.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ECS_DIRK_oxidation.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/plots.py" afterDir="false" />
     </list>
@@ -36,11 +39,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1962">
-              <caret line="65" column="47" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
+            <state relative-caret-position="418">
+              <caret line="190" selection-start-line="190" selection-end-line="190" />
               <folding>
                 <element signature="e#0#195#1" />
               </folding>
@@ -48,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plots.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="plots.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plots.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="188" column="29" lean-forward="true" selection-start-line="188" selection-start-column="29" selection-end-line="188" selection-end-column="29" />
+            <state relative-caret-position="200">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="e#0#140#1" />
                 <element signature="e#153#184#0" expanded="true" />
@@ -64,7 +67,7 @@
       <file leaf-file-name="parse_math.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parse_math.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-220">
+            <state relative-caret-position="200">
               <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
               <folding>
                 <element signature="e#0#141#1" />
@@ -77,8 +80,8 @@
       <file leaf-file-name="markov_main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../markov/markov_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+            <state relative-caret-position="388">
+              <caret line="45" column="23" lean-forward="true" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
               <folding>
                 <element signature="e#0#116#1" />
               </folding>
@@ -86,13 +89,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ECS_DIRK_oxidation.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ECS_DIRK_oxidation.py">
+      <file leaf-file-name="P700_DCMU_FIRK_oxidation.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/P700_DCMU_FIRK_oxidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="41" column="88" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="88" />
+            <state relative-caret-position="698">
+              <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
               <folding>
-                <element signature="e#0#158#1" />
                 <element signature="e#171#190#0" expanded="true" />
               </folding>
             </state>
@@ -147,6 +149,9 @@
       <find>sub</find>
       <find>figure</find>
       <find>title</find>
+      <find>ECS</find>
+      <find>s</find>
+      <find>ecs</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,7 +165,6 @@
         <option value="$PROJECT_DIR$/ECS_DIRK_start.py" />
         <option value="$PROJECT_DIR$/ECS_DIRK_ox.py" />
         <option value="$PROJECT_DIR$/../test_code/exponential_fit.py" />
-        <option value="$PROJECT_DIR$/ECS_DIRK_oxidation.py" />
         <option value="$PROJECT_DIR$/vO2_ECS_DIRK.py" />
         <option value="$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py" />
         <option value="$PROJECT_DIR$/parse_math.py" />
@@ -170,8 +174,10 @@
         <option value="$PROJECT_DIR$/../dice_machine/dice_functions.py" />
         <option value="$PROJECT_DIR$/../markov/markov_main.py" />
         <option value="$PROJECT_DIR$/plot_flr_meas_timepoint.py" />
-        <option value="$PROJECT_DIR$/plots.py" />
+        <option value="$PROJECT_DIR$/ECS_DIRK_oxidation.py" />
+        <option value="$PROJECT_DIR$/P700_DCMU_FIRK_oxidation.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/plots.py" />
       </list>
     </option>
   </component>
@@ -366,7 +372,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16767189" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
@@ -429,12 +434,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ECS_DIRK_oxidation.py">
+    <entry file="file://$PROJECT_DIR$/P700_DCMU_FIRK_oxidation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="41" column="88" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="88" />
           <folding>
-            <element signature="e#0#158#1" />
             <element signature="e#171#190#0" expanded="true" />
           </folding>
         </state>
@@ -489,12 +493,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ECS_DIRK_oxidation.py">
+    <entry file="file://$PROJECT_DIR$/P700_DCMU_FIRK_oxidation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="41" column="88" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="88" />
           <folding>
-            <element signature="e#0#158#1" />
             <element signature="e#171#190#0" expanded="true" />
           </folding>
         </state>
@@ -546,7 +549,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ECS_DIRK_oxidation.py">
+    <entry file="file://$PROJECT_DIR$/P700_DCMU_FIRK_oxidation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1740">
           <caret line="89" column="64" selection-start-line="89" selection-start-column="64" selection-end-line="89" selection-end-column="64" />
@@ -571,7 +574,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ECS_DIRK_oxidation.py">
+    <entry file="file://$PROJECT_DIR$/P700_DCMU_FIRK_oxidation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1740">
           <caret line="89" column="64" selection-start-line="89" selection-start-column="64" selection-end-line="89" selection-end-column="64" />
@@ -736,22 +739,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../markov/markov_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#116#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plot_flr_meas_timepoint.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="60" column="22" lean-forward="true" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
           <folding>
             <element signature="e#0#99#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../markov/markov_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="45" column="23" lean-forward="true" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#116#1" />
           </folding>
         </state>
       </provider>
@@ -763,9 +766,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/P700_DCMU_FIRK_oxidation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="698">
+          <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+          <folding>
+            <element signature="e#171#190#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/parse_math.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-220">
+        <state relative-caret-position="200">
           <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
           <folding>
             <element signature="e#0#141#1" />
@@ -774,34 +787,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ECS_DIRK_oxidation.py">
+    <entry file="file://$PROJECT_DIR$/plots.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="41" column="88" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="88" />
+        <state relative-caret-position="200">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
           <folding>
-            <element signature="e#0#158#1" />
-            <element signature="e#171#190#0" expanded="true" />
+            <element signature="e#0#140#1" />
+            <element signature="e#153#184#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1962">
-          <caret line="65" column="47" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
+        <state relative-caret-position="418">
+          <caret line="190" selection-start-line="190" selection-end-line="190" />
           <folding>
             <element signature="e#0#195#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plots.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="188" column="29" lean-forward="true" selection-start-line="188" selection-start-column="29" selection-end-line="188" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#140#1" />
-            <element signature="e#153#184#0" expanded="true" />
           </folding>
         </state>
       </provider>
