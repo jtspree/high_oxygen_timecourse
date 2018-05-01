@@ -39,8 +39,8 @@ all_measurements_types = {
     'flr'                      : [flr_phi2.parse_phi2_flr,
                                   flr_phi2.flr_calculator,
                                None, (0, 4), True],
-    'DCMU_ECS_DIRK'            : [DCMU_ECS_DIRK.parse_ECS_data,
-                                  DCMU_ECS_DIRK.ECS_rates_calculator,
+    'DCMU_ECS_DIRK'            : [DCMU_ECS_DIRK.parse_DCMU_ECS_DIRK_data,
+                                  DCMU_ECS_DIRK.DCMU_ECS_DIRK_rates_calculator,
                                 (0.45, 1.1), (-0.001, 0.001), False],
     'P700_DCMU_ECS_rereduction': [P700_DCMU_FIRK_rereduction.parse_P700_DCMU_ECS_rereduction_data,
                                   P700_DCMU_FIRK_rereduction.P700_DCMU_ECS_rereduction_rates_calc,
@@ -115,8 +115,8 @@ for sample in all_samples.keys():
                 if measurements_type == 'flr':
                     flr_phi2.save_flr_plot(trace_df, destination_folder, basename)
                 if measurements_type == 'DCMU_ECS_DIRK':
-                    mean = calc_values_df['ECS_DIRK_rates_mean'].values[0]
-                    DCMU_ECS_DIRK.save_ECS_DIRK_plot(destination_folder, basename, trace_df, mean)
+                    mean = calc_values_df['DCMU_ECS_DIRK_initial_slope'].values[0]
+                    DCMU_ECS_DIRK.save_DCMU_ECS_DIRK_plot(destination_folder, basename, trace_df, mean)
                 if measurements_type == 'P700_DCMU_FIRK_rereduction':
                     P700_DCMU_FIRK_rereduction_mean = calc_values_df['P700_DCMU_FIRK_rereduction_rates_mean'].values[0]
                     P700_DCMU_FIRK_rereduction.save_ECS_DCMU_P700_plot(

@@ -58,12 +58,12 @@ def P700_DCMU_ECS_rereduction_rates_calc(P700_DCMU_ECS_rereduction_df, sample, t
                                '/{0}_hr{1}_rep{2}_P700_ECS_FIRK_rereduction_slopes.csv'.format(sample, timepoint, rep))
 
     values_dict = {}
-    values_dict['ECS_DCMU_P700_rates_mean'] = P700_DCMU_ECS_rereduction_slope['rate'].mean()
+    values_dict['P700_DCMU_ECS_rereduction_rates_mean'] = P700_DCMU_ECS_rereduction_slope['rate'].mean()
     values_dict['rates_std_dev'] = P700_DCMU_ECS_rereduction_slope['rate'].std()
     values_dict['end_trace_mean'] = P700_DCMU_ECS_rereduction_df['y_correct'].iloc[2685:2695].mean(axis=0)
     values_dict['end_trace_std_dev'] = P700_DCMU_ECS_rereduction_df['y_correct'].iloc[2685:2695].std(axis=0)
     values_dict['y_initial'] = P700_DCMU_ECS_rereduction_df['y_correct'].iloc[2490:2499].mean(axis=0)
-    values_dict['ECS_DCMU_P700_amplitude'] = values_dict['end_trace_mean'] - values_dict['y_initial']
+    values_dict['P700_DCMU_ECS_rereduction_amplitude'] = values_dict['end_trace_mean'] - values_dict['y_initial']
     P700_DCMU_ECS_rereduction_calc_values_df = pd.DataFrame(values_dict, index=["rep" + str(rep)])
 
     return P700_DCMU_ECS_rereduction_calc_values_df

@@ -28,6 +28,7 @@ def get_path(root_folder, sample, timepoint, rep):
     basename = sample + "_" + "hr" + str(timepoint) + "_" + "rep" + str(rep)
     return rel_path, basename, folder
 
+
 def build_master_df(master_dict, all_samples, all_timepoints, all_measurements_types):
     master_df = pd.DataFrame()
 
