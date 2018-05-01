@@ -76,11 +76,11 @@ calc_values_dict = {
     'DCMU_ECS_DIRK_amplitude': (0, None),
     'DCMU_ECS_DIRK_initial_slope': (None, None),
     'P700_DCMU_ECS_rereduction_amplitude': (0, None),
-    'P700_DCMU_ECS_rereduction_rates_mean': (None, None),
+    'P700_DCMU_ECS_rereduction_initial_slope': (None, None),
     'P700_DCMU_FIRK_oxidation_amplitude': (None, None),
-    'P700_DCMU_FIRK_oxidation_rate_mean': (None, None),
+    'P700_DCMU_FIRK_oxidation_initial_slope': (None, None),
     'vO2_ECS_DIRK_amplitude': (None, None),
-    'vO2_ECS_DIRK_rate_mean': (None, None)
+    'vO2_ECS_DIRK_initial_slope': (None, None)
 }
 
 

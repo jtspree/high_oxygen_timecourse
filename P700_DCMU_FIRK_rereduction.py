@@ -58,7 +58,7 @@ def P700_DCMU_ECS_rereduction_rates_calc(P700_DCMU_ECS_rereduction_df, sample, t
                                '/{0}_hr{1}_rep{2}_P700_ECS_FIRK_rereduction_slopes.csv'.format(sample, timepoint, rep))
 
     values_dict = {}
-    values_dict['P700_DCMU_ECS_rereduction_rates_mean'] = P700_DCMU_ECS_rereduction_slope['rate'].mean()
+    values_dict['P700_DCMU_ECS_rereduction_initial_slope'] = P700_DCMU_ECS_rereduction_slope['rate'].mean()
     values_dict['rates_std_dev'] = P700_DCMU_ECS_rereduction_slope['rate'].std()
     values_dict['end_trace_mean'] = P700_DCMU_ECS_rereduction_df['y_correct'].iloc[2685:2695].mean(axis=0)
     values_dict['end_trace_std_dev'] = P700_DCMU_ECS_rereduction_df['y_correct'].iloc[2685:2695].std(axis=0)

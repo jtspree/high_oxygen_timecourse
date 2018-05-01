@@ -118,15 +118,15 @@ for sample in all_samples.keys():
                     mean = calc_values_df['DCMU_ECS_DIRK_initial_slope'].values[0]
                     DCMU_ECS_DIRK.save_DCMU_ECS_DIRK_plot(destination_folder, basename, trace_df, mean)
                 if measurements_type == 'P700_DCMU_FIRK_rereduction':
-                    P700_DCMU_FIRK_rereduction_mean = calc_values_df['P700_DCMU_FIRK_rereduction_rates_mean'].values[0]
+                    P700_DCMU_FIRK_rereduction_mean = calc_values_df['P700_DCMU_FIRK_rereduction_initial_slope'].values[0]
                     P700_DCMU_FIRK_rereduction.save_ECS_DCMU_P700_plot(
                         destination_folder, basename, trace_df, P700_DCMU_FIRK_rereduction_mean)
                 if measurements_type == 'P700_DCMU_FIRK_oxidation':
-                    ECS_DIRK_oxidation_mean = calc_values_df['P700_DCMU_FIRK_oxidation_rate_mean'].values[0]
+                    ECS_DIRK_oxidation_mean = calc_values_df['P700_DCMU_FIRK_oxidation_initial_slope'].values[0]
                     P700_DCMU_FIRK_oxidation.save_P700_DCMU_FIRK_oxidation_plot(
                         destination_folder, basename, trace_df, ECS_DIRK_oxidation_mean)
                 if measurements_type == 'vO2_ECS_DIRK':
-                    vO2_ECS_DIRK_mean = calc_values_df['vO2_ECS_DIRK_rate_mean'].values[0]
+                    vO2_ECS_DIRK_mean = calc_values_df['vO2_ECS_DIRK_initial_slope'].values[0]
                     vO2_ECS_DIRK.save_vO2_ECS_DIRK_plot(
                         destination_folder, basename, trace_df, vO2_ECS_DIRK_mean)
 

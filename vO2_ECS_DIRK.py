@@ -61,7 +61,7 @@ def vO2_ECS_DIRK_rates_calc(vO2_ECS_DIRK_df, sample, timepoint, rep, destination
     vO2_ECS_DIRK_slope.to_csv(destination_folder + '/{0}_hr{1}_rep{2}_vO2_ECS_DIRK_slopes.csv'.format(sample, timepoint, rep))
 
     values_dict = {}
-    values_dict['vO2_ECS_DIRK_rate_mean'] = vO2_ECS_DIRK_slope['rate'].mean()
+    values_dict['vO2_ECS_DIRK_initial_slope'] = vO2_ECS_DIRK_slope['rate'].mean()
     values_dict['v02_ECS_DIRK_std_dev'] = vO2_ECS_DIRK_slope['rate'].std()
     values_dict['end_trace_mean'] = vO2_ECS_DIRK_df['y_correct'].iloc[280:300].mean(axis=0)
     values_dict['end_trace_std_dev'] = vO2_ECS_DIRK_df['y_correct'].iloc[280:300].std(axis=0)
