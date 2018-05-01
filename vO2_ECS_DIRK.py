@@ -62,6 +62,7 @@ def vO2_ECS_DIRK_rates_calc(vO2_ECS_DIRK_df, sample, timepoint, rep, destination
 
     values_dict = {}
     values_dict['vO2_ECS_DIRK_initial_slope'] = vO2_ECS_DIRK_slope['rate'].mean()
+    values_dict['vO2_ECS_DIRK_initial_slope'] = abs(values_dict['vO2_ECS_DIRK_initial_slope'])
     values_dict['v02_ECS_DIRK_std_dev'] = vO2_ECS_DIRK_slope['rate'].std()
     values_dict['end_trace_mean'] = vO2_ECS_DIRK_df['y_correct'].iloc[280:300].mean(axis=0)
     values_dict['end_trace_std_dev'] = vO2_ECS_DIRK_df['y_correct'].iloc[280:300].std(axis=0)
@@ -79,10 +80,10 @@ def save_vO2_ECS_DIRK_plot(destination_folder, basename, vO2_ECS_DIRK_df, vO2_EC
     y1 = vO2_ECS_DIRK_df['y_correct']
     y2 = vO2_ECS_DIRK_df['y_initial']
     y3 = vO2_ECS_DIRK_df['y_final']
-    y4 = vO2_ECS_DIRK_mean * x + vO2_ECS_DIRK_df['y_initial'][0]
+    y4 = (vO2_ECS_DIRK_mean * -1) * x + vO2_ECS_DIRK_df['y_initial'][0]
     ax.set_xlim(-0.1, 0.2)
     ax.set_ylim(-0.002, 0.0004)
-    plt.plot(x, y1, label='ECS')
+    plt.plot(x, y1, label='signal')
     plt.plot(x, y2, label='y_initial')
     plt.plot(x, y3, label='y_final')
     plt.plot(x, y4, label='slope')

@@ -60,6 +60,7 @@ all_samples = {
 }
 
 all_timepoints = [0, 1, 3]
+# all_timepoints = [0, 1, 3, 6, 12, 24, 48]
 all_reps = [1, 2, 3, 4]
 
 # master_dict contains computed values for all samples and timepoints

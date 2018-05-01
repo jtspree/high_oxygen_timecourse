@@ -53,6 +53,7 @@ def DCMU_ECS_DIRK_rates_calculator(DCMU_ECS_DIRK_data, sample, timepoint, rep, d
 
     values_dict = {}
     values_dict['DCMU_ECS_DIRK_initial_slope'] = slope_df['rate'].mean()
+    values_dict['DCMU_ECS_DIRK_initial_slope'] = abs(values_dict['DCMU_ECS_DIRK_initial_slope'])
     values_dict['rates_std_dev'] = slope_df['rate'].std()
     values_dict['end_trace_mean'] = DCMU_ECS_DIRK_data['y_correct'].iloc[470:495].mean(axis=0)
     values_dict['end_trace_std_dev'] = DCMU_ECS_DIRK_data['y_correct'].iloc[470:495].std(axis=0)
@@ -70,7 +71,7 @@ def save_DCMU_ECS_DIRK_plot(destination_folder, basename, DCMU_ECS_DIRK_data, me
     x = DCMU_ECS_DIRK_data['x_correct']
     y1 = DCMU_ECS_DIRK_data['y_correct']
     y2 = DCMU_ECS_DIRK_data['y_initial']
-    y3 = mean * x + DCMU_ECS_DIRK_data['y_initial'][0]
+    y3 = (mean * -1) * x + DCMU_ECS_DIRK_data['y_initial'][0]
     y4 = DCMU_ECS_DIRK_data['amplitude']
     ax.set_xlim(-0.1, 1)
     ax.set_ylim(-0.001, 0.001)

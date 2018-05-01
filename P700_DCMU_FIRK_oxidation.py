@@ -62,6 +62,7 @@ def P700_DCMU_FIRK_oxidation_rates_calc(P700_DCMU_FIRK_oxidation_df, sample, tim
 
     values_dict = {}
     values_dict['P700_DCMU_FIRK_oxidation_initial_slope'] = P700_DCMU_FIRK_oxidation_slope['rate'].mean()
+    values_dict['P700_DCMU_FIRK_oxidation_initial_slope'] = abs(values_dict['P700_DCMU_FIRK_oxidation_initial_slope'])
     values_dict['P700_DCMU_FIRK_oxidation_std_dev'] = P700_DCMU_FIRK_oxidation_slope['rate'].std()
     values_dict['end_trace_mean'] = P700_DCMU_FIRK_oxidation_df['y_correct'].iloc[1000:1100].mean(axis=0)
     values_dict['end_trace_std_dev'] = P700_DCMU_FIRK_oxidation_df['y_correct'].iloc[1000:1100].std(axis=0)
@@ -79,7 +80,7 @@ def save_P700_DCMU_FIRK_oxidation_plot(destination_folder, basename, P700_DCMU_F
     y1 = P700_DCMU_FIRK_oxidation_df['y_correct']
     y2 = P700_DCMU_FIRK_oxidation_df['y_initial']
     y3 = P700_DCMU_FIRK_oxidation_df['y_final']
-    y4 = P700_DCMU_FIRK_oxidation_mean * x + P700_DCMU_FIRK_oxidation_df['y_initial'][0]
+    y4 = (P700_DCMU_FIRK_oxidation_mean * -1) * x + P700_DCMU_FIRK_oxidation_df['y_initial'][0]
     ax.set_xlim(-0.5, 4)
     ax.set_ylim(-0.001, .0002)
     plt.plot(x, y1, label='signal')
