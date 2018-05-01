@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0690640e-6b11-4953-aae5-86304585ce66" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../markov/.idea/markov.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../markov/.idea/markov.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/Corrected Optical Density/20180313_H1_1009_00-80-A3-B6-28-D2_Corrected Optical Density.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/Intensity Setting/20180313_H1_1009_00-80-A3-B6-28-D2_Intensity Setting.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/Script Calculated OD/20180313_H1_1009_00-80-A3-B6-28-D2_Script Calculated OD.dat" beforeDir="false" />
@@ -24,7 +25,11 @@
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/temperature/20180313_H2_2343_00-80-A3-B6-27-32_temperature.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/valve1Set/20180313_H2_2343_00-80-A3-B6-27-32_valve1Set.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/valve2Set/20180313_H2_2343_00-80-A3-B6-27-32_valve2Set.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/plots.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vO2_ECS_DIRK_oxidation.py" beforeDir="false" afterPath="$PROJECT_DIR$/vO2_ECS_DIRK.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,11 +43,21 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1420">
-              <caret line="52" column="86" selection-start-line="52" selection-start-column="86" selection-end-line="52" selection-end-column="86" />
+            <state relative-caret-position="500">
+              <caret line="126" column="82" lean-forward="true" selection-start-line="126" selection-start-column="82" selection-end-line="126" selection-end-column="82" />
               <folding>
                 <element signature="e#0#195#1" />
+                <element signature="e#208#227#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vO2_ECS_DIRK.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="700">
+              <caret line="89" column="67" selection-start-line="89" selection-start-column="67" selection-end-line="89" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -50,8 +65,8 @@
       <file leaf-file-name="plots.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plots.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2680">
-              <caret line="190" column="24" lean-forward="true" selection-start-line="190" selection-start-column="24" selection-end-line="190" selection-end-column="24" />
+            <state relative-caret-position="60">
+              <caret line="122" column="52" selection-start-line="122" selection-start-column="52" selection-end-line="122" selection-end-column="52" />
               <folding>
                 <element signature="e#0#140#1" />
                 <element signature="e#153#184#0" expanded="true" />
@@ -63,23 +78,11 @@
       <file leaf-file-name="parse_math.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parse_math.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5002">
-              <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+            <state relative-caret-position="180">
+              <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="79" />
               <folding>
                 <element signature="e#0#141#1" />
                 <element signature="e#154#173#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="markov_main.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../markov/markov_main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#116#1" />
               </folding>
             </state>
           </provider>
@@ -97,20 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vO2_ECS_DIRK_rereduct.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="54" column="71" lean-forward="true" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="85" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="plot_flr_meas_timepoint.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plot_flr_meas_timepoint.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="178">
-              <caret line="60" column="22" lean-forward="true" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+              <caret line="60" column="22" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
               <folding>
                 <element signature="e#0#99#1" />
               </folding>
@@ -161,18 +155,18 @@
         <option value="$PROJECT_DIR$/ECS_DIRK_start.py" />
         <option value="$PROJECT_DIR$/ECS_DIRK_ox.py" />
         <option value="$PROJECT_DIR$/../test_code/exponential_fit.py" />
-        <option value="$PROJECT_DIR$/vO2_ECS_DIRK.py" />
         <option value="$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py" />
         <option value="$PROJECT_DIR$/parse_math.py" />
         <option value="$PROJECT_DIR$/../test_code/dice.py" />
         <option value="$PROJECT_DIR$/../dice_machine/dice_roller.py" />
         <option value="$PROJECT_DIR$/../dice_machine/dice_main.py" />
         <option value="$PROJECT_DIR$/../dice_machine/dice_functions.py" />
-        <option value="$PROJECT_DIR$/../markov/markov_main.py" />
         <option value="$PROJECT_DIR$/plot_flr_meas_timepoint.py" />
         <option value="$PROJECT_DIR$/ECS_DIRK_oxidation.py" />
         <option value="$PROJECT_DIR$/P700_DCMU_FIRK_oxidation.py" />
+        <option value="$PROJECT_DIR$/../markov/markov_main.py" />
         <option value="$PROJECT_DIR$/plots.py" />
+        <option value="$PROJECT_DIR$/vO2_ECS_DIRK.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
@@ -236,7 +230,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.markov_main">
+  <component name="RunManager" selected="Python.main">
     <configuration name="dice_main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="dice_machine" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -336,8 +330,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.markov_main" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.markov_main" />
         <item itemvalue="Python.plots" />
         <item itemvalue="Python.dice_main" />
         <item itemvalue="Python.dice_roller" />
@@ -389,6 +383,26 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16767189" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3400901" />
+      <window_info anchor="bottom" id="Python Console" order="8" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32995495" />
+      <window_info anchor="right" x="0" y="0" width="374" height="826" id="Documentation" order="3" side_tool="true" weight="0.3294621" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32995495" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -405,6 +419,7 @@
           <caret line="100" column="105" selection-start-line="100" selection-start-column="105" selection-end-line="100" selection-end-column="105" />
           <folding>
             <element signature="e#0#195#1" />
+            <element signature="e#208#227#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -464,6 +479,7 @@
           <caret line="68" column="24" lean-forward="true" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
           <folding>
             <element signature="e#0#195#1" />
+            <element signature="e#208#227#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -660,13 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK_oxidation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="22" column="50" lean-forward="true" selection-end-line="90" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Continuum/Anaconda3/Lib/site-packages/matplotlib/axes/_base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -729,17 +738,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="54" column="71" lean-forward="true" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Continuum/Anaconda3/Lib/site-packages/matplotlib/axes/_axes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="544" selection-start-line="544" selection-end-line="544" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_flr_meas_timepoint.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="60" column="22" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#99#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parse_math.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="79" />
+          <folding>
+            <element signature="e#0#141#1" />
+            <element signature="e#154#173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../markov/markov_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="89" column="49" lean-forward="true" selection-start-line="89" selection-start-column="49" selection-end-line="89" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#116#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK_rereduct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="54" column="71" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="85" />
         </state>
       </provider>
     </entry>
@@ -753,23 +796,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plot_flr_meas_timepoint.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="60" column="22" lean-forward="true" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#99#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plots.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2680">
-          <caret line="190" column="24" lean-forward="true" selection-start-line="190" selection-start-column="24" selection-end-line="190" selection-end-column="24" />
+        <state relative-caret-position="60">
+          <caret line="122" column="52" selection-start-line="122" selection-start-column="52" selection-end-line="122" selection-end-column="52" />
           <folding>
             <element signature="e#0#140#1" />
             <element signature="e#153#184#0" expanded="true" />
@@ -777,33 +807,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../markov/markov_main.py">
+    <entry file="file://$PROJECT_DIR$/vO2_ECS_DIRK.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#116#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parse_math.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5002">
-          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#141#1" />
-            <element signature="e#154#173#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="700">
+          <caret line="89" column="67" selection-start-line="89" selection-start-column="67" selection-end-line="89" selection-end-column="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1420">
-          <caret line="52" column="86" selection-start-line="52" selection-start-column="86" selection-end-line="52" selection-end-column="86" />
+        <state relative-caret-position="500">
+          <caret line="126" column="82" lean-forward="true" selection-start-line="126" selection-start-column="82" selection-end-line="126" selection-end-column="82" />
           <folding>
             <element signature="e#0#195#1" />
+            <element signature="e#208#227#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -31,7 +31,7 @@ def save_ECS_DCMU_P700_plot(destination_folder, basename, ECS_DCMU_P700_df, ECS_
     y4 = ECS_DCMU_P700_mean * x + ECS_DCMU_P700_df['y_initial'][0]
     ax.set_xlim(-0.1, 1)
     ax.set_ylim((ECS_DCMU_P700_df['y_initial'].mean() - 0.00005), (ECS_DCMU_P700_df['y_final'].mean() * 1.3))
-    plt.plot(x, y1, label='ECS')
+    plt.plot(x, y1, label='signal')
     plt.plot(x, y2, label='y_initial')
     plt.plot(x, y3, label='y_final')
     plt.plot(x, y4, label='slope')
@@ -51,7 +51,7 @@ def save_ECS_DIRK_plot(destination_folder, basename, ECS_DIRK_data, mean):
     y4 = ECS_DIRK_data['amplitude']
     ax.set_xlim(-0.1, 1)
     ax.set_ylim(-0.001, 0.001)
-    plt.plot(x, y1, label='ECS')
+    plt.plot(x, y1, label='signal')
     plt.plot(x, y2, label='y_initial')
     plt.plot(x, y3, label='slope')
     plt.plot(x, y4, label='amplitude')
@@ -119,10 +119,8 @@ calc_values_dict = {
     'ECS_DCMU_P700_rates_mean': (None, None),
     'P700_DCMU_FIRK_oxidation_amplitude': (None, None),
     'P700_DCMU_FIRK_oxidation_rate_mean': (None, None),
-    'vO2_ECS_DIRK_oxidation_amplitude': (None, None),
-    'vO2_ECS_DIRK_oxidation_rate_mean': (None, None),
-    'vO2_ECS_DIRK_rereduct_amplitude': (None, None),
-    'vO2_ECS_DIRK_rereduct_rate_mean': (None, None)
+    'vO2_ECS_DIRK_amplitude': (None, None),
+    'vO2_ECS_DIRK_rate_mean': (None, None)
 }
 
 

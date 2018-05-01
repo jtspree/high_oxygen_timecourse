@@ -19,8 +19,7 @@ import plots
 import parse_math
 import plot_flr_meas_timepoint
 import P700_DCMU_FIRK_oxidation
-import vO2_ECS_DIRK_oxidation
-import vO2_ECS_DIRK_rereduct
+import vO2_ECS_DIRK
 
 # CODE
 
@@ -46,12 +45,9 @@ all_measurements_types = {
     'P700_DCMU_FIRK_oxidation' : [P700_DCMU_FIRK_oxidation.parse_P700_DCMU_FIRK_oxidation_data,
                                   P700_DCMU_FIRK_oxidation.P700_DCMU_FIRK_oxidation_rates_calc,
                                   (2.4, 4), (None, 0.0002), False],
-    'vO2_ECS_DIRK_oxidation': [vO2_ECS_DIRK_oxidation.parse_vO2_ECS_DIRK_oxidation_data,
-                               vO2_ECS_DIRK_oxidation.vO2_ECS_DIRK_oxidation_rates_calc,
-                               (0.48, 0.6), (None, None), False],
-    'vO2_ECS_DIRK_rereduct' : [vO2_ECS_DIRK_rereduct.parse_vO2_ECS_DIRK_rereduct_data,
-                               vO2_ECS_DIRK_rereduct.vO2_ECS_DIRK_rereduct_rates_calc,
-                               (0.98, 1.08), (None, None), False]
+    'vO2_ECS_DIRK': [vO2_ECS_DIRK.parse_vO2_ECS_DIRK_oxidation_data,
+                               vO2_ECS_DIRK.vO2_ECS_DIRK_rates_calc,
+                               (0.48, 0.6), (None, None), False]
     }
 
 # select samples, timepoints, reps for script to analyze
@@ -60,7 +56,7 @@ all_samples = {
     "CC-2343": ['red']
 }
 
-all_timepoints = [0, 1, 3, 6, 12, 24, 48]
+all_timepoints = [0, 1, 3]
 all_reps = [1, 2, 3, 4]
 
 # master_dict contains computed values for all samples and timepoints
@@ -125,14 +121,10 @@ for sample in all_samples.keys():
                     ECS_DIRK_oxidation_mean = calc_values_df['P700_DCMU_FIRK_oxidation_rate_mean'].values[0]
                     P700_DCMU_FIRK_oxidation.save_P700_DCMU_FIRK_oxidation_plot(
                         destination_folder, basename, trace_df, ECS_DIRK_oxidation_mean)
-                if measurements_type == 'vO2_ECS_DIRK_oxidation':
-                    vO2_ECS_DIRK_oxidation_mean = calc_values_df['vO2_ECS_DIRK_oxidation_rate_mean'].values[0]
-                    vO2_ECS_DIRK_oxidation.save_vO2_ECS_DIRK_oxidation_plot(
-                        destination_folder, basename, trace_df, vO2_ECS_DIRK_oxidation_mean)
-                if measurements_type == 'vO2_ECS_DIRK_rereduct':
-                    vO2_ECS_DIRK_rereduct_mean = calc_values_df['vO2_ECS_DIRK_rereduct_rate_mean'].values[0]
-                    vO2_ECS_DIRK_rereduct.save_vO2_ECS_DIRK_rereduct_plot(
-                        destination_folder, basename, trace_df, vO2_ECS_DIRK_rereduct_mean)
+                if measurements_type == 'vO2_ECS_DIRK':
+                    vO2_ECS_DIRK_mean = calc_values_df['vO2_ECS_DIRK_rate_mean'].values[0]
+                    vO2_ECS_DIRK.save_vO2_ECS_DIRK_plot(
+                        destination_folder, basename, trace_df, vO2_ECS_DIRK_mean)
 
                 # append the computed values to the dictionary that will contain all the reps for this sample/timepoint
                 all_reps_computed_values[measurements_type].append(calc_values_df)
