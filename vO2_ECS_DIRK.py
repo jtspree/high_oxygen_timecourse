@@ -87,6 +87,7 @@ def save_vO2_ECS_DIRK_plot(destination_folder, basename, vO2_ECS_DIRK_df, vO2_EC
     plt.plot(x, y2, label='y_initial')
     plt.plot(x, y3, label='y_final')
     plt.plot(x, y4, label='slope')
+    plt.title('vO2_ECS_DIRK')
     plt.legend()
     plt.savefig(destination_folder + basename + "_" + 'vO2_ECS_DIRK_plot.png')
     plt.clf()

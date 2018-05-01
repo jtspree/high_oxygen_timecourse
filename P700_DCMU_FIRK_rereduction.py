@@ -84,6 +84,7 @@ def save_ECS_DCMU_P700_plot(destination_folder, basename, P700_DCMU_ECS_rereduct
     plt.plot(x, y2, label='y_initial')
     plt.plot(x, y3, label='y_final')
     plt.plot(x, y4, label='slope')
+    plt.title('P700_DCMU_ECS_rereduction')
     plt.legend()
     plt.savefig(destination_folder + basename + "_" + 'DCMU_ECS_FIRK_rereduction_plot.png')
     plt.clf()

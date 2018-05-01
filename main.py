@@ -54,7 +54,9 @@ all_measurements_types = {
     }
 
 # select samples, timepoints, reps for script to analyze
+
 all_samples = {
+    # dict samples: [compare plot trace color]
     "CC-1009": ['black'],
     "CC-2343": ['red'],
 }
@@ -140,6 +142,7 @@ for sample in all_samples.keys():
 
         # switch to avg std and combined reps
 
+        # create averages folder within output folder
         averages_destination = os.path.dirname(os.path.abspath(destination_folder)) + "/averages"
         if not os.path.isdir(averages_destination):
             os.makedirs(averages_destination)
@@ -172,13 +175,13 @@ for sample in all_samples.keys():
 
         all_samples_raw_trace[sample][timepoint] = all_reps_raw_data
 
-# generate master dataframe containing all measurements
+# generate master dataframe containing all measurements and save to csv
 master_df = parse_math.build_master_df(master_dict, all_samples.keys(), all_timepoints, all_measurements_types)
+master_df.to_csv(root_master_folder + '/' + 'master_calc_values.csv')
 
+# create plots folder in output/master folder
 if not os.path.isdir(root_master_plots_folder):
     os.makedirs(root_master_plots_folder)
-
-master_df.to_csv(root_master_folder + '/' + 'master_calc_values.csv')
 
 # plot all calculated values in master_df
 plots.save_calc_values_plots(master_df, root_master_plots_folder, all_samples)

@@ -79,6 +79,7 @@ def save_DCMU_ECS_DIRK_plot(destination_folder, basename, DCMU_ECS_DIRK_data, me
     plt.plot(x, y2, label='y_initial')
     plt.plot(x, y3, label='slope')
     plt.plot(x, y4, label='amplitude')
+    plt.title('DCMU_ECS_DIRK')
     plt.legend()
     plt.savefig(destination_folder + basename + "_" + "DCMU_ECS_DIRK_plot.png")
     plt.clf()

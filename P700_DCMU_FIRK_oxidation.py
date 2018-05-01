@@ -87,6 +87,7 @@ def save_P700_DCMU_FIRK_oxidation_plot(destination_folder, basename, P700_DCMU_F
     plt.plot(x, y2, label='y_initial')
     plt.plot(x, y3, label='y_final')
     plt.plot(x, y4, label='slope')
+    plt.title('P700_DCMU_FIRK_oxidation')
     plt.legend()
     plt.savefig(destination_folder + basename + "_" + 'P700_DCMU_FIRK_oxidation_plot.png')
     plt.clf()
