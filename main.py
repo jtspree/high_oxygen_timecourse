@@ -19,7 +19,9 @@ import plots
 import parse_math
 import plot_flr_meas_timepoint
 import P700_DCMU_FIRK_oxidation
+import P700_DCMU_FIRK_rereduction
 import vO2_ECS_DIRK
+import DCMU_ECS_DIRK
 
 # CODE
 
@@ -36,11 +38,11 @@ all_measurements_types = {
     'flr'                      : [parse_math.parse_phi2_flr,
                                parse_math.flr_calculator,
                                None, (0, 4), True],
-    'DCMU_ECS_DIRK'            : [parse_math.parse_ECS_data,
-                               parse_math.ECS_rates_calculator,
-                               (0.45, 1.1), (-0.001, 0.001), False],
-    'DCMU_ECS_FIRK_rereduct'   : [parse_math.parse_ECS_DCMU_P700_data,
-                               parse_math.ECS_DCMU_P700_rates_calc,
+    'DCMU_ECS_DIRK'            : [DCMU_ECS_DIRK.parse_ECS_data,
+                                  DCMU_ECS_DIRK.ECS_rates_calculator,
+                                (0.45, 1.1), (-0.001, 0.001), False],
+    'P700_DCMU_ECS_rereduction': [P700_DCMU_FIRK_rereduction.parse_P700_DCMU_ECS_rereduction_data,
+                                  P700_DCMU_FIRK_rereduction.P700_DCMU_ECS_rereduction_rates_calc,
                                (12.4, 13.4), (-0.0002, 0.0012), False],
     'P700_DCMU_FIRK_oxidation' : [P700_DCMU_FIRK_oxidation.parse_P700_DCMU_FIRK_oxidation_data,
                                   P700_DCMU_FIRK_oxidation.P700_DCMU_FIRK_oxidation_rates_calc,
@@ -113,10 +115,11 @@ for sample in all_samples.keys():
                     plots.save_flr_plot(trace_df, destination_folder, basename)
                 if measurements_type == 'DCMU_ECS_DIRK':
                     mean = calc_values_df['ECS_DIRK_rates_mean'].values[0]
-                    plots.save_ECS_DIRK_plot(destination_folder, basename, trace_df, mean)
-                if measurements_type == 'DCMU_ECS_FIRK_rereduct':
-                    ECS_DCMU_P700_mean = calc_values_df['ECS_DCMU_P700_rates_mean'].values[0]
-                    plots.save_ECS_DCMU_P700_plot(destination_folder, basename, trace_df, ECS_DCMU_P700_mean)
+                    DCMU_ECS_DIRK.save_ECS_DIRK_plot(destination_folder, basename, trace_df, mean)
+                if measurements_type == 'P700_DCMU_FIRK_rereduction':
+                    P700_DCMU_FIRK_rereduction_mean = calc_values_df['P700_DCMU_FIRK_rereduction_rates_mean'].values[0]
+                    P700_DCMU_FIRK_rereduction.save_ECS_DCMU_P700_plot(
+                        destination_folder, basename, trace_df, P700_DCMU_FIRK_rereduction_mean)
                 if measurements_type == 'P700_DCMU_FIRK_oxidation':
                     ECS_DIRK_oxidation_mean = calc_values_df['P700_DCMU_FIRK_oxidation_rate_mean'].values[0]
                     P700_DCMU_FIRK_oxidation.save_P700_DCMU_FIRK_oxidation_plot(

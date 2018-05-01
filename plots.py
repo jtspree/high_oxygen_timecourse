@@ -20,46 +20,6 @@ import os
 # FUNCTIONS
 
 
-# save ECS DCMU P700 plot
-def save_ECS_DCMU_P700_plot(destination_folder, basename, ECS_DCMU_P700_df, ECS_DCMU_P700_mean):
-    fig = plt.figure(1, figsize=(8, 8))
-    ax = fig.add_subplot(1, 1, 1)
-    x = ECS_DCMU_P700_df['x_correct']
-    y1 = ECS_DCMU_P700_df['y_correct']
-    y2 = ECS_DCMU_P700_df['y_initial']
-    y3 = ECS_DCMU_P700_df['y_final']
-    y4 = ECS_DCMU_P700_mean * x + ECS_DCMU_P700_df['y_initial'][0]
-    ax.set_xlim(-0.1, 1)
-    ax.set_ylim((ECS_DCMU_P700_df['y_initial'].mean() - 0.00005), (ECS_DCMU_P700_df['y_final'].mean() * 1.3))
-    plt.plot(x, y1, label='signal')
-    plt.plot(x, y2, label='y_initial')
-    plt.plot(x, y3, label='y_final')
-    plt.plot(x, y4, label='slope')
-    plt.legend()
-    plt.savefig(destination_folder + basename + "_" + 'DCMU_ECS_FIRK_rereduct_plot.png')
-    plt.clf()
-
-
-# save ECS DIRK plot
-def save_ECS_DIRK_plot(destination_folder, basename, ECS_DIRK_data, mean):
-    fig = plt.figure(1, figsize=(8, 6))
-    ax = fig.add_subplot(1, 1, 1)
-    x = ECS_DIRK_data['x_correct']
-    y1 = ECS_DIRK_data['y_correct']
-    y2 = ECS_DIRK_data['y_initial']
-    y3 = mean * x + ECS_DIRK_data['y_initial'][0]
-    y4 = ECS_DIRK_data['amplitude']
-    ax.set_xlim(-0.1, 1)
-    ax.set_ylim(-0.001, 0.001)
-    plt.plot(x, y1, label='signal')
-    plt.plot(x, y2, label='y_initial')
-    plt.plot(x, y3, label='slope')
-    plt.plot(x, y4, label='amplitude')
-    plt.legend()
-    plt.savefig(destination_folder + basename + "_" + "DCMU_ECS_DIRK_plot.png")
-    plt.clf()
-
-
 # save plot of flr trace
 def save_flr_plot(WholeTrace, destination_folder, basename):
     fig = plt.figure(1, figsize=(10, 6))
