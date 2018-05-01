@@ -20,17 +20,17 @@ import os
 # FUNCTIONS
 
 
-# save plot of flr trace
-def save_flr_plot(WholeTrace, destination_folder, basename):
-    fig = plt.figure(1, figsize=(10, 6))
-    ax = fig.add_subplot(1, 1, 1)
-    y = WholeTrace['y_correct']
-    ax.plot(y)
-    ax.set_ylim(0, 4)
-    ax.set_ylabel("Fluorescence")
-    ax.set_xlabel("")
-    fig.savefig(destination_folder + basename + "_" + "flr_plot.png")
-    plt.clf()
+# # save plot of flr trace
+# def save_flr_plot(WholeTrace, destination_folder, basename):
+#     fig = plt.figure(1, figsize=(10, 6))
+#     ax = fig.add_subplot(1, 1, 1)
+#     y = WholeTrace['y_correct']
+#     ax.plot(y)
+#     ax.set_ylim(0, 4)
+#     ax.set_ylabel("Fluorescence")
+#     ax.set_xlabel("")
+#     fig.savefig(destination_folder + basename + "_" + "flr_plot.png")
+#     plt.clf()
 
 
 def save_allreps_plots(output_path_prefix, all_reps_combined_df, reps_list, xlim=None, ylim=None, ignore_index=False):

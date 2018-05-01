@@ -22,6 +22,7 @@ import P700_DCMU_FIRK_oxidation
 import P700_DCMU_FIRK_rereduction
 import vO2_ECS_DIRK
 import DCMU_ECS_DIRK
+import flr_phi2
 
 # CODE
 
@@ -35,8 +36,8 @@ root_master_plots_folder = root_master_folder + '/' + 'plots/'
 
 all_measurements_types = {
     # type name: [parsing function, calculator function, xlim, ylim, ignore_index]
-    'flr'                      : [parse_math.parse_phi2_flr,
-                               parse_math.flr_calculator,
+    'flr'                      : [flr_phi2.parse_phi2_flr,
+                                  flr_phi2.flr_calculator,
                                None, (0, 4), True],
     'DCMU_ECS_DIRK'            : [DCMU_ECS_DIRK.parse_ECS_data,
                                   DCMU_ECS_DIRK.ECS_rates_calculator,
@@ -55,7 +56,7 @@ all_measurements_types = {
 # select samples, timepoints, reps for script to analyze
 all_samples = {
     "CC-1009": ['black'],
-    "CC-2343": ['red']
+    "CC-2343": ['red'],
 }
 
 all_timepoints = [0, 1, 3]
@@ -112,7 +113,7 @@ for sample in all_samples.keys():
 
                 # save an image file with the fluorescence plot for this sample/time/rep
                 if measurements_type == 'flr':
-                    plots.save_flr_plot(trace_df, destination_folder, basename)
+                    flr_phi2.save_flr_plot(trace_df, destination_folder, basename)
                 if measurements_type == 'DCMU_ECS_DIRK':
                     mean = calc_values_df['ECS_DIRK_rates_mean'].values[0]
                     DCMU_ECS_DIRK.save_ECS_DIRK_plot(destination_folder, basename, trace_df, mean)

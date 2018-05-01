@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0690640e-6b11-4953-aae5-86304585ce66" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/DCMU_ECS_DIRK.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/P700_DCMU_FIRK_rereduction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flr_phi2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../markov/.idea/markov.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../markov/.idea/markov.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/Corrected Optical Density/20180313_H1_1009_00-80-A3-B6-28-D2_Corrected Optical Density.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H1_1009/Intensity Setting/20180313_H1_1009_00-80-A3-B6-28-D2_Intensity Setting.dat" beforeDir="false" />
@@ -27,7 +26,6 @@
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/temperature/20180313_H2_2343_00-80-A3-B6-27-32_temperature.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/valve1Set/20180313_H2_2343_00-80-A3-B6-27-32_valve1Set.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../matrix_data/test_data/matrix_data/20180313_H2_2343/valve2Set/20180313_H2_2343_00-80-A3-B6-27-32_valve2Set.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parse_math.py" beforeDir="false" afterPath="$PROJECT_DIR$/parse_math.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/plots.py" afterDir="false" />
@@ -44,8 +42,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="44" column="97" selection-start-line="44" selection-start-column="97" selection-end-line="44" selection-end-column="97" />
+            <state relative-caret-position="100">
+              <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
               <folding>
                 <element signature="e#0#195#1" />
                 <element signature="e#208#227#0" expanded="true" />
@@ -54,11 +52,24 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="flr_phi2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flr_phi2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#113#1" />
+                <element signature="e#126#145#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="plots.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plots.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="22" selection-start-line="22" selection-start-column="2" selection-end-line="39" selection-end-column="15" />
+            <state relative-caret-position="160">
+              <caret line="22" selection-start-line="22" selection-start-column="2" selection-end-line="32" selection-end-column="15" />
               <folding>
                 <element signature="e#0#140#1" />
                 <element signature="e#153#184#0" expanded="true" />
@@ -108,8 +119,8 @@
       <file leaf-file-name="parse_math.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parse_math.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2862">
-              <caret line="20" selection-start-line="20" selection-start-column="2" selection-end-line="69" selection-end-column="41" />
+            <state relative-caret-position="140">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="123" selection-end-column="25" />
               <folding>
                 <element signature="e#0#141#1" />
                 <element signature="e#154#173#0" expanded="true" />
@@ -184,9 +195,10 @@
         <option value="$PROJECT_DIR$/../markov/markov_main.py" />
         <option value="$PROJECT_DIR$/vO2_ECS_DIRK.py" />
         <option value="$PROJECT_DIR$/DCMU_ECS_DIRK.py" />
-        <option value="$PROJECT_DIR$/parse_math.py" />
-        <option value="$PROJECT_DIR$/plots.py" />
         <option value="$PROJECT_DIR$/P700_DCMU_FIRK_rereduction.py" />
+        <option value="$PROJECT_DIR$/plots.py" />
+        <option value="$PROJECT_DIR$/parse_math.py" />
+        <option value="$PROJECT_DIR$/flr_phi2.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
@@ -812,24 +824,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parse_math.py">
+    <entry file="file://$PROJECT_DIR$/P700_DCMU_FIRK_rereduction.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2862">
-          <caret line="20" selection-start-line="20" selection-start-column="2" selection-end-line="69" selection-end-column="41" />
+        <state relative-caret-position="340">
+          <caret line="44" column="40" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="40" />
           <folding>
-            <element signature="e#0#141#1" />
-            <element signature="e#154#173#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plots.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="22" selection-start-line="22" selection-start-column="2" selection-end-line="39" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#140#1" />
-            <element signature="e#153#184#0" expanded="true" />
+            <element signature="e#0#113#1" />
+            <element signature="e#126#145#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -845,10 +846,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/P700_DCMU_FIRK_rereduction.py">
+    <entry file="file://$PROJECT_DIR$/plots.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="44" column="40" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="40" />
+        <state relative-caret-position="160">
+          <caret line="22" selection-start-line="22" selection-start-column="2" selection-end-line="32" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#140#1" />
+            <element signature="e#153#184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parse_math.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="123" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#141#1" />
+            <element signature="e#154#173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flr_phi2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
           <folding>
             <element signature="e#0#113#1" />
             <element signature="e#126#145#0" expanded="true" />
@@ -858,8 +881,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="44" column="97" selection-start-line="44" selection-start-column="97" selection-end-line="44" selection-end-column="97" />
+        <state relative-caret-position="100">
+          <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
           <folding>
             <element signature="e#0#195#1" />
             <element signature="e#208#227#0" expanded="true" />
