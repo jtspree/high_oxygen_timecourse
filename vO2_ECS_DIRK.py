@@ -74,7 +74,7 @@ def vO2_ECS_DIRK_rates_calc(vO2_ECS_DIRK_df, sample, timepoint, rep, destination
 
 
 def save_vO2_ECS_DIRK_plot(destination_folder, basename, vO2_ECS_DIRK_df, vO2_ECS_DIRK_mean):
-    fig = plt.figure(1, figsize=(10, 6))
+    fig = plt.figure(1, figsize=(8, 6))
     ax = fig.add_subplot(1, 1, 1)
     x = vO2_ECS_DIRK_df['x_correct']
     y1 = vO2_ECS_DIRK_df['y_correct']
