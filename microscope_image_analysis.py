@@ -12,17 +12,15 @@ Created 2018-05-15
 
 # LIBRARY
 
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
-# LISTS
-
-ecotype_list = ['CC-1009', 'CC-2343']
-timepoint_list = [0, 1, 3, 6, 12, 24, 48]
-rep_list = [1, 2, 3, 4]
+# run python file as main only
+if __name__ == "__main__":
+    print("microscope_image_analysis.py is being run directly")
+else:
+    raise Exception('Do not use in another module')
 
 
 # FUNCTIONS
@@ -84,38 +82,48 @@ def stats_by_groups(grouped_columns, data_type):
     return grouped_df
 
 
-# CODE
+def violin_plot(microscope_data_df):
 
-if __name__ == "__main__":
-    print("microscope_image_analysis.py is being run directly")
-else:
-    raise Exception('Do not use in another module')
+    # plot settings
+    fig, ax = plt.subplots()
+    fig.set_size_inches(14, 8)
+
+    # create seaborn violin plot
+    ax = sns.violinplot(x="timepoint", y="volume", hue="ecotype",
+                        data=microscope_data_df, palette="muted", split=True,
+                        inner='quartile')
+
+    # axis settings
+    ax.set_ylim(-200, 1500)
+    ax.set_ylabel('Volume (fL)')
+    ax.set_xlabel('High Oxygen (hours)')
+    plt.show()
+
+
+# LISTS
+
+ecotype_list = ['CC-1009', 'CC-2343']
+timepoint_list = [0, 1, 3, 6, 12, 24, 48]
+rep_list = [1, 2, 3, 4]
+
+
+# FILE INFO
 
 # location for microscope data
 folder_microscope = 'C:/Users/templejo/Desktop/high_oxygen_timecourse/microscope_images/'
 microscope_compiled_data = 'microscope_compiled.xlsx'
 
+
+# CODE
+
 # create dataframe with compiled microscope data
 microscope_data = pd.read_excel(folder_microscope + microscope_compiled_data)
 microscope_data_df = pd.DataFrame(microscope_data)
 
-# create violin plot figure
+# generate violin plot of volume data
+violin_plot(microscope_data_df)
 
-# plot settings
-fig, ax = plt.subplots()
-fig.set_size_inches(16, 12)
-
-# create seaborn violin plot
-ax = sns.violinplot(x="timepoint", y="volume", hue="ecotype",
-                    data=microscope_data_df, palette="muted", split=True,
-                    inner='quartile')
-
-# plot axis settings
-ax.set_ylim(-200, 1500)
-ax.set_ylabel('Volume (fL)')
-ax.set_xlabel('High Oxygen (hours)')
-# plt.show()
-
+# generate csv for timepoint and reps for different data types
 for data_type in ['area', 'perimeter', 'volume']:
 
     stats_by_timepoint(data_type).to_csv(folder_microscope + '/' + 'timepoint_stats_' + data_type + '.csv')
