@@ -46,8 +46,8 @@
       <file leaf-file-name="microscope_image_analysis.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../high_oxygen_timecourse/microscope_image_analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="418">
+              <caret line="84" column="68" selection-start-line="84" selection-start-column="68" selection-end-line="84" selection-end-column="68" />
               <folding>
                 <element signature="e#0#15#1" />
                 <element signature="e#27#45#0" expanded="true" />
@@ -142,7 +142,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="width" value="1680" />
     <option name="height" value="1010" />
   </component>
@@ -242,7 +242,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../high_oxygen_timecourse/microscope_image_analysis.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
@@ -330,12 +330,12 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32995495" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32995495" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32995495" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3400901" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39977476" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -814,8 +814,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../high_oxygen_timecourse/microscope_image_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="418">
+          <caret line="84" column="68" selection-start-line="84" selection-start-column="68" selection-end-line="84" selection-end-column="68" />
           <folding>
             <element signature="e#0#15#1" />
             <element signature="e#27#45#0" expanded="true" />

@@ -24,43 +24,27 @@ ecotype_list = ['CC-1009', 'CC-2343']
 timepoint_list = [0, 1, 3, 6, 12, 24, 48]
 rep_list = [1, 2, 3, 4]
 
+
 # FUNCTIONS
 
 
-def count_by_reps(ecotype_list, timepoint_list, rep_list):
+def stats_by_groups(grouped_columns, data_type):
 
-    grouped_df = microscope_data_df.groupby(['ecotype', 'timepoint', 'rep']).size().reset_index(name='count')
+    # define a pandas 'groupby' object which will be used for several different statistics
+    groups = microscope_data_df.groupby(grouped_columns)
 
-    filler_list = []
-    for ecotype in ecotype_list:
-        for timepoint in timepoint_list:
-            for rep in rep_list:
-                filler = ecotype, timepoint, rep
-                filler_list.append(filler)
-    filler_df = pd.DataFrame(filler_list, columns=['ecotype', 'timepoint', 'rep'])
+    # create a dataframe with all the grouped_columns, and a "count" for each group
+    grouped_df = groups.size().reset_index(name='count')
 
-    merged_df = pd.merge(filler_df, grouped_df, how='left', left_on=['ecotype', 'timepoint', 'rep'],
-                         right_on=['ecotype', 'timepoint', 'rep'])
-    merged_df['count'].fillna(0, inplace=True)
-    print(merged_df)
+    # add new col with statistics
+    # col name must be pandas stats function
+    for new_col in ["min", "max", "mean", "std", ['quantile', 0.25], ['quantile', 0.75]]:
+        if type(new_col) == list:
+            grouped_df[new_col[0] + ' ' + str(new_col[1])] = getattr(groups[data_type], new_col[0])(new_col[1]).values
+        else:
+            grouped_df[new_col] = getattr(groups[data_type], new_col)().values
 
-
-def count_by_timepoint(ecotype_list, timepoint_list):
-
-    grouped_columns = ['ecotype', 'timepoint']
-    grouped_df = microscope_data_df.groupby(grouped_columns).size().reset_index(name='count')
-
-    filler_list = []
-    for ecotype in ecotype_list:
-        for timepoint in timepoint_list:
-            filler = ecotype, timepoint
-            filler_list.append(filler)
-    filler_df = pd.DataFrame(filler_list, columns=grouped_columns)
-
-    merged_df = pd.merge(filler_df, grouped_df, how='left', left_on=grouped_columns,
-                         right_on=grouped_columns)
-    merged_df['count'].fillna(0, inplace=True)
-    print(merged_df)
+    return grouped_df
 
 
 # CODE
@@ -95,5 +79,9 @@ ax.set_ylabel('Volume (fL)')
 ax.set_xlabel('High Oxygen (hours)')
 # plt.show()
 
-# count_by_reps(ecotype_list, timepoint_list, rep_list)
-# count_by_timepoint(ecotype_list, timepoint_list)
+for data_type in ['area', 'perimeter', 'volume']:
+
+    stats_by_groups(['ecotype', 'timepoint'], data_type).to_csv(
+        folder_microscope + '/' + 'timepoint_stats_' + data_type + '.csv')
+    stats_by_groups(['ecotype', 'timepoint', 'rep'], data_type).to_csv(
+        folder_microscope + '/' + 'rep_stats_' + data_type + '.csv')
