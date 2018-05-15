@@ -28,6 +28,43 @@ rep_list = [1, 2, 3, 4]
 # FUNCTIONS
 
 
+def stats_by_timepoint(data_type):
+
+    grouped_df = stats_by_groups(['ecotype', 'timepoint'], data_type)
+
+    filler_list = []
+    for ecotype in ecotype_list:
+        for timepoint in timepoint_list:
+            filler = ecotype, timepoint
+            filler_list.append(filler)
+    filler_df = pd.DataFrame(filler_list, columns=['ecotype', 'timepoint'])
+
+    merged_df = pd.merge(filler_df, grouped_df, how='left', left_on=['ecotype', 'timepoint'],
+                         right_on=['ecotype', 'timepoint'])
+    merged_df['count'].fillna(0, inplace=True)
+
+    return merged_df
+
+
+def stats_by_reps(data_type):
+
+    grouped_df = stats_by_groups(['ecotype', 'timepoint', 'rep'], data_type)
+
+    filler_list = []
+    for ecotype in ecotype_list:
+        for timepoint in timepoint_list:
+            for rep in rep_list:
+                filler = ecotype, timepoint, rep
+                filler_list.append(filler)
+    filler_df = pd.DataFrame(filler_list, columns=['ecotype', 'timepoint', 'rep'])
+
+    merged_df = pd.merge(filler_df, grouped_df, how='left', left_on=['ecotype', 'timepoint', 'rep'],
+                         right_on=['ecotype', 'timepoint', 'rep'])
+    merged_df['count'].fillna(0, inplace=True)
+
+    return merged_df
+
+
 def stats_by_groups(grouped_columns, data_type):
 
     # define a pandas 'groupby' object which will be used for several different statistics
@@ -81,7 +118,5 @@ ax.set_xlabel('High Oxygen (hours)')
 
 for data_type in ['area', 'perimeter', 'volume']:
 
-    stats_by_groups(['ecotype', 'timepoint'], data_type).to_csv(
-        folder_microscope + '/' + 'timepoint_stats_' + data_type + '.csv')
-    stats_by_groups(['ecotype', 'timepoint', 'rep'], data_type).to_csv(
-        folder_microscope + '/' + 'rep_stats_' + data_type + '.csv')
+    stats_by_timepoint(data_type).to_csv(folder_microscope + '/' + 'timepoint_stats_' + data_type + '.csv')
+    stats_by_reps(data_type).to_csv(folder_microscope + '/' + 'rep_stats_' + data_type + '.csv')

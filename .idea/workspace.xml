@@ -47,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/../high_oxygen_timecourse/microscope_image_analysis.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
-              <caret line="84" column="68" selection-start-line="84" selection-start-column="68" selection-end-line="84" selection-end-column="68" />
+              <caret line="103" column="68" lean-forward="true" selection-start-line="103" selection-start-column="68" selection-end-line="103" selection-end-column="68" />
               <folding>
                 <element signature="e#0#15#1" />
                 <element signature="e#27#45#0" expanded="true" />
@@ -142,7 +142,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1680" />
     <option name="height" value="1010" />
   </component>
@@ -815,7 +815,7 @@
     <entry file="file://$PROJECT_DIR$/../high_oxygen_timecourse/microscope_image_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="84" column="68" selection-start-line="84" selection-start-column="68" selection-end-line="84" selection-end-column="68" />
+          <caret line="103" column="68" lean-forward="true" selection-start-line="103" selection-start-column="68" selection-end-line="103" selection-end-column="68" />
           <folding>
             <element signature="e#0#15#1" />
             <element signature="e#27#45#0" expanded="true" />
