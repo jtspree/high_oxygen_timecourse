@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../dice_machine/.idea/dice_machine.iml" filepath="$PROJECT_DIR$/../dice_machine/.idea/dice_machine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../high_oxygen_timecourse/.idea/high_oxygen_timecourse.iml" filepath="$PROJECT_DIR$/../high_oxygen_timecourse/.idea/high_oxygen_timecourse.iml" />
       <module fileurl="file://$PROJECT_DIR$/../markov/.idea/markov.iml" filepath="$PROJECT_DIR$/../markov/.idea/markov.iml" />
       <module fileurl="file://$PROJECT_DIR$/../matrix_data/.idea/matrix_data.iml" filepath="$PROJECT_DIR$/../matrix_data/.idea/matrix_data.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/spec_scripts.iml" filepath="$PROJECT_DIR$/.idea/spec_scripts.iml" />
       <module fileurl="file://$PROJECT_DIR$/../test_code/.idea/test_code.iml" filepath="$PROJECT_DIR$/../test_code/.idea/test_code.iml" />
     </modules>
   </component>
