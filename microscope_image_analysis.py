@@ -26,6 +26,7 @@ rep_list = [1, 2, 3, 4]
 
 # FUNCTIONS
 
+
 def count_by_reps(ecotype_list, timepoint_list, rep_list):
 
     grouped_df = microscope_data_df.groupby(['ecotype', 'timepoint', 'rep']).size().reset_index(name='count')
@@ -46,17 +47,18 @@ def count_by_reps(ecotype_list, timepoint_list, rep_list):
 
 def count_by_timepoint(ecotype_list, timepoint_list):
 
-    grouped_df = microscope_data_df.groupby(['ecotype', 'timepoint']).size().reset_index(name='count')
+    grouped_columns = ['ecotype', 'timepoint']
+    grouped_df = microscope_data_df.groupby(grouped_columns).size().reset_index(name='count')
 
     filler_list = []
     for ecotype in ecotype_list:
         for timepoint in timepoint_list:
             filler = ecotype, timepoint
             filler_list.append(filler)
-    filler_df = pd.DataFrame(filler_list, columns=['ecotype', 'timepoint'])
+    filler_df = pd.DataFrame(filler_list, columns=grouped_columns)
 
-    merged_df = pd.merge(filler_df, grouped_df, how='left', left_on=['ecotype', 'timepoint'],
-                         right_on=['ecotype', 'timepoint'])
+    merged_df = pd.merge(filler_df, grouped_df, how='left', left_on=grouped_columns,
+                         right_on=grouped_columns)
     merged_df['count'].fillna(0, inplace=True)
     print(merged_df)
 
